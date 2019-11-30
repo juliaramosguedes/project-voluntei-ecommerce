@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import FirebaseService from './services/FirebaseService';
-
+import FirebaseService from './firebase/FirebaseService';
 import Routes from './routes';
 
 class App extends Component {
