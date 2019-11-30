@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import firebase from '../../../firebase/FirebaseConnection';
 
+firebase.auth().languageCode = 'pt';
 const db = firebase.firestore();
+const provider = new firebase.auth.GoogleAuthProvider();
+
 
 export default class Auth extends Component {
   constructor(props) {
@@ -16,6 +19,7 @@ export default class Auth extends Component {
     this.signup = this.signup.bind(this);
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
+    this.google = this.google.bind(this);
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -33,9 +37,9 @@ export default class Auth extends Component {
     const { email, password } = this.state;
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((cred) => {
+      .then((result) => {
         this.setState({ status: 'Usuário cadastrado com sucesso.' });
-        db.collection('users').doc(cred.user.uid).set({ email });
+        db.collection('users').doc(result.user.uid).set({ email });
       })
       .catch((error) => {
         if (error.code === 'auth/invalid-email') this.setState({ status: 'E-mail inválido' });
@@ -66,6 +70,18 @@ export default class Auth extends Component {
     });
   }
 
+  google() {
+    firebase.auth().signInWithPopup(provider)
+    .then((result) => {
+      const { uid, email } = result.user;
+      this.setState({ status: 'Usuário cadastrado com sucesso.' });
+      db.collection('users').doc(uid).set({ email });
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+  }
+
   render() {
     const { status, user, email, password } = this.state;
     return (
@@ -84,6 +100,8 @@ export default class Auth extends Component {
               <>
                 <button onClick={this.login}>Entrar</button>
                 <button onClick={this.signup}>Cadastrar</button>
+                <br />
+                <button onClick={this.google}>Login com o Google</button>
               </>
           }
         </div>
