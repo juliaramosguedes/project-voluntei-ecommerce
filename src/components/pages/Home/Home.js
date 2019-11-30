@@ -1,13 +1,19 @@
-import React from 'react';
-import './Home.css';
+import React, { Fragment } from 'react';
+import useStyles from './Home.styles.js';
+import { Header, CardA } from '../../Layouts';
+import { Cards } from '../../organisms';
+
+const cards = [<CardA />, <CardA />, <CardA />, <CardA />];
 
 const Home = () => {
+  const classes = useStyles();
   return (
-    <div>
-      <h1>Hello Home Page</h1>
-    </div>
-  )
-}
-;
-
+    <>
+      <div>{/* <Header /> */}</div>
+      <div className={classes.cardsContainer}>
+        <Cards cards={cards} />
+      </div>
+    </>
+  );
+};
 export default Home;
