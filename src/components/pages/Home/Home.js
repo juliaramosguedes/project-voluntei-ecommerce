@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import useStyles from './Home.styles.js';
 import { Header, CardA } from '../../Layouts';
 import { Cards } from '../../organisms';
 
 const cards = [<CardA />, <CardA />, <CardA />, <CardA />];
 
-const Home = () => {
+export default function Home() {
   const classes = useStyles();
+
   return (
     <>
       <div>{/* <Header /> */}</div>
@@ -15,5 +16,4 @@ const Home = () => {
       </div>
     </>
   );
-};
-export default Home;
+}
