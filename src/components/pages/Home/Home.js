@@ -7,18 +7,14 @@ import './Home.css';
 
 // const cards = [<CardA />, <CardA />, <CardA />, <CardA />];
 
-class Home extends Component {
-  render() {
-    return (
-      <div>
-        <Jumbotron>
-          <h1>Hello World!</h1>
-          <p>Teste</p>
-        </Jumbotron>
-        <Header />
-      </div>
-    );
-  }
+export default function Home() {
+  return (
+    <div>
+      <Jumbotron>
+        <h1>Hello World!</h1>
+        <p>Teste</p>
+      </Jumbotron>
+      <Header />
+    </div>
+  );
 }
-
-export default Home;
