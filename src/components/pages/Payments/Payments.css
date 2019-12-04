@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.left {
+  font-size: 22px;
+  line-height: 30px;
+  margin-bottom: 30px;
+  border: 1px solid red;
+}
+
+.left img {
+  width: 120px;
+  float: left;
+}
+
+.left ul {
+  list-style: none;
+  margin-top: 30px;
+}
+
+.rigth {
+  font-size: 22px;
+  line-height: 30px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+}
