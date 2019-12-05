@@ -1,8 +1,5 @@
-// import useStyles from './Home.styles.js';
-// import { Cards } from '../../organisms';
-import React, { Component } from 'react';
-import { Jumbotron, Grid, Rol, Col, Image, Button } from 'react-bootstrap';
-import { Header, CardA } from '../../molecules';
+import React from 'react';
+import { Navigation, SectionA, SectionB, Footer } from '../../molecules';
 import './Home.css';
 
 // const cards = [<CardA />, <CardA />, <CardA />, <CardA />];
@@ -10,11 +7,10 @@ import './Home.css';
 export default function Home() {
   return (
     <div>
-      <Jumbotron>
-        <h1>Hello World!</h1>
-        <p>Teste</p>
-      </Jumbotron>
-      <Header />
+      <Navigation />
+      <SectionA />
+      <SectionB />
+      <Footer />
     </div>
   );
 }
