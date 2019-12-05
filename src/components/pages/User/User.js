@@ -3,9 +3,8 @@ import firebase from '../../../firebase/FirebaseConnection';
 
 const db = firebase.firestore();
 
-export default function User() {
+export default function User({ userID }) {
   const [status, setStatus] = useState('Conclua seu cadastro.');
-  const [user, setUser] = useState(null);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [photoURL, setPhotoURL] = useState('');
@@ -19,24 +18,21 @@ export default function User() {
   });
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((currUser) => {
-      if (currUser) {
-        setStatus('Usuário logado');
-        setUser(currUser);
+    if (userID) {
+      setStatus('Usuário logado');
 
-        db.collection('users').doc(currUser.uid).get().then((doc) => {
-          if (doc.exists) {
-            const data = doc.data();
-            setEmail(data.email);
-            if (data.name) setName(data.name);
-            if (data.photoURL) setPhotoURL(data.photoURL);
-            if (data.address) setAddress(data.address);
-          } else {
-            setStatus('Usuário não encontrado');
-          }
-        });
-      }
-    });
+      db.collection('users').doc(userID).get().then((doc) => {
+        if (doc.exists) {
+          const data = doc.data();
+          setEmail(data.email);
+          if (data.name) setName(data.name);
+          if (data.photoURL) setPhotoURL(data.photoURL);
+          if (data.address) setAddress(data.address);
+        } else {
+          setStatus('Usuário não encontrado');
+        }
+      });
+    }
   }, []);
 
 
@@ -44,7 +40,7 @@ export default function User() {
     e.preventDefault();
 
     try {
-      await db.collection('users').doc(user.uid).set({
+      await db.collection('users').doc(userID).set({
         name,
         email,
         photoURL,
@@ -68,7 +64,7 @@ export default function User() {
 
   const deleteProfile = async () => {
     try {
-      await db.collection('users').doc(user.uid).delete();
+      // await db.collection('users').doc(user.uid).delete();
       await firebase.auth().currentUser.delete();
 
       setStatus('Usuário deletado com sucesso.');
