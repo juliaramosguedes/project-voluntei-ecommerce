@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { Redirect } from 'react-router-dom';
+import { useLastLocation } from 'react-router-last-location';
 import firebase from '../../../firebase/FirebaseConnection';
 
 firebase.auth().languageCode = 'pt';
@@ -11,6 +13,7 @@ export default function Auth() {
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState('Entre ou cadastre-se');
   const [user, setUser] = useState(null);
+  const lastLocation = useLastLocation();
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -20,6 +23,10 @@ export default function Auth() {
       setPassword('');
     }
   });
+
+  if (user) {
+    if (lastLocation) return <Redirect to={lastLocation.pathname} />;
+  }
 
   const signup = () => {
     firebase.auth().createUserWithEmailAndPassword(email, password)

@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import firebase from '../firebase/FirebaseConnection';
+import { AuthContext } from '../firebase/FirebaseAuth';
 
-const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
-  const [user, setUser] = useState(null);
-
-  useEffect(async () => {
-    const currUser = await firebase.auth().currentUser;
-    setUser(currUser);
-  }, []);
+export default function PrivateRoute({ component: RouteComponent, ...rest }) {
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <Route
       {...rest}
-      render={(routeProps) =>
-        !!user ? (
+      render={routeProps =>
+        !!currentUser ? (
           <RouteComponent {...routeProps} />
         ) : (
-          <Redirect to="/auth" />
+          <Redirect to={"/auth"} />
         )
       }
     />
   );
-};
-
-export default PrivateRoute;
+}
