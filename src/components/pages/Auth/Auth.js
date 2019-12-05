@@ -18,9 +18,6 @@ export default function Auth() {
       setUser(user);
       setEmail('');
       setPassword('');
-      // localStorage.setItem('user-info', JSON.stringify({ userID: user.uid }));
-      // const userLogado = JSON.parse(localStorage.getItem('user-info'))
-      // console.log(userLogado.userID)
     }
   });
 
