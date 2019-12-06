@@ -1,0 +1,9 @@
+export { default as ecobag } from './ecobag.jpg';
+export { default as logoBlack } from './logoBlack.jpg';
+export { default as logoBlue } from './logoBlue.jpg';
+export { default as logoYellow } from './logoYellow.jpg';
+export { default as bee } from './bee.jpg';
+export { default as notebook } from './notebook.jpg';
+export { default as stickers } from './stickers.jpg';
+export { default as tShirt } from './tShirt.jpg';
+export { default as voluntei } from './voluntei.jpg';

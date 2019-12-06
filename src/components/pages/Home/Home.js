@@ -1,19 +1,16 @@
 import React from 'react';
-import useStyles from './Home.styles.js';
-import { Header, CardA } from '../../Layouts';
-import { Cards } from '../../organisms';
+import { Navigation, SectionA, SectionB, Footer } from '../../molecules';
+import './Home.css';
 
-const cards = [<CardA />, <CardA />, <CardA />, <CardA />];
+// const cards = [<CardA />, <CardA />, <CardA />, <CardA />];
 
 export default function Home() {
-  const classes = useStyles();
-
   return (
-    <>
-      <div>{/* <Header /> */}</div>
-      <div className={classes.cardsContainer}>
-        <Cards cards={cards} />
-      </div>
-    </>
+    <div>
+      <Navigation />
+      <SectionA />
+      <SectionB />
+      <Footer />
+    </div>
   );
 }
