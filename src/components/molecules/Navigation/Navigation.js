@@ -19,7 +19,9 @@ const Navigation = () => (
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Procurar" className="mr-sm-2" />
-        <Button variant="outline-info">Search</Button>
+        <Button variant="outline-info">Buscar produtos</Button>
+        <Button variant="outline-info">Account</Button>
+        <Button variant="outline-info">Chart</Button>
       </Form>
     </Navbar>
   </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Container, Row, Col } from 'react-bootstrap';
 import { Card, CardDeck, Button } from 'react-bootstrap';
-
+import { bee } from '../../../images';
 import './SectionA.css';
 
 const SectionA = () => (
@@ -13,18 +13,19 @@ const SectionA = () => (
           src="https://www.punkstein.com/loja/31595-thickbox_default/camiseta-sem-estampa.jpg"
         /> */}
         <Card.Body>
-          <Card.Title className="cardA-left-title">
+          {/* <Card.Title className="cardA-left-title">
             Produtos Voluntei
-          </Card.Title>
-          <Card.Text className="cardA-left-text">Nova<br></br> coleção 2020</Card.Text>
-          <Button className="cardA-left-button" variant="outline-dark">Var produtos</Button>
+          </Card.Title> */}
+          <Card.Text className="cardA-left-text">
+            Nova<br></br> coleção 2020
+          </Card.Text>
+          <Button className="cardA-left-button" variant="outline-dark">
+            Ver produtos
+          </Button>
         </Card.Body>
       </Card>
       <Card className="cardA-right">
-        <Card.Img
-          variant="top"
-          src="https://www.punkstein.com/loja/31595-thickbox_default/camiseta-sem-estampa.jpg"
-        />
+        <Card.Img variant="top" src={bee} />
         {/* <Card.Body>
           <Card.Title>Card title</Card.Title>
           <Card.Text>

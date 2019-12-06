@@ -1,3 +1,5 @@
 .sectionB {
-  padding: 100px 100px;
+  padding: 5%;
+  min-width: 300px;
+  margin: 0px;
 }

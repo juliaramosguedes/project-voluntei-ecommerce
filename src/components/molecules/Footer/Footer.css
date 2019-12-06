@@ -1,0 +1,20 @@
+.footer {
+  background-color: rgb(30, 30, 30);
+  color: rgb(235, 246, 255);
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-card {
+  background-color: rgb(30, 30, 30);
+  width: 300px;
+  border: none;
+  line-height: 2;
+  font-size: 16px;
+}
+
+.footer-card-title {
+  font-weight: bold;
+  font-size: 20px;
+}
