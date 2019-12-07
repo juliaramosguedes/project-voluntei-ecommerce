@@ -6,7 +6,7 @@ import './Home.css';
 export default function Home() {
   const db = firebase.firestore();
   const [products, setProducts] = useState({});
-  const [status, setStatus] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -17,7 +17,7 @@ export default function Home() {
             products[id] = doc.data();
             setProducts(products);
           });
-          setStatus(true);
+          setLoaded(true);
         });
       } catch (error) {
         console.log(error);
@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div>
       {
-        status
+        loaded
           ? <>
             <Navigation />
             <SectionA />
