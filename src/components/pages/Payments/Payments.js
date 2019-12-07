@@ -1,9 +1,10 @@
 import React from 'react';
+import PayPal from '../../molecules/PayPal';
 
 export default function Payments() {
   return(
     <div>
-      <h1>Hello Payments</h1>
+      <PayPal />
     </div>
   );
 }
