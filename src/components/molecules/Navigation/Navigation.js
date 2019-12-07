@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, Form, FormControl, Button, Image } from 'react-bootstrap';
+import { logoYellowSmall } from '../../../images';
 import './Navigation.css';
 
 const Navigation = () => (
@@ -8,14 +9,14 @@ const Navigation = () => (
       <Navbar.Brand href="#home">
         <Image
           className="Logo"
-          src="../../../../images/black.jpg"
+          src={logoYellowSmall}
           rounded
         />
       </Navbar.Brand>
       <Nav className="mr-auto">
-        <Nav.Link className="NavLinks" href="#home">Masculino</Nav.Link>
+        {/* <Nav.Link className="NavLinks" href="#home">Masculino</Nav.Link>
         <Nav.Link className="NavLinks" href="#features">Feminino</Nav.Link>
-        <Nav.Link className="NavLinks" href="#pricing">Infantil</Nav.Link>
+        <Nav.Link className="NavLinks" href="#pricing">Infantil</Nav.Link> */}
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Procurar" className="mr-sm-2" />

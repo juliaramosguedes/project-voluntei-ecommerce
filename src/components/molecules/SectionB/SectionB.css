@@ -1,5 +1,42 @@
 .sectionB {
-  padding: 5%;
+  padding: 2%;
   min-width: 300px;
-  margin: 0px;
+  /* margin-top: 500px; */
+  background-color: black;
+}
+
+.sectionB h1 {
+  text-align: center;
+  color: white;
+}
+
+.cardB-left {
+  border: none;
+}
+
+.cardB-right {
+  border: none;
+  background-color: rgb(188, 188, 188);
+  /* border: 2px solid blue; */
+}
+
+.cardB-right-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid red; */
+  background-color: black;
+  color: white;
+}
+
+.cardB-right-title {
+  color: white;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.sectionB-button {
+  /* background-color: rgb(241, 209, 15);
+  border: 1px solid rgb(241, 209, 15); */
 }

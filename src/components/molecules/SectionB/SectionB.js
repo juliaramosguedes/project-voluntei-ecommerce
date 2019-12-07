@@ -1,17 +1,14 @@
 import React from 'react';
-import { Card, CardDeck } from 'react-bootstrap';
-import { tShirt } from '../../../images';
+import { Card, CardDeck, Button } from 'react-bootstrap';
+import { shirtBig } from '../../../images';
+// import { ecobagBig } from '../../../images';
 import './SectionB.css';
 
 const SectionB = () => (
   <div className="sectionB">
-    <h1>Nossos produtos</h1>
     <CardDeck>
-      <Card>
-        <Card.Img
-          variant="top"
-          src={tShirt}
-        />
+      <Card className="cardB-left">
+        <Card.Img className="cardB-image" variant="top" src={shirtBig} />
         {/* <Card.Body>
           <Card.Title>Card title</Card.Title>
           <Card.Text>
@@ -19,25 +16,28 @@ const SectionB = () => (
             to additional content. This content is a little bit longer.
           </Card.Text>
         </Card.Body> */}
-        <Card.Footer>
+        {/* <Card.Footer>
           <small className="text-muted">P  M  G</small>
-        </Card.Footer>
+        </Card.Footer> */}
       </Card>
-      <Card>
+      <Card className="cardB-right">
         {/* <Card.Img
           variant="top"
-          src="https://www.punkstein.com/loja/31595-thickbox_default/camiseta-sem-estampa.jpg"
+          src={ecobagBig}
         /> */}
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
+        <Card.Body className="cardB-right-body">
+          {/* <Card.Title className="cardB-right-title">
+            Vista a camiseta do nosso time!
+          </Card.Title> */}
           <Card.Text>
-            This card has supporting text below as a natural lead-in to
-            additional content.
+            <h2>Vista a camisa do nosso time!</h2>
+            <p>Feita de algodão e disponível em dois modelos.</p>
+          <Button className="sectionB-button" variant="light">Saiba mais</Button>
           </Card.Text>
         </Card.Body>
-        <Card.Footer>
+        {/* <Card.Footer>
           <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
+        </Card.Footer> */}
       </Card>
     </CardDeck>
   </div>

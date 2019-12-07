@@ -7,5 +7,19 @@
 
 html, body, #root {
   min-height: 100%;
-
+  overflow-x: hidden;
+  background-color: black;;
 }
+
+
+/* ===================================MEDIA QUERY=========================================== */
+
+@media(max-width: 756px) {
+  html {
+    font-size: 20px;
+  }
+  /* .sectionA .card-title {
+    font-size: 28px;
+  } */
+}
+

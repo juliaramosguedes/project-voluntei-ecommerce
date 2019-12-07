@@ -1,0 +1,17 @@
+.sectionD {
+  padding: 20px;
+  /* background-color: rgb(235, 246, 255); */
+  background-color: rgb(241, 209, 15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionD-CardDeck{
+max-width: 800px;
+}
+
+.sectionD-cards {
+  border: none;
+  background-color: rgb(241, 209, 15);
+}

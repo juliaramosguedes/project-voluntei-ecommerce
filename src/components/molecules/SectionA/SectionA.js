@@ -12,16 +12,16 @@ const SectionA = () => (
           variant="top"
           src="https://www.punkstein.com/loja/31595-thickbox_default/camiseta-sem-estampa.jpg"
         /> */}
-        <Card.Body>
+        <Card.Body className="cardA-left-body">
           {/* <Card.Title className="cardA-left-title">
             Produtos Voluntei
           </Card.Title> */}
           <Card.Text className="cardA-left-text">
-            Nova<br></br> coleção 2020
+            <h1>Bem vindo à loja Voluntei!</h1>
+            <p>
+              Conheça nossos produtos.
+            </p>
           </Card.Text>
-          <Button className="cardA-left-button" variant="outline-dark">
-            Ver produtos
-          </Button>
         </Card.Body>
       </Card>
       <Card className="cardA-right">

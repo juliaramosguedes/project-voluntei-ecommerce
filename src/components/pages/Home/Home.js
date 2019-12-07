@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigation, SectionA, SectionB, Footer } from '../../molecules';
+import { Navigation, SectionA, SectionB, SectionC, SectionD, Footer } from '../../molecules';
 import './Home.css';
 
 // const cards = [<CardA />, <CardA />, <CardA />, <CardA />];
@@ -10,6 +10,8 @@ export default function Home() {
       <Navigation />
       <SectionA />
       <SectionB />
+      <SectionC />
+      <SectionD />
       <Footer />
     </div>
   );
