@@ -27,18 +27,26 @@ export default function Home() {
   }, []);
 
   const { ecobag, stickers, tshirt, notebook } = products;
-  
+
+  // example of product:
+  // ecobag.image
+  // ecobag.description
+  // ecobag.name
+  // ecobag.quantity
+  // ecobag.status
+  // ecobag.price
+
   return (
     <div>
       {
         status
-          ? <img src={ecobag.image} alt={ecobag.name} />
-          : <>
+          ? <>
             <Navigation />
             <SectionA />
             <SectionB />
             <Footer />
           </>
+          : <h1>Carregando...</h1>
       }
     </div>
   );
