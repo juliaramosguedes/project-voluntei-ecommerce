@@ -1,11 +1,15 @@
 .navigation-container {
   background-color: rgb(241, 209, 15);
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
 }
 
 .navigation {
   background-color: rgb(241, 209, 15) !important;
   color: rgb(30, 30, 30);
-  max-width: 100%;
+  width: 1600px;
+  max-width: 2000px;
   padding: 0 10%;
 
   /* border-bottom: 2px solid rgb(232, 166, 6); */

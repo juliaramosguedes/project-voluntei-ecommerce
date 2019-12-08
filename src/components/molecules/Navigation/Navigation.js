@@ -33,7 +33,7 @@ const Navigation = () => (
         <Nav.Link className="NavLinks" href="#pricing">Infantil</Nav.Link> */}
         </Nav>
         <Form inline>
-          <InputGroup className="mb-3">
+          {/* <InputGroup className="mb-3">
             <FormControl
               className="navigation-search-box"
               placeholder="Procurar"
@@ -45,8 +45,10 @@ const Navigation = () => (
                 <Image src={magnifyingGlass} rounded />
               </Button>
             </InputGroup.Append>
-          </InputGroup>
-
+          </InputGroup> */}
+          <Button className="navigation-buttons-icons" variant="dark">
+            <Image className="navigation-icons" src={magnifyingGlass} rounded />
+          </Button>
           <Button className="navigation-buttons-icons" variant="dark">
             <Image className="navigation-icons" src={profileUser} rounded />
           </Button>
