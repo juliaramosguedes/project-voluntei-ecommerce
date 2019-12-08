@@ -10,6 +10,8 @@ import {
 } from 'react-bootstrap';
 import { logoYellowSmall } from '../../../images';
 import { magnifyingGlass } from '../../../images';
+import { profileUser } from '../../../images';
+import { shoppingCart } from '../../../images';
 import './Navigation.css';
 
 const Navigation = () => (
@@ -39,18 +41,18 @@ const Navigation = () => (
               aria-describedby="basic-addon1"
             />
             <InputGroup.Append>
-              <InputGroup.Text
-                className="navigation-magnifying"
-                id="basic-addon1"
-              >
+              <Button className="navigation-magnifying">
                 <Image src={magnifyingGlass} rounded />
-              </InputGroup.Text>
+              </Button>
             </InputGroup.Append>
           </InputGroup>
 
-          <Button variant="outline-info">Buscar produtos</Button>
-          <Button variant="outline-info">Account</Button>
-          <Button variant="outline-info">Chart</Button>
+          <Button className="navigation-buttons-icons" variant="dark">
+            <Image className="navigation-icons" src={profileUser} rounded />
+          </Button>
+          <Button className="navigation-buttons-icons">
+            <Image className="navigation-icons" src={shoppingCart} rounded />
+          </Button>
         </Form>
       </Navbar>
     </div>

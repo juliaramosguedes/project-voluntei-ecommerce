@@ -14,12 +14,12 @@ const SectionC = () => (
       <CardDeck className="sectionC-CardDeck">
         <Card className="sectionC-cards shadow p-3 mb-5 bg-white rounded">
           <a href="/">
-            <Card.Img variant="top" src={ecobagBig} />
+            <Card.Img variant="top" src={stickersBig} />
             <Card.Body className="sectionC-cards-body">
-              <Card.Title>EcoBag</Card.Title>
+              <Card.Title>Adesivos</Card.Title>
               <Card.Text>
-                <p> Bolsa produzida com material reciclado e lavável.</p>
-                <p className="sectionC-cards-price">R$ 30,00</p>
+                <p>Deixe o seu computador descolado com os nossos adesivos.</p>
+                <p className="sectionC-cards-price">R$ 10,00</p>
               </Card.Text>
             </Card.Body>
             {/* <Card.Footer>
@@ -46,12 +46,12 @@ const SectionC = () => (
         </Card>
         <Card className="sectionC-cards shadow p-3 mb-5 bg-white rounded">
           <a href="/">
-            <Card.Img variant="top" src={stickersBig} />
+            <Card.Img variant="top" src={ecobagBig} />
             <Card.Body className="sectionC-cards-body">
-              <Card.Title>Adesivos</Card.Title>
+              <Card.Title>EcoBag</Card.Title>
               <Card.Text>
-                <p>Deixe o seu computador descolado com os nossos adesivos.</p>
-                <p className="sectionC-cards-price">R$ 10,00</p>
+                <p> Bolsa produzida com material reciclado e lavável.</p>
+                <p className="sectionC-cards-price">R$ 30,00</p>
               </Card.Text>
             </Card.Body>
             {/* <Card.Footer>
