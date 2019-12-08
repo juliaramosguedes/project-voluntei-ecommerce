@@ -4,21 +4,22 @@ import { Card, CardDeck, Button } from 'react-bootstrap';
 import { ecobagBig } from '../../../images';
 import { notebookBig } from '../../../images';
 import { stickersBig } from '../../../images';
+import { shirtBig } from '../../../images';
 import './SectionC.css';
 
 const SectionC = () => (
   <div className="sectionC">
-    <h3>lançamentos</h3>
+    <h3>Lançamentos</h3>
     <div className="sectionC-CardDeck-container">
       <CardDeck className="sectionC-CardDeck">
-        <Card className="sectionC-cards">
+        <Card className="sectionC-cards shadow p-3 mb-5 bg-white rounded">
           <a href="/">
             <Card.Img variant="top" src={ecobagBig} />
             <Card.Body className="sectionC-cards-body">
               <Card.Title>EcoBag</Card.Title>
               <Card.Text>
                 <p> Bolsa produzida com material reciclado e lavável.</p>
-                <p>R$ 30,00</p>
+                <p className="sectionC-cards-price">R$ 30,00</p>
               </Card.Text>
             </Card.Body>
             {/* <Card.Footer>
@@ -26,7 +27,7 @@ const SectionC = () => (
     </Card.Footer> */}
           </a>
         </Card>
-        <Card className="sectionC-cards">
+        <Card className="sectionC-cards shadow p-3 mb-5 bg-white rounded">
           <a href="/">
             <Card.Img variant="top" src={notebookBig} />
             <Card.Body className="sectionC-cards-body">
@@ -35,7 +36,7 @@ const SectionC = () => (
                 <p>
                   Não perca nenhum compromisso com a super agenda da Voluntei.
                 </p>
-                <p>R$ 20,00</p>
+                <p className="sectionC-cards-price">R$ 20,00</p>
               </Card.Text>
             </Card.Body>
             {/* <Card.Footer>
@@ -43,14 +44,29 @@ const SectionC = () => (
     </Card.Footer> */}
           </a>
         </Card>
-        <Card className="sectionC-cards">
+        <Card className="sectionC-cards shadow p-3 mb-5 bg-white rounded">
           <a href="/">
             <Card.Img variant="top" src={stickersBig} />
             <Card.Body className="sectionC-cards-body">
               <Card.Title>Adesivos</Card.Title>
               <Card.Text>
                 <p>Deixe o seu computador descolado com os nossos adesivos.</p>
-                <p>R$ 10,00</p>
+                <p className="sectionC-cards-price">R$ 10,00</p>
+              </Card.Text>
+            </Card.Body>
+            {/* <Card.Footer>
+      <small className="text-muted">Last updated 3 mins ago</small>
+    </Card.Footer> */}
+          </a>
+        </Card>
+        <Card className="sectionC-cards shadow p-3 mb-5 bg-white rounded">
+          <a href="/">
+            <Card.Img variant="top" src={shirtBig} />
+            <Card.Body className="sectionC-cards-body">
+              <Card.Title>Camisa</Card.Title>
+              <Card.Text>
+                <p>Feita de algodão e disponível em dois modelos.</p>
+                <p className="sectionC-cards-price">R$ 40,00</p>
               </Card.Text>
             </Card.Body>
             {/* <Card.Footer>

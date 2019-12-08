@@ -1,6 +1,15 @@
 import React from 'react';
-import { Navbar, Nav, Form, FormControl, Button, Image } from 'react-bootstrap';
+import {
+  Navbar,
+  Nav,
+  Form,
+  FormControl,
+  Button,
+  Image,
+  InputGroup,
+} from 'react-bootstrap';
 import { logoYellowSmall } from '../../../images';
+import { magnifyingGlass } from '../../../images';
 import './Navigation.css';
 
 const Navigation = () => (
@@ -22,7 +31,23 @@ const Navigation = () => (
         <Nav.Link className="NavLinks" href="#pricing">Infantil</Nav.Link> */}
         </Nav>
         <Form inline>
-          <FormControl type="text" placeholder="Procurar" className="mr-sm-2" />
+          <InputGroup className="mb-3">
+            <FormControl
+              className="navigation-search-box"
+              placeholder="Procurar"
+              aria-label="Procurar"
+              aria-describedby="basic-addon1"
+            />
+            <InputGroup.Append>
+              <InputGroup.Text
+                className="navigation-magnifying"
+                id="basic-addon1"
+              >
+                <Image src={magnifyingGlass} rounded />
+              </InputGroup.Text>
+            </InputGroup.Append>
+          </InputGroup>
+
           <Button variant="outline-info">Buscar produtos</Button>
           <Button variant="outline-info">Account</Button>
           <Button variant="outline-info">Chart</Button>

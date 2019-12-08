@@ -10,6 +10,7 @@ export { default as logoBlue } from './logoBlue.jpg';
 export { default as logoBlueSmall } from './logoBlueSmall.jpg';
 export { default as logoYellow } from './logoYellow.jpg';
 export { default as logoYellowSmall } from './logoYellowSmall.jpg';
+export { default as magnifyingGlass } from './magnifyingGlass.svg';
 export { default as notebookBig } from './notebookBig.jpg';
 export { default as notebookButton } from './notebookButton.jpg';
 export { default as notebookSmall } from './notebookSmall.jpg';

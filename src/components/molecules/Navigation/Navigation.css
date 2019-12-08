@@ -21,3 +21,16 @@
   height: 80px;
   width: auto;
 }
+
+.navigation-magnifying {
+  margin-top: 30px;
+  background-color: white;
+  border-left: none;
+}
+
+.navigation-search-box {
+  margin-top: 30px;
+  width: 200px !important;
+  background-color: white;
+  border-right: none;
+}
