@@ -22,7 +22,9 @@ const Footer = () => (
       <Card className="footer-card">
         <Card.Img variant="top" src="" />
         <Card.Body>
-          <Card.Title className="footer-card-title">Formas de pagamento</Card.Title>
+          <Card.Title className="footer-card-title">
+            Formas de pagamento
+          </Card.Title>
           <Card.Text>
             <ul class="list-unstyled">
               <li>PayPal</li>
@@ -35,9 +37,11 @@ const Footer = () => (
       <Card className="footer-card">
         <Card.Img variant="top" src="" />
         <Card.Body>
-          <Card.Title className="footer-card-title">Sobre a Voluntei</Card.Title>
+          <Card.Title className="footer-card-title">
+            Sobre a Voluntei
+          </Card.Title>
           <Card.Text>
-          <ul class="list-unstyled">
+            <ul class="list-unstyled">
               <li>Quem somos</li>
               <li>Junte-se a nós</li>
               <li>Política de privacidade</li>

@@ -8,7 +8,7 @@ import './SectionC.css';
 
 const SectionC = () => (
   <div className="sectionC">
-    <h2>Em destaque</h2>
+    <h3>lançamentos</h3>
     <div className="sectionC-CardDeck-container">
       <CardDeck className="sectionC-CardDeck">
         <Card className="sectionC-cards">

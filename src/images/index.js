@@ -1,4 +1,6 @@
 export { default as bee } from './bee.jpg';
+export { default as beeOrange } from './beeOrange.jpg';
+export { default as beeYellow } from './beeYellow.jpg';
 export { default as ecobagBig } from './ecobagBig.jpg';
 export { default as ecobagButton } from './ecobagButton.jpg';
 export { default as ecobagSmall } from './ecobagSmall.jpg';

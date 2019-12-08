@@ -1,12 +1,12 @@
 import React from 'react';
 // import { Container, Row, Col } from 'react-bootstrap';
 import { Card, CardDeck, Button } from 'react-bootstrap';
-import { bee } from '../../../images';
+import { beeYellow } from '../../../images';
 import './SectionA.css';
 
 const SectionA = () => (
   <div className="sectionA">
-    <CardDeck>
+    <CardDeck className="sectionA-cardDeck">
       <Card className="cardA-left">
         {/* <Card.Img
           variant="top"
@@ -18,14 +18,12 @@ const SectionA = () => (
           </Card.Title> */}
           <Card.Text className="cardA-left-text">
             <h1>Bem vindo à loja Voluntei!</h1>
-            <p>
-              Conheça nossos produtos.
-            </p>
+            <p>Conheça nossos produtos.</p>
           </Card.Text>
         </Card.Body>
       </Card>
       <Card className="cardA-right">
-        <Card.Img variant="top" src={bee} />
+        <Card.Img variant="top" src={beeYellow} />
         {/* <Card.Body>
           <Card.Title>Card title</Card.Title>
           <Card.Text>
@@ -39,18 +37,6 @@ const SectionA = () => (
         </Card.Footer> */}
       </Card>
     </CardDeck>
-
-    {/* <h1>SectionA</h1>
-    <Container>
-      <Row>
-        <Col xs={6}>
-          <h1>SectionA Left</h1>
-        </Col>
-        <Col xs={6}>
-          <h1>SectionA Right</h1>
-        </Col>
-      </Row>
-    </Container> */}
   </div>
 );
 

@@ -4,19 +4,14 @@
   background-color: white;
 }
 
-.sectionC h2 {
+.sectionC h3 {
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
 }
 
-.sectionC-CardDeck {
-  max-width: 1000px;
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  padding-top: 30px;
-  /* border: 2px solid pink; */
+.sectionC p {
+ font-size: 1rem;
 }
 
 .sectionC-CardDeck-container {
@@ -24,10 +19,14 @@
   justify-content: center;
   align-items: center;
 }
+.sectionC-CardDeck {
+  max-width: 1200px;
+  padding-top: 30px;
+}
 
 .sectionC-cards {
   border: none;
-  width: 300px;
+  min-width: 300px;
 }
 
 .sectionC-cards a {
