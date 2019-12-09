@@ -13,11 +13,11 @@ const SectionD = () => (
     <CardDeck className="sectionD-CardDeck">
       <Card className="sectionD-cards">
         <Card.Body className="sectionD-cards-body">
-          <Card.Title>
+          <Card.Title className="sectionD-card-title">
             <h4>
               Cadastre-se para receber notícias e lançamentos de novos produtos.
             </h4>
-          </Card.Title>
+          </Card.Title >
         </Card.Body>
       </Card>
       <Card className="sectionD-cards">

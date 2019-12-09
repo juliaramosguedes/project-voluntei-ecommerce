@@ -11,7 +11,7 @@ const SectionB = () => (
       </Card>
       <Card className="cardB-right">
         <Card.Body className="cardB-right-body">
-          <Card.Text>
+          <Card.Text className="cardB-right-text">
             <h2>Vista a camisa do nosso time!</h2>
             <p>Feita de algodão e disponível em dois modelos.</p>
             <Button className="sectionB-button" variant="light">

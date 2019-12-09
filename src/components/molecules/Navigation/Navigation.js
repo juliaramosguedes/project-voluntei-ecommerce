@@ -9,6 +9,8 @@ import {
   InputGroup,
 } from 'react-bootstrap';
 import { logoYellowSmall } from '../../../images';
+// import { logoYellowSmallLeft } from '../../../images';
+import { logoYellowSmallRight } from '../../../images';
 import { magnifyingGlass } from '../../../images';
 import { profileUser } from '../../../images';
 import { shoppingCart } from '../../../images';
@@ -25,6 +27,12 @@ const Navigation = () => (
         style={{ color: 'black' }}
       >
         <Navbar.Brand href="#home">
+          {/* <Image className="nav-logo-bee" src={logoYellowSmallLeft} rounded /> */}
+          <Image
+            className="nav-logo-voluntei"
+            src={logoYellowSmallRight}
+            rounded
+          />
           <Image className="nav-logo" src={logoYellowSmall} rounded />
         </Navbar.Brand>
         <Nav className="mr-auto">
@@ -33,19 +41,6 @@ const Navigation = () => (
         <Nav.Link className="NavLinks" href="#pricing">Infantil</Nav.Link> */}
         </Nav>
         <Form inline>
-          {/* <InputGroup className="mb-3">
-            <FormControl
-              className="navigation-search-box"
-              placeholder="Procurar"
-              aria-label="Procurar"
-              aria-describedby="basic-addon1"
-            />
-            <InputGroup.Append>
-              <Button className="navigation-magnifying">
-                <Image src={magnifyingGlass} rounded />
-              </Button>
-            </InputGroup.Append>
-          </InputGroup> */}
           <Button className="navigation-buttons-icons" variant="dark">
             <Image className="navigation-icons" src={magnifyingGlass} rounded />
           </Button>

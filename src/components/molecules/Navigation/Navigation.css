@@ -21,6 +21,16 @@
   color: rgb(30, 30, 30);
 }
 
+/* .nav-logo-bee {
+  height: 0px;
+  width: 0px;
+} */
+
+.nav-logo-voluntei {
+  height: 0px;
+  width: 0px;
+}
+
 .nav-logo {
   height: 80px;
   width: auto;
