@@ -1,22 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import firebase from '../../../firebase/FirebaseConnection';
-import { Navigation, SectionA, SectionB, Footer } from '../../molecules';
-import './Home.css';
+import './Chart.css';
 
-export default function Home() {
+export default function Chart() {
   const db = firebase.firestore();
   const [products, setProducts] = useState({});
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    db.collection('products').onSnapshot((snapshot) => {
-      snapshot.forEach((doc) => {
-        const { id } = doc;
-        products[id] = doc.data();
-        setProducts(products);
-      });
-      setLoaded(true);
-    });
+    async function fetchData() {
+      try {
+        await db.collection('products').onSnapshot((snapshot) => {
+          snapshot.forEach((doc) => {
+            const { id } = doc;
+            products[id] = doc.data();
+            setProducts(products);
+          });
+          setLoaded(true);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData();
   }, []);
 
   const { ecobag, stickers, tshirt, notebook } = products;
@@ -34,10 +40,7 @@ export default function Home() {
       {
         loaded
           ? <>
-            <Navigation />
-            <SectionA />
-            <SectionB />
-            <Footer />
+            <h1>Carregado!!!</h1>
           </>
           : <h1>Carregando...</h1>
       }

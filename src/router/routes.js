@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { LastLocationProvider } from 'react-router-last-location';
-import Home from '../components/pages/Home/Home';
-import Payments from '../components/pages/Payments/Payments';
-import Auth from '../components/pages/Auth/Auth';
-import User from '../components/pages/User/User';
+import { Home, Payments, Auth, User, Product, Chart } from '../components/pages';
 import PrivateRoute from './PrivateRoute';
 
 export default () => {
@@ -30,6 +27,8 @@ export default () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/payments" component={Payments} />
           <Route exact path="/auth" render={props => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
+          <Route exact path="/product/:productID" component={Product} />
+          <Route exact path="/chart" component={Chart} />
           <PrivateRoute exact path="/user" component={User} userID={userID} />
         </Switch>
       </LastLocationProvider>
