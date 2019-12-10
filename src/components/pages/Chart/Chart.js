@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import firebase from '../../../firebase/FirebaseConnection';
-import { Navigation, SectionA, SectionB, Footer } from '../../molecules';
-import './Home.css';
+import './Chart.css';
 
-export default function Home() {
+export default function Chart() {
   const db = firebase.firestore();
   const [products, setProducts] = useState({});
   const [loaded, setLoaded] = useState(false);
@@ -34,10 +33,7 @@ export default function Home() {
       {
         loaded
           ? <>
-            <Navigation />
-            <SectionA />
-            <SectionB />
-            <Footer />
+            <h1>Carregado!!!</h1>
           </>
           : <h1>Carregando...</h1>
       }
