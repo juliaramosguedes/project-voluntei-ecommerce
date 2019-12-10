@@ -25,11 +25,11 @@ export default () => {
       <LastLocationProvider>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/payments" component={Payments} />
           <Route exact path="/auth" render={props => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
           <Route exact path="/product/:productID" component={Product} />
           <Route exact path="/chart" component={Chart} />
           <PrivateRoute exact path="/user" component={User} userID={userID} />
+          <PrivateRoute exact path="/payments" component={Payments} userID={userID} />
         </Switch>
       </LastLocationProvider>
     </BrowserRouter>
