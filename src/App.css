@@ -10,13 +10,12 @@ body,
 #root {
   min-height: 100%;
   overflow-x: hidden;
-  background-color: black;
   font-size: 20px;
 }
 
 /* ===================================MEDIA QUERY=========================================== */
 
-@media (max-width: 425px) {
+@media (max-width: 510px) {
   html {
     font-size: 20px !important;
   }
@@ -113,7 +112,7 @@ body,
   }
 
   .footer-payments-container {
-    padding-left: 20px;
+    padding-left: 10px;
   }
 }
 

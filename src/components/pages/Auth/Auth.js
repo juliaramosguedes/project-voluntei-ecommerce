@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import firebase from '../../../firebase/FirebaseConnection';
+import { Card, Form, Button } from 'react-bootstrap';
+import { Navigation, SectionD, Footer } from '../../molecules';
+import './Auth.css';
 
 firebase.auth().languageCode = 'pt';
 const db = firebase.firestore();
@@ -12,7 +15,7 @@ export default function Auth() {
   const [status, setStatus] = useState('Entre ou cadastre-se');
   const [user, setUser] = useState(null);
 
-  firebase.auth().onAuthStateChanged((user) => {
+  firebase.auth().onAuthStateChanged(user => {
     if (user) {
       setStatus('Usuário logado');
       setUser(user);
@@ -22,28 +25,36 @@ export default function Auth() {
   });
 
   const signup = () => {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((result) => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(result => {
         setStatus('Usuário cadastrado com sucesso.');
-        db.collection('users').doc(result.user.uid).set({ email });
+        db.collection('users')
+          .doc(result.user.uid)
+          .set({ email });
       })
-      .catch((error) => {
-        if (error.code === 'auth/invalid-email') setStatus('E-mail inválido');
-        if (error.code === 'auth/weak-password') setStatus('Crie uma senha mais forte');
+      .catch(error => {
+        if (error.code === 'auth/invalid-email')
+          setStatus('Endereço de e-mail inválido.');
+        if (error.code === 'auth/weak-password')
+          setStatus('Crie uma senha mais forte');
         console.log(error.message);
       });
-  }
+  };
 
   const login = () => {
-    firebase.auth().signInWithEmailAndPassword(email, password)
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
       .then(() => {
         setStatus('Usuário logado com sucesso.');
       })
-      .catch((error) => {
+      .catch(error => {
         if (error.code === 'auth/wrong-password') setStatus('Senha incorreta');
         console.log(error.message);
-      })
-  }
+      });
+  };
 
   const logout = () => {
     firebase.auth().signOut();
@@ -51,48 +62,75 @@ export default function Auth() {
     setUser(null);
     setEmail('');
     setPassword('');
-  }
+  };
 
-  const socialLogin = (provider) => {
-    firebase.auth().signInWithPopup(provider)
-    .then((result) => {
-      const { uid, email, displayName, photoURL } = result.user;
-      setStatus('Usuário cadastrado com sucesso.');
-      db.collection('users').doc(uid).set({
-        email,
-        name: displayName,
-        photoURL,
+  const socialLogin = provider => {
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(result => {
+        const { uid, email, displayName, photoURL } = result.user;
+        setStatus('Usuário cadastrado com sucesso.');
+        db.collection('users')
+          .doc(uid)
+          .set({
+            email,
+            name: displayName,
+            photoURL,
+          });
+      })
+      .catch(error => {
+        console.log(error.message);
       });
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
-  }
+  };
 
   return (
-    <>
-      <h1>Seja bem vindo</h1>
-      <h3>{status}</h3>
-      <>
-        <label>E-mail: </label>
-        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
-        <label>Senha: </label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} /><br />
-        {
-          user 
-          ?
-          <button onClick={logout}>Sair</button>
-          :
-          <>
-            <button onClick={login}>Entrar</button>
-            <button onClick={signup}>Cadastrar</button>
-            <br />
-            <button onClick={() => socialLogin(googleProvider)}>Login com o Google</button>
-            <br />
-            <button onClick={() => socialLogin(faceProvider)}>Login com o Facebook</button>
-          </>
-        }
-      </>
-    </>
+    <div className="authentication-page">
+      <Navigation />
+
+      <div className="authentication-container">
+        <Card className="authentication-card">
+          {/* <Card style={{ width: '18rem' }}> */}
+          <Card.Body>
+            {/* <h1>Seja bem vindo</h1> */}
+            <h3>{status}</h3>
+            <div className="teste6">
+              <label>E-mail: </label>
+              <input
+                type="text"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+              <br />
+              <label>Senha: </label>
+              <input
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+              />
+              <br />
+              {user ? (
+                <button onClick={logout}>Sair</button>
+              ) : (
+                <div>
+                  <button onClick={login}>Entrar</button>
+                  <button onClick={signup}>Cadastrar</button>
+                  <br />
+                  <button onClick={() => socialLogin(googleProvider)}>
+                    Login com o Google
+                  </button>
+                  <br />
+                  <button onClick={() => socialLogin(faceProvider)}>
+                    Login com o Facebook
+                  </button>
+                </div>
+              )}
+            </div>
+          </Card.Body>
+        </Card>
+      </div>
+      <SectionD />
+      <Footer />
+    </div>
   );
 }

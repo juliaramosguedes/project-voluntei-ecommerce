@@ -1,12 +1,15 @@
 import React from 'react';
 import {
-  Navbar,
-  Nav,
+  Button,
+  ButtonToolbar,
   Form,
   FormControl,
-  Button,
   Image,
   InputGroup,
+  Nav,
+  Navbar,
+  OverlayTrigger,
+  Popover,
 } from 'react-bootstrap';
 import { logoYellowSmall } from '../../../images';
 // import { logoYellowSmallLeft } from '../../../images';
@@ -26,7 +29,7 @@ const Navigation = () => (
         variant="dark"
         style={{ color: 'black' }}
       >
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           {/* <Image className="nav-logo-bee" src={logoYellowSmallLeft} rounded /> */}
           <Image
             className="nav-logo-voluntei"
@@ -35,21 +38,23 @@ const Navigation = () => (
           />
           <Image className="nav-logo" src={logoYellowSmall} rounded />
         </Navbar.Brand>
-        <Nav className="mr-auto">
-          {/* <Nav.Link className="NavLinks" href="#home">Masculino</Nav.Link>
-        <Nav.Link className="NavLinks" href="#features">Feminino</Nav.Link>
-        <Nav.Link className="NavLinks" href="#pricing">Infantil</Nav.Link> */}
-        </Nav>
+        <Nav className="mr-auto"></Nav>
         <Form inline>
-          <Button className="navigation-buttons-icons" variant="dark">
+          {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          <Button variant="outline-success">Search</Button> */}
+
+          {/* <a href="/" className="navigation-buttons-icons">
             <Image className="navigation-icons" src={magnifyingGlass} rounded />
-          </Button>
-          <Button className="navigation-buttons-icons" variant="dark">
+          </a> */}
+          <a href="/" className="navigation-buttons-icons">
+            <Image className="navigation-icons" src={magnifyingGlass} rounded />
+          </a>
+          <a href="/auth" className="navigation-buttons-icons">
             <Image className="navigation-icons" src={profileUser} rounded />
-          </Button>
-          <Button className="navigation-buttons-icons">
+          </a>
+          <a href="/payments" className="navigation-buttons-icons">
             <Image className="navigation-icons" src={shoppingCart} rounded />
-          </Button>
+          </a>
         </Form>
       </Navbar>
     </div>

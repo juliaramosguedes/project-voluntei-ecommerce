@@ -36,35 +36,9 @@
   width: auto;
 }
 
-.navigation-search-box {
-  margin-top: 20px;
-  width: 200px !important;
-  background-color: white;
-  border: 1px solid rgb(30, 30, 30);
-  border-right: none;
-  outline: none !important;
-}
-
-.navigation-magnifying {
-  margin-top: 20px;
-  background-color: white;
-  border: 1px solid rgb(30, 30, 30);
-  border-left: none;
-  height: 47px;
-}
-
-.navigation-magnifying:hover {
-  background-color: white;
-}
-
 .navigation-buttons-icons {
   border: none;
-  background-color: rgb(241, 209, 15);
-}
-
-.navigation-buttons-icons:hover {
-  border: none;
-  background-color: rgb(241, 209, 15);
+  padding: 0px 10px;
 }
 
 .navigation-icons {

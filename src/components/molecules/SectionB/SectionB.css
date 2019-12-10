@@ -5,19 +5,8 @@
   background-color: black;
 }
 
-.sectionB h1 {
-  text-align: center;
-  color: white;
-}
-
-.cardB-left {
+.cardB-left, .cardB-right {
   border: none;
-}
-
-.cardB-right {
-  border: none;
-  background-color: rgb(188, 188, 188);
-  /* border: 2px solid blue; */
 }
 
 .cardB-right-body {

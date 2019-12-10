@@ -13,7 +13,7 @@ const SectionC = () => (
     <div className="sectionC-CardDeck-container">
       <CardDeck className="sectionC-CardDeck">
         <Card className="sectionC-cards shadow p-3 mb-5 bg-white rounded">
-          <a href="/">
+          <a href="/product">
             <Card.Img variant="top" src={stickersBig} />
             <Card.Body className="sectionC-card-body">
               <Card.Title className="sectionC-card-title">Adesivos</Card.Title>
@@ -28,7 +28,7 @@ const SectionC = () => (
           </a>
         </Card>
         <Card className="sectionC-cards shadow p-3 mb-5 bg-white rounded">
-          <a href="/">
+          <a href="/product">
             <Card.Img variant="top" src={notebookBig} />
             <Card.Body className="sectionC-card-body">
               <Card.Title className="sectionC-card-title">Agenda 2020</Card.Title>
@@ -45,7 +45,7 @@ const SectionC = () => (
           </a>
         </Card>
         <Card className="sectionC-cards shadow p-3 mb-5 bg-white rounded">
-          <a href="/">
+          <a href="/product">
             <Card.Img variant="top" src={ecobagBig} />
             <Card.Body className="sectionC-card-body">
               <Card.Title className="sectionC-card-title">EcoBag</Card.Title>
@@ -60,7 +60,7 @@ const SectionC = () => (
           </a>
         </Card>
         <Card className="sectionC-cards shadow p-3 mb-5 bg-white rounded">
-          <a href="/">
+          <a href="/product">
             <Card.Img variant="top" src={shirtBig} />
             <Card.Body className="sectionC-card-body">
               <Card.Title className="sectionC-card-title">Camisa</Card.Title>

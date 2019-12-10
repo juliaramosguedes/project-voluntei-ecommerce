@@ -1,9 +1,13 @@
 import React from 'react';
+import { Navigation, SectionD, Footer } from '../../molecules';
+import './Payments.css';
 
 export default function Payments() {
-  return(
+  return (
     <div>
-      <h1>Hello Payments</h1>
+      <Navigation />
+      <hi>Payments page</hi>
+      <Footer />
     </div>
   );
 }
