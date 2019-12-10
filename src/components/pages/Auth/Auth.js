@@ -41,7 +41,7 @@ export default function Auth({ authUser, logoutUser }) {
         if (error.code === 'auth/weak-password') setStatus('Crie uma senha mais forte');
         console.log(error.message);
       });
-  }
+  };
 
   const login = () => {
     firebase.auth().signInWithEmailAndPassword(email, password)
@@ -51,8 +51,8 @@ export default function Auth({ authUser, logoutUser }) {
       .catch((error) => {
         if (error.code === 'auth/wrong-password') setStatus('Senha incorreta');
         console.log(error.message);
-      })
-  }
+      });
+  };
 
   const logout = () => {
     firebase.auth().signOut();
@@ -63,23 +63,25 @@ export default function Auth({ authUser, logoutUser }) {
     localStorage.removeItem('userID');
     logoutUser();
     window.location = '/auth';
-  }
+  };
 
   const socialLogin = (provider) => {
     firebase.auth().signInWithPopup(provider)
-    .then((result) => {
-      const { uid, email, displayName, photoURL } = result.user;
-      setStatus('Usuário cadastrado com sucesso.');
-      db.collection('users').doc(uid).set({
-        email,
-        name: displayName,
-        photoURL,
+      .then((result) => {
+        const {
+ uid, email, displayName, photoURL 
+} = result.user;
+        setStatus('Usuário cadastrado com sucesso.');
+        db.collection('users').doc(uid).set({
+          email,
+          name: displayName,
+          photoURL,
+        });
+      })
+      .catch((error) => {
+        setStatus(error.message);
       });
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
-  }
+  };
 
   return (
     <>
@@ -87,22 +89,22 @@ export default function Auth({ authUser, logoutUser }) {
       <h3>{status}</h3>
       <>
         <label>E-mail: </label>
-        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
+        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+<br />
         <label>Senha: </label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} /><br />
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+<br />
         {
-          user 
-          ?
-          <button onClick={logout}>Sair</button>
-          :
-          <>
-            <button onClick={login}>Entrar</button>
-            <button onClick={signup}>Cadastrar</button>
-            <br />
-            <button onClick={() => socialLogin(googleProvider)}>Login com o Google</button>
-            <br />
-            <button onClick={() => socialLogin(faceProvider)}>Login com o Facebook</button>
-          </>
+          user
+            ? <button onClick={logout}>Sair</button>
+            : <>
+              <button onClick={login}>Entrar</button>
+              <button onClick={signup}>Cadastrar</button>
+              <br />
+              <button onClick={() => socialLogin(googleProvider)}>Login com o Google</button>
+              <br />
+              <button onClick={() => socialLogin(faceProvider)}>Login com o Facebook</button>
+            </>
         }
       </>
     </>
