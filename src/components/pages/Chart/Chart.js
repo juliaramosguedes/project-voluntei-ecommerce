@@ -8,21 +8,14 @@ export default function Chart() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        await db.collection('products').onSnapshot((snapshot) => {
-          snapshot.forEach((doc) => {
-            const { id } = doc;
-            products[id] = doc.data();
-            setProducts(products);
-          });
-          setLoaded(true);
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
+    db.collection('products').onSnapshot((snapshot) => {
+      snapshot.forEach((doc) => {
+        const { id } = doc;
+        products[id] = doc.data();
+        setProducts(products);
+      });
+      setLoaded(true);
+    });
   }, []);
 
   const { ecobag, stickers, tshirt, notebook } = products;
