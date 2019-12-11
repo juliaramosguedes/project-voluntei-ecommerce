@@ -5,9 +5,7 @@ import './Payments.css';
 export default function Payments() {
   return (
     <div>
-      <Navigation />
       <PayPal />
-      <Footer />
     </div>
   );
 }

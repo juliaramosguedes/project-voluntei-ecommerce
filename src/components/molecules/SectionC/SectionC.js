@@ -20,19 +20,22 @@ import './SectionC.css';
 
 const Product = ({ product }) => (
   <Card className="sectionC-cards shadow p-3 mb-5 bg-white rounded">
-    <a href="/product">
-      <Card.Img variant="top" src={product.image} />
-      <Card.Body className="sectionC-card-body">
-        <Card.Title className="sectionC-card-title">{product.name}</Card.Title>
-        <Card.Text>
-          <p>{product.description}</p>
-          <p className="sectionC-card-price">R$ {product.price.toFixed(2)}</p>
-        </Card.Text>
-      </Card.Body>
-      {/* <Card.Footer>
+    {/* <a href="/product"> */}
+    <Card.Img variant="top" src={product.image} />
+    <Card.Body className="sectionC-card-body">
+      <Card.Title className="sectionC-card-title">{product.name}</Card.Title>
+      <Card.Text>
+        <p>{product.description}</p>
+        <p className="sectionC-card-price">R$ {product.price.toFixed(2)}</p>
+      </Card.Text>
+    </Card.Body>
+    <Button className="sectionC-card-button" variant="dark">
+      Adicionar ao carrinho
+    </Button>
+    {/* <Card.Footer>
         <small className="text-muted">Last updated 3 mins ago</small>
       </Card.Footer> */}
-    </a>
+    {/* </a> */}
   </Card>
 );
 
@@ -42,7 +45,6 @@ Product.propTypes = {
     name: PropTypes.string,
     description: PropTypes.string,
     price: PropTypes.number,
-
   }).isRequired,
 };
 
