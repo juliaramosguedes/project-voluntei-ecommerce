@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+// import { Redirect } from 'react-router-dom';
+// import { useLastLocation } from 'react-router-last-location';
 import firebase from '../../../firebase/FirebaseConnection';
 import { Card, Form, Button } from 'react-bootstrap';
 import { Navigation, SectionD, Footer } from '../../molecules';
@@ -9,11 +11,12 @@ const db = firebase.firestore();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 const faceProvider = new firebase.auth.FacebookAuthProvider();
 
-export default function Auth() {
+export default function Auth({ authUser, logoutUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState('Entre ou cadastre-se');
   const [user, setUser] = useState(null);
+  // const lastLocation = useLastLocation();
 
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -21,8 +24,14 @@ export default function Auth() {
       setUser(user);
       setEmail('');
       setPassword('');
+      localStorage.setItem('userID', JSON.stringify({ userID: user.uid }));
+      authUser(user.uid);
     }
   });
+
+  // if (user) {
+  //   if (lastLocation) return <Redirect to={lastLocation.pathname} />;
+  // }
 
   const signup = () => {
     firebase
@@ -62,6 +71,9 @@ export default function Auth() {
     setUser(null);
     setEmail('');
     setPassword('');
+    localStorage.removeItem('userID');
+    logoutUser();
+    window.location = '/auth';
   };
 
   const socialLogin = provider => {
@@ -80,7 +92,7 @@ export default function Auth() {
           });
       })
       .catch(error => {
-        console.log(error.message);
+        setStatus(error.message);
       });
   };
 

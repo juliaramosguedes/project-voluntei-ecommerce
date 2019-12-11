@@ -1,24 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import firebase from '../../../firebase/FirebaseConnection';
-import {
-  Navigation,
-  SectionA,
-  SectionB,
-  SectionC,
-  SectionD,
-  Footer,
-} from '../../molecules';
-import './Home.css';
+import './Cart.css';
 
-export default function Home() {
+export default function Cart() {
   const db = firebase.firestore();
   const [products, setProducts] = useState({});
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    db.collection('products').onSnapshot(snapshot => {
-      snapshot.forEach(doc => {
-        console.log(products)
+    db.collection('products').onSnapshot((snapshot) => {
+      snapshot.forEach((doc) => {
         const { id } = doc;
         products[id] = doc.data();
         setProducts(products);
@@ -39,18 +30,13 @@ export default function Home() {
 
   return (
     <div>
-      {loaded ? (
-        <>
-          <Navigation />
-          <SectionA />
-          <SectionB product={tshirt} />
-          <SectionC products={products} />
-          <SectionD />
-          <Footer />
-        </>
-      ) : (
-        <h1>Carregando...</h1>
-      )}
+      {
+        loaded
+          ? <>
+            <h1>Carregado!!!</h1>
+          </>
+          : <h1>Carregando...</h1>
+      }
     </div>
   );
 }
