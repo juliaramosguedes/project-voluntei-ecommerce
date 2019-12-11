@@ -60,7 +60,7 @@ const Footer = () => (
               <ul className="list-unstyled">
                 <li>
                   <a className="footer-links" href="/">
-                    Políticas de troca e arrependimento
+                    Política de trocas
                   </a>
                 </li>
                 <li>

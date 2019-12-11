@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-// import { Redirect } from 'react-router-dom';
-// import { useLastLocation } from 'react-router-last-location';
+import { Redirect } from 'react-router-dom';
+import { useLastLocation } from 'react-router-last-location';
 import firebase from '../../../firebase/FirebaseConnection';
 import { Card, Form, Button } from 'react-bootstrap';
 import { Navigation, SectionD, Footer } from '../../molecules';
@@ -16,7 +16,7 @@ export default function Auth({ authUser, logoutUser }) {
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState('Entre ou cadastre-se');
   const [user, setUser] = useState(null);
-  // const lastLocation = useLastLocation();
+  const lastLocation = useLastLocation();
 
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -29,9 +29,9 @@ export default function Auth({ authUser, logoutUser }) {
     }
   });
 
-  // if (user) {
-  //   if (lastLocation) return <Redirect to={lastLocation.pathname} />;
-  // }
+  if (user) {
+    if (lastLocation) return <Redirect to={lastLocation.pathname} />;
+  }
 
   const signup = () => {
     firebase
@@ -102,9 +102,7 @@ export default function Auth({ authUser, logoutUser }) {
 
       <div className="authentication-container">
         <Card className="authentication-card">
-          {/* <Card style={{ width: '18rem' }}> */}
           <Card.Body>
-            {/* <h1>Seja bem vindo</h1> */}
             <h3>{status}</h3>
             <div className="teste6">
               <label>E-mail: </label>
