@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardDeck, Button } from 'react-bootstrap';
 import firebase from '../../../firebase/FirebaseConnection';
-import { Navigation, SectionD, Footer } from '../../molecules';
+import { SectionD } from '../../molecules';
 import { shirtBig } from '../../../images';
 import './Product.css';
 
@@ -45,7 +45,6 @@ export default function Product({ match }) {
       {loaded ? (
         <>
           <div className="product-page">
-            <Navigation />
             <div className="product-container">
               <CardDeck className="product-card-deck">
                 <Card className="product-left">
@@ -69,7 +68,6 @@ export default function Product({ match }) {
               </CardDeck>
             </div>
             <SectionD />
-            <Footer />
           </div>
         </>
       ) : (

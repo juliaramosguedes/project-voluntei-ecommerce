@@ -61,3 +61,8 @@
   font-weight: bold;
   margin-bottom: 0px;
 }
+
+.sectionC-card-button {
+  background-color: rgb(30, 30, 30);
+  color: white;
+}

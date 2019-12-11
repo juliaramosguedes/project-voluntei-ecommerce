@@ -98,8 +98,6 @@ export default function Auth({ authUser, logoutUser }) {
 
   return (
     <div className="authentication-page">
-      <Navigation />
-
       <div className="authentication-container">
         <Card className="authentication-card">
           {/* <Card style={{ width: '18rem' }}> */}
@@ -142,7 +140,6 @@ export default function Auth({ authUser, logoutUser }) {
         </Card>
       </div>
       <SectionD />
-      <Footer />
     </div>
   );
 }
