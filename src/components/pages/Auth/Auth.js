@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useLastLocation } from 'react-router-last-location';
+import { Card } from 'react-bootstrap';
 import firebase from '../../../firebase/FirebaseConnection';
-import { Card, Form, Button } from 'react-bootstrap';
-import { Navigation, SectionD, Footer } from '../../molecules';
+import { SectionD } from '../../molecules';
 import './Auth.css';
 
 firebase.auth().languageCode = 'pt';
@@ -44,10 +44,8 @@ export default function Auth({ authUser, logoutUser }) {
           .set({ email });
       })
       .catch(error => {
-        if (error.code === 'auth/invalid-email')
-          setStatus('Endereço de e-mail inválido.');
-        if (error.code === 'auth/weak-password')
-          setStatus('Crie uma senha mais forte');
+        if (error.code === 'auth/invalid-email') setStatus('Endereço de e-mail inválido.');
+        if (error.code === 'auth/weak-password') setStatus('Crie uma senha mais forte');
         console.log(error.message);
       });
   };
@@ -98,8 +96,6 @@ export default function Auth({ authUser, logoutUser }) {
 
   return (
     <div className="authentication-page">
-      <Navigation />
-
       <div className="authentication-container">
         <Card className="authentication-card">
           <Card.Body>
@@ -140,7 +136,6 @@ export default function Auth({ authUser, logoutUser }) {
         </Card>
       </div>
       <SectionD />
-      <Footer />
     </div>
   );
 }

@@ -18,7 +18,6 @@ export default function Home() {
   useEffect(() => {
     db.collection('products').onSnapshot(snapshot => {
       snapshot.forEach(doc => {
-        console.log(products)
         const { id } = doc;
         products[id] = doc.data();
         setProducts(products);
@@ -41,12 +40,10 @@ export default function Home() {
     <div>
       {loaded ? (
         <>
-          <Navigation />
           <SectionA />
           <SectionB product={tshirt} />
           <SectionC products={products} />
           <SectionD />
-          <Footer />
         </>
       ) : (
         <h1>Carregando...</h1>

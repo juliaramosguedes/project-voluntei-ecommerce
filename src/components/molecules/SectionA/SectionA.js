@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardDeck, Button } from 'react-bootstrap';
-import { beeYellow } from '../../../images';
+import { Card, CardDeck } from 'react-bootstrap';
+// import { beeYellow } from '../../../images';
 import './SectionA.css';
 
 const SectionA = () => (
@@ -15,7 +15,7 @@ const SectionA = () => (
         </Card.Body>
       </Card>
       <Card className="cardA-right">
-        <Card.Img variant="top" src={beeYellow} />
+        <Card.Img variant="top" src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FbeeYellow.jpg?alt=media&token=df4d5e97-786e-42eb-8cc3-7a231753bfee" />
       </Card>
     </CardDeck>
   </div>

@@ -1,13 +1,12 @@
 import React from 'react';
-import { Navigation, Footer, PayPal } from '../../molecules';
+import { PayPal, Reblocks } from '../../molecules';
 import './Payments.css';
 
-export default function Payments() {
+export default function Payments({ history }) {
   return (
     <div>
-      <Navigation />
       <PayPal />
-      <Footer />
+      <Reblocks history={history} />
     </div>
   );
 }
