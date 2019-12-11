@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Card, Button } from 'react-bootstrap';
 
 export default ({ product }) => {
-  localStorage.removeItem('cart');
-  // const currCart = localStorage.getItem('cart');
-  // let shopping = false;
-  // if (currCart) {
-  //   shopping = JSON.parse(currCart);
-  //   // setCart(shopping.cart);
-  // }
-  const [cart, setCart] = useState([]);
+  // localStorage.removeItem('cart');
+  const currCart = localStorage.getItem('cart');
+  let shopping = false;
+  if (currCart) {
+    shopping = JSON.parse(currCart);
+    // setCart(shopping.cart);
+  }
+  const [cart, setCart] = shopping ? useState(shopping.cart) : useState({});
 
   const cartProduct = {
     name: product.name,
@@ -19,16 +19,16 @@ export default ({ product }) => {
   };
 
   const addToCart = () => {
-    // cart[product.name] = cartProduct;
-    cart.push(cartProduct);
+    cart[product.name] = cartProduct;
+    // cart.push(cartProduct);
     setCart(cart);
+    localStorage.setItem('cart', JSON.stringify({ cart }));
     console.log(cart);
   };
-  
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify({ cart }));
-  }, [cart]);
 
+  // useEffect(() => {
+  //   console.log(cart);
+  // }, []);
   // console.log(cart);
 
   return (
