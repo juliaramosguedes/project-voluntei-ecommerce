@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import firebase from '../../../firebase/FirebaseConnection';
-import { Navigation, SectionA, SectionB, Footer } from '../../molecules';
+import {
+  Navigation,
+  SectionA,
+  SectionB,
+  SectionC,
+  SectionD,
+  Footer,
+} from '../../molecules';
 import './Home.css';
 
 export default function Home() {
@@ -9,8 +16,9 @@ export default function Home() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    db.collection('products').onSnapshot((snapshot) => {
-      snapshot.forEach((doc) => {
+    db.collection('products').onSnapshot(snapshot => {
+      snapshot.forEach(doc => {
+        console.log(products)
         const { id } = doc;
         products[id] = doc.data();
         setProducts(products);
@@ -31,16 +39,18 @@ export default function Home() {
 
   return (
     <div>
-      {
-        loaded
-          ? <>
-            <Navigation />
-            <SectionA />
-            <SectionB />
-            <Footer />
-          </>
-          : <h1>Carregando...</h1>
-      }
+      {loaded ? (
+        <>
+          <Navigation />
+          <SectionA />
+          <SectionB product={tshirt} />
+          <SectionC products={products} />
+          <SectionD />
+          <Footer />
+        </>
+      ) : (
+        <h1>Carregando...</h1>
+      )}
     </div>
   );
 }

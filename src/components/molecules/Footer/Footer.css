@@ -1,20 +1,66 @@
-.footer {
+.footer-container {
   background-color: rgb(30, 30, 30);
   color: rgb(235, 246, 255);
   padding: 50px;
+}
+
+.footer {
   display: flex;
   justify-content: center;
 }
 
 .footer-card {
   background-color: rgb(30, 30, 30);
-  width: 300px;
+  min-width: 340px;
   border: none;
   line-height: 2;
-  font-size: 16px;
+  font-size: 0.9rem;
+  /* border: 2px solid rgb(241, 209, 15); */
+  margin: 30px !important;
 }
 
 .footer-card-title {
   font-weight: bold;
   font-size: 20px;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+
+.footer-social-media-list {
+  display: flex;
+}
+
+.footer-social-media {
+  height: 30px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.footer-payments-container {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-credit-cards-list {
+  /* display: flex; */
+  justify-content: center;
+  display: flex;
+  flex-flow: row wrap; 
+  align-items: stretch;
+}
+
+.footer-credit-cards {
+  height: 30px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.footer-links {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links:hover {
+  color: white;
+  cursor: pointer;
 }

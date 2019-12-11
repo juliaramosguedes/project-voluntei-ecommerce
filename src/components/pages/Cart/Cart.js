@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import firebase from '../../../firebase/FirebaseConnection';
-import './Chart.css';
+import './Cart.css';
 
-export default function Chart() {
+export default function Cart() {
   const db = firebase.firestore();
   const [products, setProducts] = useState({});
   const [loaded, setLoaded] = useState(false);

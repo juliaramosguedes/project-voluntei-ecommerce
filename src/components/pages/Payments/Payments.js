@@ -1,10 +1,13 @@
 import React from 'react';
-import PayPal from '../../molecules/PayPal';
+import { Navigation, Footer, PayPal } from '../../molecules';
+import './Payments.css';
 
 export default function Payments() {
-  return(
+  return (
     <div>
+      <Navigation />
       <PayPal />
+      <Footer />
     </div>
   );
 }

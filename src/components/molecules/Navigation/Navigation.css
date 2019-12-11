@@ -1,16 +1,47 @@
-.Navigation {
-  background-color: rgb(241, 209, 15) !important;
-  color: rgb(30, 30, 30) !important;
-  /* position: fixed; */
- }
-
-
-.NavLinks {
-  background-color: rgb(241, 209, 15) !important;
-  color: rgb(30, 30, 30) !important;
+.navigation-container {
+  background-color: rgb(241, 209, 15);
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
 }
 
-.Logo {
-  height: 50px;
-  width: 50px;
+.navigation {
+  background-color: rgb(241, 209, 15) !important;
+  color: rgb(30, 30, 30);
+  width: 1600px;
+  max-width: 2000px;
+  padding: 0 10%;
+
+  /* border-bottom: 2px solid rgb(232, 166, 6); */
+  /* border-bottom: 2px solid rgb(30, 30, 30); */
+}
+
+.nav-links {
+  background-color: rgb(241, 209, 15);
+  color: rgb(30, 30, 30);
+}
+
+/* .nav-logo-bee {
+  height: 0px;
+  width: 0px;
+} */
+
+.nav-logo-voluntei {
+  height: 0px;
+  width: 0px;
+}
+
+.nav-logo {
+  height: 80px;
+  width: auto;
+}
+
+.navigation-buttons-icons {
+  border: none;
+  padding: 0px 10px;
+}
+
+.navigation-icons {
+  height: 30px;
+  width: auto;
 }
