@@ -10,6 +10,7 @@ export default () => {
   if (id) {
     user = JSON.parse(id);
   }
+
   const [userID, setUserID] = useState(user.userID);
 
   const authUser = (userInfo) => {
@@ -20,11 +21,25 @@ export default () => {
     setUserID(false);
   };
 
+  const currCart = localStorage.getItem('cart');
+  let shopping = false;
+  if (currCart) {
+    shopping = JSON.parse(currCart);
+  }
+
+  const [cart, setCart] = shopping ? useState(shopping.cart) : useState({});
+
+  const addToCart = (product) => {
+    cart[product.name] = product;
+    setCart(cart);
+    localStorage.setItem('cart', JSON.stringify({ cart }));
+  };
+
   return (
     <BrowserRouter>
       <LastLocationProvider>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={props => <Home {...props} addToCart={addToCart} />} />
           <Route exact path="/auth" render={props => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
           <Route exact path="/product/:productID" component={Product} />
           <Route exact path="/cart" component={Cart} />
