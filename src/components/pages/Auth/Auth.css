@@ -1,7 +1,16 @@
+.authentication-page {
+  background-color: rgb(235, 246, 255);
+  /* display: flex;
+  justify-content: center; */
+  /* border: 2px solid blue; */
+}
+
 .authentication-container {
-  /* background-color: rgb(235, 246, 255); */
+  background-color: rgb(235, 246, 255);
   display: flex;
   justify-content: center;
+  /* border: 2px solid red; */
+  /* height: 60vh; */
 }
 
 .authentication-card {
@@ -9,4 +18,86 @@
   width: 600px;
   border: 1px solid rgb(30, 30, 30);
   border-radius: none;
+}
+
+.authentication-status {
+  font-size: 1.6rem;
+  /* text-transform: uppercase; */
+}
+
+.authentication-labels {
+  font-size: 0.9rem;
+  padding-top: 10px;
+  margin-bottom: 4px;
+}
+
+.authentication-buttons {
+  background-color: rgb(30, 30, 30);
+  color: white;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.authentication-google {
+  /* background-color: #21538d; */
+  background-color: rgb(66, 133, 244);
+  margin-top: 10px !important;
+  height: 45px;
+  margin: 30px 0px 0px!important;
+}
+
+.authentication-google,
+.authentication-google:active,
+.authentication-google:focus,
+.authentication-google:hover {
+  border: none !important;
+  outline: none !important;
+  background-color: rgb(66, 133, 244);
+   
+}
+
+.authentication-facebook {
+  border: none !important;
+  outline: none !important;
+  background-color: rgb(58, 85, 159) !important;
+  height: 45px;
+  margin: 20px 0px;
+}
+
+.authentication-facebook,
+.authentication-facebook:active,
+.authentication-facebook:focus,
+.authentication-facebook:hover {
+  border: none !important;
+  outline: none !important;
+  background-color: rgb(58, 85, 159) !important;
+}
+
+.authentication-google-container, .authentication-facebook-container {
+  display: flex;
+  /* justify-content: space-between; */
+  /* height: 40px; */
+
+}
+
+.authentication-google-container-right, .authentication-facebook-container-right {
+display: flex;
+justify-content: center !important;
+width: 100%;
+}
+
+.authentication-google-container > img, .authentication-facebook-container > img {
+  height: 30px;
+  width: auto;
+  border-right: 2px solid ;
+}
+
+.authentication-facebook-container > img {
+border-right: 2px solid rgb(50, 74, 138);
+padding-right: 5px;
+}
+
+hr {
+  margin-top: 40px;
+  /* border: 1px solid rgb(241, 209, 15); */
 }

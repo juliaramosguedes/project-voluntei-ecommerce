@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Spinner } from 'react-bootstrap';
 import firebase from '../../../firebase/FirebaseConnection';
 import {
   Navigation,
@@ -46,7 +47,12 @@ export default function Home() {
           <SectionD />
         </>
       ) : (
-        <h1>Carregando...</h1>
+        <>
+          <h1>Carregando...</h1>
+          <Spinner animation="border" role="status" variant="warning">
+            <span className="sr-only">Carregando...</span>
+          </Spinner>
+        </>
       )}
     </div>
   );
