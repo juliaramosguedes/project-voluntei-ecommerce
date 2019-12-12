@@ -1,42 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import firebase from '../../../firebase/FirebaseConnection';
 import './Cart.css';
+import { CartProduct } from '../../molecules';
 
-export default function Cart() {
-  const db = firebase.firestore();
-  const [products, setProducts] = useState({});
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    db.collection('products').onSnapshot((snapshot) => {
-      snapshot.forEach((doc) => {
-        const { id } = doc;
-        products[id] = doc.data();
-        setProducts(products);
-      });
-      setLoaded(true);
-    });
-  }, []);
-
-  const { ecobag, stickers, tshirt, notebook } = products;
-
-  // example of product:
-  // ecobag.image
-  // ecobag.description
-  // ecobag.name
-  // ecobag.quantity
-  // ecobag.status
-  // ecobag.price
+export default function Cart({ cart, addToCart }) {
+  console.log(cart);
 
   return (
     <div>
-      {
-        loaded
-          ? <>
-            <h1>Carregado!!!</h1>
-          </>
-          : <h1>Carregando...</h1>
-      }
+      <h1>cart</h1>
+      {Object.keys(cart).map(key => (
+        <CartProduct product={cart[key]} addToCart={addToCart} />
+      ))}
     </div>
   );
 }

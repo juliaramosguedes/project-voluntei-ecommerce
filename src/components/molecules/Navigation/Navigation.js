@@ -49,10 +49,10 @@ const Navigation = () => (
           <a href="/" className="navigation-buttons-icons">
             <Image className="navigation-icons" src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FmagnifyingGlass.svg?alt=media&token=767a0fbd-1ed8-4448-90cb-74a90070f46b" rounded />
           </a>
-          <a href="/auth" className="navigation-buttons-icons">
+          <a href="/user" className="navigation-buttons-icons">
             <Image className="navigation-icons" src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FprofileUser.svg?alt=media&token=4773f261-845a-4ea0-bc88-1aa53cbf796a" rounded />
           </a>
-          <a href="/payments" className="navigation-buttons-icons">
+          <a href="/cart" className="navigation-buttons-icons">
             <Image className="navigation-icons" src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FshoppingCart.svg?alt=media&token=99713b56-bdd1-4789-a00f-1695b39a9b20" rounded />
           </a>
         </Form>

@@ -35,6 +35,10 @@ export default () => {
     localStorage.setItem('cart', JSON.stringify({ cart }));
   };
 
+  // const editCart = (cartProducts) => {
+  //   setCart(cartProducts);
+  // }
+
   return (
     <BrowserRouter>
       <LastLocationProvider>
@@ -42,7 +46,7 @@ export default () => {
           <Route exact path="/" render={props => <Home {...props} addToCart={addToCart} />} />
           <Route exact path="/auth" render={props => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
           <Route exact path="/product/:productID" component={Product} />
-          <Route exact path="/cart" component={Cart} />
+          <Route exact path="/cart" render={props => <Cart {...props} addToCart={addToCart} cart={cart} />} />
           <PrivateRoute exact path="/user" component={User} userID={userID} />
           <PrivateRoute exact path="/payments" component={Payments} userID={userID} />
         </Switch>

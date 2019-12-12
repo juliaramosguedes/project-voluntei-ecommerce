@@ -7,3 +7,4 @@ export { default as Footer } from './Footer';
 export { default as PayPal } from './PayPal';
 export { default as ProductCard } from './ProductCard';
 export { default as Reblocks } from './Reblocks';
+export { default as CartProduct } from './CartProduct';
