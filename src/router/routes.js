@@ -30,7 +30,7 @@ export default () => {
   const [cart, setCart] = shopping ? useState(shopping.cart) : useState({});
 
   const addToCart = (product) => {
-    cart[product.name] = product;
+    cart[product.id] = product;
     setCart(cart);
     localStorage.setItem('cart', JSON.stringify({ cart }));
   };
