@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Spinner } from 'react-bootstrap';
 import firebase from '../../../firebase/FirebaseConnection';
+<<<<<<< HEAD
 import {
   SectionA,
   SectionB,
   SectionC,
   SectionD,
 } from '../../molecules';
+=======
+import { SectionA, SectionB, SectionC, SectionD } from '../../molecules';
+>>>>>>> 26f5f524c47bc3bb697c9b37013cccb4043fcab7
 import './Home.css';
 
 export default function Home({ addToCart }) {
@@ -34,7 +39,25 @@ export default function Home({ addToCart }) {
           <SectionD />
         </>
       ) : (
-        <h1>Carregando...</h1>
+        <div className="home-loading">
+          <div>
+            <div className="home-loading-spinner-container">
+              <div>
+                <Spinner
+                  className="home-spinner"
+                  animation="border"
+                  role="status"
+                  variant="warning"
+                >
+                  <span className="sr-only">Carregando...</span>
+                </Spinner>
+              </div>
+            </div>
+            <div className="home-loading-h1">
+              <h1>Carregando...</h1>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

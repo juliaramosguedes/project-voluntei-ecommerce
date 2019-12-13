@@ -5,7 +5,8 @@
   background-color: black;
 }
 
-.cardB-left, .cardB-right {
+.cardB-left,
+.cardB-right {
   border: none;
 }
 
@@ -26,6 +27,6 @@
 }
 
 .sectionB-button {
-  /* background-color: rgb(241, 209, 15);
-  border: 1px solid rgb(241, 209, 15); */
+  background-color: white !important;
+  /* border: 5px solid rgb(241, 209, 15); */
 }

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useLastLocation } from 'react-router-last-location';
-import { Card } from 'react-bootstrap';
 import firebase from '../../../firebase/FirebaseConnection';
 import { SectionD } from '../../molecules';
+import { Card, Form, FormControl, Button } from 'react-bootstrap';
 import './Auth.css';
 
 firebase.auth().languageCode = 'pt';
@@ -15,6 +15,7 @@ export default function Auth({ authUser, logoutUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState('Entre ou cadastre-se');
+
   const [user, setUser] = useState(null);
   const lastLocation = useLastLocation();
 
@@ -97,44 +98,93 @@ export default function Auth({ authUser, logoutUser }) {
   return (
     <div className="authentication-page">
       <div className="authentication-container">
-        <Card className="authentication-card">
+        <Card className="authentication-card shadow-sm">
+          {/* <Card style={{ width: '18rem' }}> */}
           <Card.Body>
-            <h3>{status}</h3>
-            <div className="teste6">
-              <label>E-mail: </label>
-              <input
-                type="text"
+            {/* <h1>Seja bem vindo</h1> */}
+            <h3 className="authentication-status">{status}</h3>
+            <p className="authentication-labels">Preencha os campos abaixo.</p>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Control
+                type="email"
+                placeholder="Endereço de e-mail"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
               />
-              <br />
-              <label>Senha: </label>
-              <input
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword">
+              <Form.Control
                 type="password"
+                placeholder="Senha"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
               />
-              <br />
-              {user ? (
-                <button onClick={logout}>Sair</button>
-              ) : (
-                <div>
-                  <button onClick={login}>Entrar</button>
-                  <button onClick={signup}>Cadastrar</button>
-                  <br />
-                  <button onClick={() => socialLogin(googleProvider)}>
-                    Login com o Google
-                  </button>
-                  <br />
-                  <button onClick={() => socialLogin(faceProvider)}>
-                    Login com o Facebook
-                  </button>
-                </div>
-              )}
-            </div>
+            </Form.Group>
+            {user ? (
+              <Button
+                className="authentication-buttons"
+                variant="dark"
+                onClick={logout}
+              >
+                Sair
+              </Button>
+            ) : (
+              <div>
+                <p className="authentication-labels">Já é cliente?</p>
+
+                <Button
+                  className="authentication-buttons"
+                  variant="dark"
+                  onClick={login}
+                >
+                  Entrar
+                </Button>
+
+                <p className="authentication-labels">Deseja criar uma conta?</p>
+
+                <Button
+                  className="authentication-buttons"
+                  variant="dark"
+                  onClick={signup}
+                >
+                  Cadastrar
+                </Button>
+                <hr></hr>
+                <p className="authentication-labels">
+                  Se preferir, acesse a sua conta por meio dos seguintes canais:
+                  {/* Você também pode entrar com uma destas contas. */}
+                </p>
+
+                <Button
+                  className="authentication-google shadow-sm"
+                  onClick={() => socialLogin(googleProvider)}
+                >
+                  <div className="authentication-google-container">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Fgoogle.png?alt=media&token=f15eb53b-9a5a-45b1-bbdd-fd0d10fd675c" />
+                    <div className="authentication-google-container-right">
+                      <p>Entrar com o Google</p>
+                    </div>
+                  </div>
+                </Button>
+                {/* <hr></hr> */}
+                <Button
+                  className="authentication-facebook shadow-sm"
+                  onClick={() => socialLogin(faceProvider)}
+                >
+                  <div className="authentication-facebook-container">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Ffacebook?alt=media&token=87a95545-33bb-4803-a474-7ecbc8f995b5" />
+                    <div className="authentication-facebook-container-right">
+                      <p>Entrar com o Facebook</p>
+                    </div>
+                  </div>
+                </Button>
+              </div>
+            )}
           </Card.Body>
         </Card>
       </div>
+
       <SectionD />
     </div>
   );
