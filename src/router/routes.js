@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { LastLocationProvider } from 'react-router-last-location';
-import { Home, Payments, Auth, User, Product, Cart } from '../components/pages';
+import {
+  Home, Payments, Auth, User, Product, Cart,
+} from '../components/pages';
 import PrivateRoute from './PrivateRoute';
 
 export default () => {
@@ -36,7 +38,6 @@ export default () => {
     cart[product.id] = product;
     setCart({ ...cart });
     localStorage.setItem('cart', JSON.stringify({ cart }));
-    console.log('chamou addtocart');
   };
 
   const deleteProduct = (product) => {
@@ -45,18 +46,14 @@ export default () => {
     localStorage.setItem('cart', JSON.stringify({ cart }));
   };
 
-  // const editCart = (cartProducts) => {
-  //   setCart(cartProducts);
-  // }
-
   return (
     <BrowserRouter>
       <LastLocationProvider>
         <Switch>
-          <Route exact path="/" render={props => <Home {...props} addToCart={addToCart} />} />
-          <Route exact path="/auth" render={props => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
+          <Route exact path="/" render={(props) => <Home {...props} addToCart={addToCart} />} />
+          <Route exact path="/auth" render={(props) => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
           <Route exact path="/product/:productID" component={Product} />
-          <Route exact path="/cart" render={props => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} />} />
+          <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} />} />
           <PrivateRoute exact path="/user" component={User} userID={userID} />
           <PrivateRoute exact path="/payments" component={Payments} userID={userID} />
         </Switch>

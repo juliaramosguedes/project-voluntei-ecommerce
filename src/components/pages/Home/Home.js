@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import firebase from '../../../firebase/FirebaseConnection';
 import {
-  Navigation,
   SectionA,
   SectionB,
   SectionC,
   SectionD,
-  Footer,
 } from '../../molecules';
 import './Home.css';
 
