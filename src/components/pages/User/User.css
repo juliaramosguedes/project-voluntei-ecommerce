@@ -1,0 +1,50 @@
+.user-page {
+  background-color: rgb(235, 246, 255);
+  /* display: flex;
+  justify-content: center; */
+  /* border: 2px solid blue; */
+}
+
+.user-container {
+  background-color: rgb(235, 246, 255);
+  display: flex;
+  justify-content: center;
+  /* border: 2px solid red; */
+  /* height: 60vh; */
+}
+
+.user-title {
+  margin: 20px 0px 30px;
+}
+
+.user-card {
+  margin: 40px 5px;
+  width: 800px;
+  border: 1px solid rgb(30, 30, 30);
+  border-radius: none;
+}
+
+.user-card > h1 {
+  font-size: 1.6rem;
+  color: red !important;
+}
+
+.user-status {
+  font-size: 1.6rem;
+  /* text-transform: uppercase; */
+}
+
+.user-instructions {
+  font-size: 1.2rem;
+  /* padding-top: 10px;
+  margin-bottom: 4px; */
+}
+
+.user-buttons {
+  background-color: rgb(30, 30, 30);
+  color: white;
+  width: 100%;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
