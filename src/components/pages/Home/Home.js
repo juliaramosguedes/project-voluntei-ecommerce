@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import firebase from '../../../firebase/FirebaseConnection';
-import {
-  Navigation,
-  SectionA,
-  SectionB,
-  SectionC,
-  SectionD,
-  Footer,
-} from '../../molecules';
+import { SectionA, SectionB, SectionC, SectionD } from '../../molecules';
 import './Home.css';
 
 export default function Home() {
@@ -47,12 +40,25 @@ export default function Home() {
           <SectionD />
         </>
       ) : (
-        <>
-          <h1>Carregando...</h1>
-          <Spinner animation="border" role="status" variant="warning">
-            <span className="sr-only">Carregando...</span>
-          </Spinner>
-        </>
+        <div className="home-loading">
+          <div>
+            <div className="home-loading-spinner-container">
+              <div>
+                <Spinner
+                  className="home-spinner"
+                  animation="border"
+                  role="status"
+                  variant="warning"
+                >
+                  <span className="sr-only">Carregando...</span>
+                </Spinner>
+              </div>
+            </div>
+            <div className="home-loading-h1">
+              <h1>Carregando...</h1>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

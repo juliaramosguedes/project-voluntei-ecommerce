@@ -124,7 +124,13 @@ export default function Auth({ authUser, logoutUser }) {
               />
             </Form.Group>
             {user ? (
-              <button onClick={logout}>Sair</button>
+              <Button
+                className="authentication-buttons"
+                variant="dark"
+                onClick={logout}
+              >
+                Sair
+              </Button>
             ) : (
               <div>
                 <p className="authentication-labels">Já é cliente?</p>
@@ -149,10 +155,11 @@ export default function Auth({ authUser, logoutUser }) {
                 <hr></hr>
                 <p className="authentication-labels">
                   Se preferir, acesse a sua conta por meio dos seguintes canais:
+                  {/* Você também pode entrar com uma destas contas. */}
                 </p>
 
                 <Button
-                  className="authentication-buttons authentication-google"
+                  className="authentication-google shadow-sm"
                   onClick={() => socialLogin(googleProvider)}
                 >
                   <div className="authentication-google-container">
@@ -164,7 +171,7 @@ export default function Auth({ authUser, logoutUser }) {
                 </Button>
                 {/* <hr></hr> */}
                 <Button
-                  className="authentication-buttons authentication-facebook"
+                  className="authentication-facebook shadow-sm"
                   onClick={() => socialLogin(faceProvider)}
                 >
                   <div className="authentication-facebook-container">
