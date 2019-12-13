@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-// import { Redirect } from 'react-router-dom';
-// import { useLastLocation } from 'react-router-last-location';
+import { Redirect } from 'react-router-dom';
+import { useLastLocation } from 'react-router-last-location';
 import firebase from '../../../firebase/FirebaseConnection';
+import { SectionD } from '../../molecules';
 import { Card, Form, FormControl, Button } from 'react-bootstrap';
-import { Navigation, SectionD, Footer } from '../../molecules';
 import './Auth.css';
 
 firebase.auth().languageCode = 'pt';
@@ -17,7 +17,7 @@ export default function Auth({ authUser, logoutUser }) {
   const [status, setStatus] = useState('Entre ou cadastre-se');
 
   const [user, setUser] = useState(null);
-  // const lastLocation = useLastLocation();
+  const lastLocation = useLastLocation();
 
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -30,9 +30,9 @@ export default function Auth({ authUser, logoutUser }) {
     }
   });
 
-  // if (user) {
-  //   if (lastLocation) return <Redirect to={lastLocation.pathname} />;
-  // }
+  if (user) {
+    if (lastLocation) return <Redirect to={lastLocation.pathname} />;
+  }
 
   const signup = () => {
     firebase
@@ -45,10 +45,8 @@ export default function Auth({ authUser, logoutUser }) {
           .set({ email });
       })
       .catch(error => {
-        if (error.code === 'auth/invalid-email')
-          setStatus('Endereço de e-mail inválido.');
-        if (error.code === 'auth/weak-password')
-          setStatus('Crie uma senha mais forte');
+        if (error.code === 'auth/invalid-email') setStatus('Endereço de e-mail inválido.');
+        if (error.code === 'auth/weak-password') setStatus('Crie uma senha mais forte');
         console.log(error.message);
       });
   };

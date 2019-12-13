@@ -4,7 +4,7 @@ import firebase from '../../../firebase/FirebaseConnection';
 import { SectionA, SectionB, SectionC, SectionD } from '../../molecules';
 import './Home.css';
 
-export default function Home() {
+export default function Home({ addToCart }) {
   const db = firebase.firestore();
   const [products, setProducts] = useState({});
   const [loaded, setLoaded] = useState(false);
@@ -20,23 +20,13 @@ export default function Home() {
     });
   }, []);
 
-  const { ecobag, stickers, tshirt, notebook } = products;
-
-  // example of product:
-  // ecobag.image
-  // ecobag.description
-  // ecobag.name
-  // ecobag.quantity
-  // ecobag.status
-  // ecobag.price
-
   return (
     <div>
       {loaded ? (
         <>
           <SectionA />
-          <SectionB product={tshirt} />
-          <SectionC products={products} />
+          <SectionB product={products.tshirt} />
+          <SectionC products={products} addToCart={addToCart} />
           <SectionD />
         </>
       ) : (
