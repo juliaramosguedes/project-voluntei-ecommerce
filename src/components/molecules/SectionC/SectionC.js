@@ -1,22 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardDeck, Button } from 'react-bootstrap';
-// import { shirtBig } from '../../../images';
-import { ecobagBig } from '../../../images';
-import { notebookBig } from '../../../images';
-import { stickersBig } from '../../../images';
-import { shirtBig } from '../../../images';
 import './SectionC.css';
-
-// const { ecobag, stickers, tshirt, notebook } = products;
-
-// example of product:
-// ecobag.image
-// ecobag.description
-// ecobag.name
-// ecobag.quantity
-// ecobag.status
-// ecobag.price
 
 const Product = ({ product }) => (
   <Card className="sectionC-cards shadow p-3 mb-5 bg-white rounded">

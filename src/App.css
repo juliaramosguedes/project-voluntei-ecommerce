@@ -13,7 +13,26 @@ body,
   font-size: 20px;
 }
 
+@font-face {
+  font-family: 'Fredoka One';
+  src: url('./fonts/FredokaOne-Regular.ttf'), format('truetype');
+}
+
 /* ===================================MEDIA QUERY=========================================== */
+
+@media (max-width: 320px) {
+  .authentication-google-container-right,
+  .authentication-facebook-container-right {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .authentication-google-container-right > p,
+  .authentication-facebook-container-right > p {
+    font-size: 16px !important;
+    margin: 4px 0px 0px;
+  }
+}
 
 @media (max-width: 510px) {
   html {
