@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import './Cart.css';
-import { CartProduct, EditUser } from '../../molecules';
+import { CartProduct, EditUser, PayPal, Reblocks } from '../../molecules';
 
 export default function Cart({ cart, addToCart, deleteProduct, userID }) {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -39,7 +39,10 @@ export default function Cart({ cart, addToCart, deleteProduct, userID }) {
             <EditUser userID={userID} />
           </Card.Body>
         </Card>
-        <Link to="/user">Finalizar compra</Link>
+        <h3 className="user-title">Realize o pagamento</h3>
+        <p>Selecione um método de pagamento</p>
+        <PayPal totalPrice={totalPrice} />
+        <Reblocks />
       </>
       :
       <Link to="/auth">Entre ou cadastre-se para continuar</Link>

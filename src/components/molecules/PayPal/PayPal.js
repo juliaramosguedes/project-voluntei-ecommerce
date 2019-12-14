@@ -3,12 +3,13 @@ import './PayPal.css';
 
 import { PayPalButton } from "react-paypal-button-v2";
 
-export default function PayPal() {
+export default function PayPal({ totalPrice }) {
 
   return (
     <div className="paypal-button-style">
       <PayPalButton
-        amount="0.01"
+        amount={totalPrice}
+        currency="USD"
         // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
         onSuccess={(details, data) => {
           alert("Transaction completed by " + details.payer.name.given_name);

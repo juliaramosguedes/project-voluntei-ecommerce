@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useLastLocation } from 'react-router-last-location';
-import { Redirect } from 'react-router-dom';
 import { Form, Button, Col } from 'react-bootstrap';
 import firebase from '../../../firebase/FirebaseConnection';
 
 const db = firebase.firestore();
 
 export default function EditUser({ userID }) {
-  const [status, setStatus] = useState('Conclua seu cadastro.');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [photoURL, setPhotoURL] = useState('');
@@ -33,15 +30,12 @@ export default function EditUser({ userID }) {
             setEmail(data.email);
             if (data.name) setName(data.name);
             if (data.photoURL) setPhotoURL(data.photoURL);
+            if (data.phone) setPhone(data.phone);
             if (data.address) setAddress(data.address);
-          } else {
-            setStatus('Usuário não encontrado');
           }
         });
     }
   }, []);
-
-  const lastLocation = useLastLocation();
 
   const editProfile = async e => {
     e.preventDefault();
@@ -55,6 +49,7 @@ export default function EditUser({ userID }) {
           email,
           photoURL,
           address,
+          phone,
         });
 
       const currUser = await firebase.auth().currentUser;
@@ -65,16 +60,8 @@ export default function EditUser({ userID }) {
       });
 
       currUser.updateEmail(email);
-
-      setStatus('Cadastro atualizado com sucesso.');
-
-      setTimeout(() => {
-        if (lastLocation) console.log(lastLocation);
-        // <Redirect to="/cart" />
-        if (lastLocation) return <Redirect to={lastLocation.pathname} />;
-      }, 1000);
     } catch (error) {
-      setStatus(error.message);
+      console.log(error.message);
     }
   };
 
@@ -84,7 +71,6 @@ export default function EditUser({ userID }) {
         <Form.Label>Nome</Form.Label>
         <Form.Control
           type="text"
-          // placeholder="Nome"
           value={name}
           onChange={e => setName(e.target.value)}
         />
@@ -93,7 +79,6 @@ export default function EditUser({ userID }) {
         <Form.Label>Endereço de e-mail</Form.Label>
         <Form.Control
           type="text"
-          // placeholder="E-mail"
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
@@ -110,7 +95,6 @@ export default function EditUser({ userID }) {
         <Form.Label>Rua</Form.Label>
         <Form.Control
           type="text"
-          // placeholder="Rua"
           value={address.street}
           onChange={e =>
             setAddress({ ...address, street: e.target.value })
@@ -122,7 +106,6 @@ export default function EditUser({ userID }) {
         <Form.Label>Número</Form.Label>
         <Form.Control
           type="text"
-          // placeholder="Número"
           value={address.number}
           onChange={e =>
             setAddress({ ...address, number: e.target.value })
@@ -133,7 +116,6 @@ export default function EditUser({ userID }) {
         <Form.Label>Complemento</Form.Label>
         <Form.Control
           type="text"
-          // placeholder="Complemento"
           value={address.complement}
           onChange={e =>
             setAddress({ ...address, complement: e.target.value })
@@ -145,7 +127,6 @@ export default function EditUser({ userID }) {
         <Form.Label>Bairro</Form.Label>
         <Form.Control
           type="text"
-          // placeholder="Bairro"
           value={address.neighborhood}
           onChange={e =>
             setAddress({ ...address, neighborhood: e.target.value })
@@ -157,7 +138,6 @@ export default function EditUser({ userID }) {
         <Form.Label>Cidade</Form.Label>
         <Form.Control
           type="text"
-          // placeholder="Cidade"
           value={address.city}
           onChange={e =>
             setAddress({ ...address, city: e.target.value })
