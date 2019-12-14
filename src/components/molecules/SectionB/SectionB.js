@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, CardDeck, Button } from 'react-bootstrap';
-// import { shirtBig } from '../../../images';
+import { Link } from 'react-router-dom';
 import './SectionB.css';
 
-const SectionB = ({product}) => (
+const SectionB = ({ product }) => (
   <div className="sectionB">
     <CardDeck>
       <Card className="cardB-left">
@@ -14,9 +14,11 @@ const SectionB = ({product}) => (
           <Card.Text className="cardB-right-text">
             <h2>Vista a camisa do nosso time!</h2>
             <p>{product.description}</p>
-            <Button className="sectionB-button" variant="light">
-              Saiba mais
-            </Button>
+            <Link to={'/product/'+product.id}>
+              <Button className="sectionB-button" variant="light">
+                Saiba mais
+              </Button>
+            </Link>
           </Card.Text>
         </Card.Body>
       </Card>
