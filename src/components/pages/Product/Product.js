@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Card, CardDeck, Button } from 'react-bootstrap';
 import './Product.css';
 
 
 export default function Product({ match, products, addToCart }) {
   const { productID } = match.params;
-  const [product, setProduct] = useState(products[productID]);
+  const product = products[productID];
 
   const {
     name,
@@ -37,11 +37,11 @@ export default function Product({ match, products, addToCart }) {
                   <p>{description}</p>
                   {
                     product.status ?
-                  <Button className="sectionC-card-button col" variant="dark" onClick={() => addToCart(product)}>
-                    Adicionar ao carrinho
-                  </Button>
-                  :
-                  <Button disabled className="col">Produto indisponível</Button>
+                      <Button className="sectionC-card-button col" variant="dark" onClick={() => addToCart(product)}>
+                        Adicionar ao carrinho
+                      </Button>
+                      :
+                      <Button disabled className="col">Produto indisponível</Button>
                   }
                 </Card.Text>
               </Card.Body>

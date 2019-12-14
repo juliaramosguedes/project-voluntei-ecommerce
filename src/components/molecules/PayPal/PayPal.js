@@ -1,24 +1,19 @@
-import React from 'react'
+import React from 'react';
 import './PayPal.css';
+import { PayPalButton } from 'react-paypal-button-v2';
 
-import { PayPalButton } from "react-paypal-button-v2";
-
-export default function PayPal({ totalPrice, successPayPal }) {
-
+export default function PayPal({ totalPrice, successPayment }) {
   return (
     <div className="paypal-button-style">
       <PayPalButton
         amount={totalPrice}
-        // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
         onSuccess={(details, data) => {
-          // alert("Transaction completed by " + details.payer.name.given_name);
-          successPayPal(data);
-          // OPTIONAL: Call your server to save the transaction
-          return fetch("/paypal-transaction-complete", {
-            method: "post",
+          successPayment(data);
+          return fetch('/paypal-transaction-complete', {
+            method: 'post',
             body: JSON.stringify({
-              orderId: data.orderID
-            })
+              orderId: data.orderID,
+            }),
           });
         }}
         options={{
@@ -26,7 +21,6 @@ export default function PayPal({ totalPrice, successPayPal }) {
           currency: 'BRL',
         }}
       />
-
     </div>
-  )
-};
+  );
+}

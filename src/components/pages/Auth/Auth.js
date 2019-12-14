@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useLastLocation } from 'react-router-last-location';
-import { Card, Form, FormControl, Button } from 'react-bootstrap';
+import { Card, Form, Button } from 'react-bootstrap';
 import firebase from '../../../firebase/FirebaseConnection';
-import { SectionD } from '../../molecules';
 import './Auth.css';
 
 firebase.auth().languageCode = 'pt';
@@ -38,13 +37,13 @@ export default function Auth({ authUser, logoutUser }) {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(result => {
+      .then((result) => {
         setStatus('Usuário cadastrado com sucesso.');
         db.collection('users')
           .doc(result.user.uid)
           .set({ email });
       })
-      .catch(error => {
+      .catch((error) => {
         if (error.code === 'auth/invalid-email') setStatus('Endereço de e-mail inválido.');
         if (error.code === 'auth/weak-password') setStatus('Crie uma senha mais forte');
         console.log(error.message);
@@ -58,7 +57,7 @@ export default function Auth({ authUser, logoutUser }) {
       .then(() => {
         setStatus('Usuário logado com sucesso.');
       })
-      .catch(error => {
+      .catch((error) => {
         if (error.code === 'auth/wrong-password') setStatus('Senha incorreta');
         console.log(error.message);
       });
@@ -72,11 +71,11 @@ export default function Auth({ authUser, logoutUser }) {
     logoutUser();
   };
 
-  const socialLogin = provider => {
+  const socialLogin = (provider) => {
     firebase
       .auth()
       .signInWithPopup(provider)
-      .then(result => {
+      .then((result) => {
         const { uid, email, displayName, photoURL } = result.user;
         setStatus('Usuário cadastrado com sucesso.');
         db.collection('users')
@@ -87,7 +86,7 @@ export default function Auth({ authUser, logoutUser }) {
             photoURL,
           });
       })
-      .catch(error => {
+      .catch((error) => {
         setStatus(error.message);
       });
   };
@@ -96,9 +95,7 @@ export default function Auth({ authUser, logoutUser }) {
     <div className="authentication-page">
       <div className="authentication-container">
         <Card className="authentication-card shadow-sm">
-          {/* <Card style={{ width: '18rem' }}> */}
           <Card.Body>
-            {/* <h1>Seja bem vindo</h1> */}
             <h3 className="authentication-status">{status}</h3>
             <p className="authentication-labels">Preencha os campos abaixo.</p>
             <Form.Group controlId="formBasicEmail">
@@ -106,7 +103,7 @@ export default function Auth({ authUser, logoutUser }) {
                 type="email"
                 placeholder="Endereço de e-mail"
                 value={email}
-                onChange={e => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
 
@@ -115,7 +112,7 @@ export default function Auth({ authUser, logoutUser }) {
                 type="password"
                 placeholder="Senha"
                 value={password}
-                onChange={e => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
             {user ? (
@@ -150,15 +147,13 @@ export default function Auth({ authUser, logoutUser }) {
                 <hr></hr>
                 <p className="authentication-labels">
                   Se preferir, acesse a sua conta por meio dos seguintes canais:
-                  {/* Você também pode entrar com uma destas contas. */}
                 </p>
-
                 <Button
                   className="authentication-google shadow-sm"
                   onClick={() => socialLogin(googleProvider)}
                 >
                   <div className="authentication-google-container">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Fgoogle.png?alt=media&token=f15eb53b-9a5a-45b1-bbdd-fd0d10fd675c" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Fgoogle.png?alt=media&token=f15eb53b-9a5a-45b1-bbdd-fd0d10fd675c" alt="Google" />
                     <div className="authentication-google-container-right">
                       <p>Entrar com o Google</p>
                     </div>
@@ -170,7 +165,7 @@ export default function Auth({ authUser, logoutUser }) {
                   onClick={() => socialLogin(faceProvider)}
                 >
                   <div className="authentication-facebook-container">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Ffacebook?alt=media&token=87a95545-33bb-4803-a474-7ecbc8f995b5" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Ffacebook?alt=media&token=87a95545-33bb-4803-a474-7ecbc8f995b5" alt="Facebook" />
                     <div className="authentication-facebook-container-right">
                       <p>Entrar com o Facebook</p>
                     </div>
@@ -181,8 +176,6 @@ export default function Auth({ authUser, logoutUser }) {
           </Card.Body>
         </Card>
       </div>
-
-      <SectionD />
     </div>
   );
 }
