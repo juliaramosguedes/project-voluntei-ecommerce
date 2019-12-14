@@ -28,16 +28,22 @@ export default function Cart({ cart, addToCart, deleteProduct, userID }) {
       <h3>{totalQty} itens</h3>
       <h3>Preço total: R$ {totalPrice}</h3>
       <Link to="/">Continuar comprando</Link>
-      <Link to="/user">Finalizar</Link>
       {Object.keys(cart).map(key => (
         <CartProduct product={cart[key]} addToCart={addToCart} deleteProduct={deleteProduct} />
-      ))}
-      <Card className="user-card shadow-sm">
-        <Card.Body>
-          <h3 className="user-title">Confira seu cadastro</h3>
-          <EditUser userID={userID} />
-        </Card.Body>
-      </Card>
+        ))}
+      {userID ?
+      <>
+        <Card className="user-card shadow-sm">
+          <Card.Body>
+            <h3 className="user-title">Confira seu cadastro</h3>
+            <EditUser userID={userID} />
+          </Card.Body>
+        </Card>
+        <Link to="/user">Finalizar compra</Link>
+      </>
+      :
+      <Link to="/auth">Entre ou cadastre-se para continuar</Link>
+    }
     </div>
   );
 }
