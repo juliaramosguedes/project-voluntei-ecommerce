@@ -36,13 +36,14 @@
   color: white;
   width: 100%;
   padding-left: 10px;
+  height: 44px;
 }
 
 .authentication-google {
   /* background-color: #21538d; */
   background-color: rgb(66, 133, 244);
   margin-top: 10px !important;
-  height: 45px;
+  height: 44px;
   margin: 30px 0px 0px !important;
   width: 100%;
   padding-left: 10px;
@@ -61,8 +62,8 @@
   border: none !important;
   outline: none !important;
   background-color: rgb(58, 85, 159) !important;
-  height: 45px;
-  margin: 20px 0px;
+  height: 44px;
+  margin: 26px 0px 10px;
   width: 100%;
   padding-left: 10px;
 }
@@ -94,16 +95,16 @@
 .authentication-facebook-container > img {
   height: 30px;
   width: auto;
-  border-right: 2px solid;
-}
-
-.authentication-facebook-container > img {
-  border-right: 1.5px solid rgb(50, 74, 138);
-  padding-right: 5px;
+  border-radius: 0px;
 }
 
 hr {
-  margin-top: 40px;
+  margin: 40px 0px 20px !important;
   /* border: 1px solid rgb(241, 209, 15); */
   /* border: 0.5px solid rgb(30, 30, 30); */
 }
+
+/* .signup {
+  background-color: white;
+  color: rgb(30, 30, 30);
+} */

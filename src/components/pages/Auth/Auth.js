@@ -165,7 +165,7 @@ export default function Auth({ authUser, logoutUser }) {
                   onClick={() => socialLogin(faceProvider)}
                 >
                   <div className="authentication-facebook-container">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Ffacebook?alt=media&token=87a95545-33bb-4803-a474-7ecbc8f995b5" alt="Facebook" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Ffacebook-2-128.png?alt=media&token=7c77ea91-7de0-4d6c-a6f3-6f15406df53d" alt="Facebook" />
                     <div className="authentication-facebook-container-right">
                       <p>Entrar com o Facebook</p>
                     </div>
