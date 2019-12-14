@@ -23,4 +23,4 @@ export default ({ product, addToCart }) => {
       </Link>
     </Card>
   );
-};
+}

@@ -1,0 +1,18 @@
+.cart-page {
+  background-color: rgb(235, 246, 255);
+  /* display: flex;
+  justify-content: center; */
+  /* border: 2px solid blue; */
+}
+
+.cartTESTE {
+  border: 10px solid blue;
+}
+
+.cart-page-left {
+  background-color: pink;
+}
+
+.cart-page-right {
+  background-color: grey;
+}

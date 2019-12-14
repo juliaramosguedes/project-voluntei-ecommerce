@@ -186,7 +186,7 @@ export default function EditUser({ userID }) {
           <Form.Control
             type="text"
             value={address.zip}
-            onChange={e(e) => setAddress({ ...address, zip: e.target.value })}
+            onChange={(e) => setAddress({ ...address, zip: e.target.value })}
           />
         </Form.Group>
         <Form.Group as={Col} md="5" controlId="formGridZip">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './CartProduct.css';
 
 export default function CartProduct({ product, addToCart, deleteProduct }) {
   let { name, quantity, price, stock, status } = product;
@@ -21,36 +22,46 @@ export default function CartProduct({ product, addToCart, deleteProduct }) {
   }, [selectedQty]);
 
   const maxQty = () => {
-    return qtyAvailable.map((qty, idx) => <option value={qty} key={idx}>{qty}</option>);
+    return qtyAvailable.map((qty, idx) => (
+      <option value={qty} key={idx}>
+        {qty}
+      </option>
+    ));
   };
 
-  const changeQty = (e) => {
+  const changeQty = e => {
     setSelectedQty(e.target.value);
     product.quantity = Number(e.target.value);
     addToCart(product);
   };
 
   return (
-    <>
-      {loaded ? 
+    <div className="cart-product-container">
+      {loaded ? (
         <div>
           <h3>{name}</h3>
-          {
-            status ?
-              <>
-                <select name="select" onChange={(e) => changeQty(e)}>
-                  <option value={selectedQty} selected>{selectedQty}</option>
-                  <option disabled value> -- </option>
-                  {maxQty()}
-                </select>
-                <p>R$ {totalPrice}</p>
-              </>
-            : <p>Sem estoque</p>
-          }
+          {status ? (
+            <div>
+              <select name="select" onChange={e => changeQty(e)}>
+                <option value={selectedQty} selected>
+                  {selectedQty}
+                </option>
+                <option disabled value>
+                  {' '}
+                  --{' '}
+                </option>
+                {maxQty()}
+              </select>
+              <p>R$ {totalPrice}</p>
+            </div>
+          ) : (
+            <p>Sem estoque</p>
+          )}
           <button onClick={() => deleteProduct(product)}>Excluir</button>
         </div>
-      : <h1>Carregando...</h1>
-      }
-    </>
+      ) : (
+        <h1>Carregando...</h1>
+      )}
+    </div>
   );
 }
