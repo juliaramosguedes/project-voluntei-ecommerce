@@ -10,7 +10,7 @@ export default function Reblocks({ totalPrice, successPayment }) {
     <>
       <ReblocksPayment
         accountId="xrb_3fb6yqcer7z9rmq3349mh31wr8jjj6y8nwm9kn4nrc7hu3pwmi84a596hj1c"
-        amount={1000000}
+        amount="1"
         onPaymentSuccess={onSuccess}
       />
     </>
