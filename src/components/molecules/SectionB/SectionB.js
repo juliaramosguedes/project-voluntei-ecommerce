@@ -3,7 +3,7 @@ import { Card, CardDeck, Button } from 'react-bootstrap';
 // import { shirtBig } from '../../../images';
 import './SectionB.css';
 
-const SectionB = ({product}) => (
+const SectionB = ({ product }) => (
   <div className="sectionB">
     <CardDeck>
       <Card className="cardB-left">
