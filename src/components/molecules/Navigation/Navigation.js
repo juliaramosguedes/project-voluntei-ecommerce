@@ -11,12 +11,6 @@ import {
   OverlayTrigger,
   Popover,
 } from 'react-bootstrap';
-// import { logoYellowSmall } from '../../../images';
-// import { logoYellowSmallLeft } from '../../../images';
-// import { logoYellowSmallRight } from '../../../images';
-// import { magnifyingGlass } from '../../../images';
-// import { profileUser } from '../../../images';
-// import { shoppingCart } from '../../../images';
 import './Navigation.css';
 
 const Navigation = () => (

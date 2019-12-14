@@ -4,3 +4,4 @@ export { default as Home } from './Home';
 export { default as Payments } from './Payments';
 export { default as Product } from './Product';
 export { default as User } from './User';
+export { default as Error } from './Error';

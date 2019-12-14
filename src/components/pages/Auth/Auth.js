@@ -45,8 +45,10 @@ export default function Auth({ authUser, logoutUser }) {
           .set({ email });
       })
       .catch(error => {
-        if (error.code === 'auth/invalid-email') setStatus('Endereço de e-mail inválido.');
-        if (error.code === 'auth/weak-password') setStatus('Crie uma senha mais forte');
+        if (error.code === 'auth/invalid-email')
+          setStatus('Endereço de e-mail inválido.');
+        if (error.code === 'auth/weak-password')
+          setStatus('Crie uma senha mais forte');
         console.log(error.message);
       });
   };
@@ -181,7 +183,6 @@ export default function Auth({ authUser, logoutUser }) {
           </Card.Body>
         </Card>
       </div>
-
       <SectionD />
     </div>
   );

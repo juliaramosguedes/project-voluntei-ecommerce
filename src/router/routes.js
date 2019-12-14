@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { LastLocationProvider } from 'react-router-last-location';
 import {
-  Home, Payments, Auth, User, Product, Cart,
+  Home, Payments, Auth, User, Product, Cart, Error,
 } from '../components/pages';
 import PrivateRoute from './PrivateRoute';
 import firebase from '../firebase/FirebaseConnection';
@@ -53,7 +53,7 @@ export default () => {
     if (cart[productID].stock === 0) db.collection('products').doc(productID).update({ status: false });
     setCart({});
     localStorage.removeItem('cart');
-  }
+  };
 
   const deleteProduct = (product) => {
     delete cart[product.id];
@@ -71,6 +71,7 @@ export default () => {
           <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} cleanCart={cleanCart} userID={userID} />} />
           <PrivateRoute exact path="/user" component={User} userID={userID} logoutUser={logoutUser} />
           <PrivateRoute exact path="/payments" component={Payments} userID={userID} />
+          <Route component={Error} />
         </Switch>
       </LastLocationProvider>
     </BrowserRouter>
