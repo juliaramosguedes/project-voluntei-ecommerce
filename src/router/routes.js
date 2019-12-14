@@ -8,6 +8,8 @@ import PrivateRoute from './PrivateRoute';
 import firebase from '../firebase/FirebaseConnection';
 
 export default () => {
+  const db = firebase.firestore();
+
   const id = localStorage.getItem('userID');
   let user = false;
   if (id) {
@@ -44,6 +46,15 @@ export default () => {
     localStorage.setItem('cart', JSON.stringify({ cart }));
   };
 
+  const cleanCart = (productID, newStock) => {
+    cart[productID].stock = newStock;
+    setCart({ ...cart });
+    localStorage.setItem('cart', JSON.stringify({ cart }));
+    if (cart[productID].stock === 0) db.collection('products').doc(productID).update({ status: false });
+    setCart({});
+    localStorage.removeItem('cart');
+  }
+
   const deleteProduct = (product) => {
     delete cart[product.id];
     setCart({ ...cart });
@@ -57,7 +68,7 @@ export default () => {
           <Route exact path="/" render={(props) => <Home {...props} addToCart={addToCart} />} />
           <Route exact path="/auth" render={(props) => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
           <Route exact path="/product/:productID" component={Product} />
-          <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} userID={userID} />} />
+          <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} cleanCart={cleanCart} userID={userID} />} />
           <PrivateRoute exact path="/user" component={User} userID={userID} logoutUser={logoutUser} />
           <PrivateRoute exact path="/payments" component={Payments} userID={userID} />
         </Switch>

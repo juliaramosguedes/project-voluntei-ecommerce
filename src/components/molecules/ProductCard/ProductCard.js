@@ -10,12 +10,17 @@ export default ({ product, addToCart }) => {
         <Card.Title className="sectionC-card-title">{product.name}</Card.Title>
         <Card.Text>
           <p>{product.description}</p>
-          <p className="sectionC-card-price">R$ {product.price.toFixed(2)}</p>
+          <p className="sectionC-card-price">R$ {product.price}</p>
         </Card.Text>
       </Card.Body>
+      {
+        product.status ?
       <Button className="sectionC-card-button" variant="dark" onClick={() => addToCart(product)}>
         Adicionar ao carrinho
       </Button>
+      :
+      <Button disabled>Produto indisponível</Button>
+      }
     </Card>
   );
 };
