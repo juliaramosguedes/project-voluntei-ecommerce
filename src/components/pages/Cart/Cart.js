@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardDeck, Button } from 'react-bootstrap';
+import { Card, CardDeck } from 'react-bootstrap';
 import './Cart.css';
 import { CartProduct, EditUser, PayPal } from '../../molecules';
 import firebase from '../../../firebase/FirebaseConnection';
@@ -17,7 +17,7 @@ export default function Cart({ cart, addToCart, deleteProduct, userID, clearCart
     let price = 0;
     let qty = 0;
 
-    Object.values(cart).map(value => {
+    Object.values(cart).map((value) => {
       if (value.status) {
         price += value.price * value.quantity;
         qty += value.quantity;
@@ -105,7 +105,7 @@ export default function Cart({ cart, addToCart, deleteProduct, userID, clearCart
                   <p>Selecione um método de pagamento</p>
                   <PayPal
                     totalPrice={totalPrice}
-                    successPayPal={successPayPal}
+                    successPayment={successPayment}
                   />
                 </Card>
               </CardDeck>
