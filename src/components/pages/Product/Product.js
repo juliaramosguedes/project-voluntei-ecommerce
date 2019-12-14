@@ -6,29 +6,15 @@ import './Product.css';
 export default function Product({ match, products, addToCart }) {
   const { productID } = match.params;
   const product = products[productID];
+  let { name, description, quantity, status, image, price, type, size, stock } = product;
   const [qtyAvailable, setQtyAvailable] = useState([]);
-  const [selectedQty, setSelectedQty] = useState(product.quantity);
-  const [loaded, setLoaded] = useState(false);
-
-  let {
-    name,
-    description,
-    quantity,
-    status,
-    image,
-    price,
-    type,
-    size,
-    stock
-  } = product;
+  const [selectedQty, setSelectedQty] = useState(quantity);
 
   useEffect(() => {
     for (let i = 1; i <= stock; i += 1) {
       qtyAvailable.push(i);
     }
-
     setQtyAvailable(qtyAvailable);
-    setLoaded(true);
   }, []);
   
   const maxQty = () => {
@@ -37,6 +23,11 @@ export default function Product({ match, products, addToCart }) {
 
   const changeQty = (e) => {
     setSelectedQty(e.target.value);
+    product.quantity = Number(e.target.value);
+  };
+
+  const addProduct = () => {
+    addToCart(product);
   };
 
   return (
@@ -66,9 +57,8 @@ export default function Product({ match, products, addToCart }) {
                       <option disabled value> -- </option>
                       {maxQty()}
                     </select>
-                  
                     {
-                      name === 'Camisa' ?
+                      size ?
                       <> 
                         <br/>
                         <label>Selecione o tamanho: </label>
@@ -80,14 +70,25 @@ export default function Product({ match, products, addToCart }) {
                       </>
                         : <></>
                     }
-
-                  <Button 
-                    className="sectionC-card-button col" 
-                    variant="dark" 
-                    onClick={() => addToCart(product)}                  
-                  >
-                    Adicionar ao carrinho
-                  </Button>
+                    {
+                      type ?
+                      <> 
+                        <br/>
+                        <label>Escolha o modelo: </label>
+                        <select>
+                          <option value="Feminino">Feminino</option>
+                          <option value="Masculino">Masculino</option>
+                        </select>
+                      </>
+                        : <></>
+                    }
+                    <Button 
+                      className="sectionC-card-button col" 
+                      variant="dark" 
+                      onClick={() => addProduct(product)}                  
+                    >
+                      Adicionar ao carrinho
+                    </Button>
                   </>
                   :
                   <Button disabled className="col">Produto indisponível</Button>
