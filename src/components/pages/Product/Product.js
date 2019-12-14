@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardDeck, Button } from 'react-bootstrap';
 import './Product.css';
 
@@ -58,7 +58,7 @@ export default function Product({ match, products, addToCart }) {
                   <p>{description}</p>
                   <p>Preço: R${price.toFixed(2)}</p>
                   {
-                    product.status ?
+                    status ?
                   <>
                     <label>Quantidade: </label>
                     <select name="select" onChange={(e) => changeQty(e)}>
