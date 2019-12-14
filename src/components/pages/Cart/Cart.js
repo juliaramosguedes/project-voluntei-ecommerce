@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import './Cart.css';
-import { CartProduct, EditUser, PayPal, Reblocks } from '../../molecules';
+import { CartProduct, EditUser, PayPal } from '../../molecules';
 import firebase from '../../../firebase/FirebaseConnection';
 
-export default function Cart({ cart, addToCart, deleteProduct, userID, cleanCart }) {
+export default function Cart({ cart, addToCart, deleteProduct, userID, clearCart }) {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQty, setTotalQty] = useState(0);
   const [successPurchase, setSuccessPurchase] = useState(false);
@@ -29,7 +29,7 @@ export default function Cart({ cart, addToCart, deleteProduct, userID, cleanCart
   });
 
   useEffect(() => {
-  },[successPurchase]);
+  }, [successPurchase]);
 
   const completePurchase = async () => {
     try {
@@ -37,7 +37,6 @@ export default function Cart({ cart, addToCart, deleteProduct, userID, cleanCart
         .then((doc) => {
           if (doc.exists) {
             const data = doc.data();
-            // if (data.address) setAddress(data.address);
             db.collection('shopping').add({
               userID,
               address: data.address,
@@ -51,7 +50,7 @@ export default function Cart({ cart, addToCart, deleteProduct, userID, cleanCart
             Object.keys(cart).map((key) => {
               const newStock = cart[key].stock - cart[key].quantity;
               db.collection('products').doc(key).update({ stock: newStock });
-              cleanCart(key, newStock);
+              clearCart(key, newStock);
             });
 
             setSuccessPurchase(true);
@@ -62,7 +61,7 @@ export default function Cart({ cart, addToCart, deleteProduct, userID, cleanCart
     }
   }
 
-  const successPayPal = (token) => {
+  const successPayment = (token) => {
     setPaymentToken(token);
     completePurchase();
   }
@@ -78,7 +77,7 @@ export default function Cart({ cart, addToCart, deleteProduct, userID, cleanCart
         <div>
           <h1>Carrinho</h1>
           <h3>{totalQty} itens</h3>
-          <h3>Preço total: R$ {totalPrice}</h3>
+          <h3>Preço total: R$ {totalPrice.toFixed(2).replace('.',',')}</h3>
           <Link to="/">Continuar comprando</Link>
           {Object.keys(cart).map(key => (
             <CartProduct product={cart[key]} addToCart={addToCart} deleteProduct={deleteProduct} />
@@ -93,7 +92,7 @@ export default function Cart({ cart, addToCart, deleteProduct, userID, cleanCart
               </Card>
               <h3 className="user-title">Realize o pagamento</h3>
               <p>Selecione um método de pagamento</p>
-              <PayPal totalPrice={totalPrice} successPayPal={successPayPal} />
+              <PayPal totalPrice={totalPrice} successPayment={successPayment} />
             </>
             :
             <Link to="/auth">Entre ou cadastre-se para continuar</Link>

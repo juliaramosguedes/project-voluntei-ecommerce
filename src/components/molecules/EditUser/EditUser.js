@@ -8,7 +8,6 @@ const db = firebase.firestore();
 export default function EditUser({ userID }) {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-  const [photoURL, setPhotoURL] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState({
     street: '',
@@ -25,12 +24,11 @@ export default function EditUser({ userID }) {
       db.collection('users')
         .doc(userID)
         .get()
-        .then(doc => {
+        .then((doc) => {
           if (doc.exists) {
             const data = doc.data();
             setEmail(data.email);
             if (data.name) setName(data.name);
-            if (data.photoURL) setPhotoURL(data.photoURL);
             if (data.phone) setPhone(data.phone);
             if (data.address) setAddress(data.address);
           }
@@ -38,7 +36,7 @@ export default function EditUser({ userID }) {
     }
   }, []);
 
-  const editProfile = async e => {
+  const editProfile = async (e) => {
     e.preventDefault();
 
     try {
@@ -48,7 +46,6 @@ export default function EditUser({ userID }) {
         .set({
           name,
           email,
-          photoURL,
           address,
           phone,
         });
@@ -57,7 +54,6 @@ export default function EditUser({ userID }) {
 
       currUser.updateProfile({
         displayName: name,
-        photoURL,
       });
 
       currUser.updateEmail(email);
@@ -67,13 +63,13 @@ export default function EditUser({ userID }) {
   };
 
   return (
-    <Form onSubmit={e => editProfile(e)}>
+    <Form onSubmit={(e) => editProfile(e)}>
       <Form.Group controlId="formBasicPassword">
         <Form.Label>Nome</Form.Label>
         <Form.Control
           type="text"
           value={name}
-          onChange={e => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
       </Form.Group>
       <Form.Row>
@@ -82,7 +78,7 @@ export default function EditUser({ userID }) {
           <Form.Control
             type="text"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
         <Form.Group as={Col} md="4" controlId="formBasicPassword">
@@ -90,7 +86,7 @@ export default function EditUser({ userID }) {
           <Form.Control
             type="text"
             value={phone}
-            onChange={e => setPhone(e.target.value)}
+            onChange={(e) => setPhone(e.target.value)}
           />
         </Form.Group>
       </Form.Row>
@@ -100,7 +96,7 @@ export default function EditUser({ userID }) {
           <Form.Control
             type="text"
             value={address.street}
-            onChange={e => setAddress({ ...address, street: e.target.value })}
+            onChange={(e) => setAddress({ ...address, street: e.target.value })}
           />
         </Form.Group>
         <Form.Group as={Col} md="2" controlId="formBasicPassword">
@@ -108,7 +104,7 @@ export default function EditUser({ userID }) {
           <Form.Control
             type="text"
             value={address.number}
-            onChange={e => setAddress({ ...address, number: e.target.value })}
+            onChange={(e) => setAddress({ ...address, number: e.target.value })}
           />
         </Form.Group>
       </Form.Row>
@@ -118,7 +114,7 @@ export default function EditUser({ userID }) {
           <Form.Control
             type="text"
             value={address.complement}
-            onChange={e =>
+            onChange={(e) =>
               setAddress({ ...address, complement: e.target.value })
             }
           />
@@ -129,7 +125,7 @@ export default function EditUser({ userID }) {
           <Form.Control
             type="text"
             value={address.neighborhood}
-            onChange={e =>
+            onChange={(e) =>
               setAddress({ ...address, neighborhood: e.target.value })
             }
           />
@@ -141,14 +137,14 @@ export default function EditUser({ userID }) {
           <Form.Control
             type="text"
             value={address.city}
-            onChange={e => setAddress({ ...address, city: e.target.value })}
+            onChange={(e) => setAddress({ ...address, city: e.target.value })}
           />
         </Form.Group>
         <Form.Group as={Col} md="5" controlId="formGridState">
           <Form.Label>Estado</Form.Label>
           <Form.Control
             as="select"
-            onChange={e => setAddress({ ...address, state: e.target.value })}
+            onChange={(e) => setAddress({ ...address, state: e.target.value })}
           >
             <option>{address.state}</option>
             <option disabled value>
@@ -190,7 +186,7 @@ export default function EditUser({ userID }) {
           <Form.Control
             type="text"
             value={address.zip}
-            onChange={e => setAddress({ ...address, zip: e.target.value })}
+            onChange={e(e) => setAddress({ ...address, zip: e.target.value })}
           />
         </Form.Group>
         <Form.Group as={Col} md="5" controlId="formGridZip">
