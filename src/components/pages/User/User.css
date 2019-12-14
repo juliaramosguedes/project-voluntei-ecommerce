@@ -2,7 +2,47 @@
   background-color: rgb(235, 246, 255);
 }
 
-.user-container {
+.user-exitButton-container {
+  margin: 0 auto !important;
+  flex-direction: row-reverse !important;
+  display: flex !important;
+  justify-content: end !important;
+  max-width: 1200px !important;
+  background-color: rgb(235, 246, 255);
+  border: none !important;
+  /* border: 1px solid red; */
+}
+
+.user-exitButton-wrap {
+  display: flex;
+  justify-content: end;
+  margin: 0 auto !important;
+  flex-direction: row-reverse !important;
+  padding-bottom: 0px !important;
+  /* border: 1px solid blue; */
+}
+
+.user-exitButton {
+  background-color: rgb(235, 246, 255);
+  color: rgb(30, 30, 30);
+  border: none;
+  font-weight: bold;
+  padding-bottom: 0px !important;
+}
+
+.user-exitButton,
+.user-exitButton:active,
+.user-exitButton:focus,
+.user-exitButton:hover {
+  border: none !important;
+  outline: none !important;
+  background-color: rgb(235, 246, 255);
+  color: rgb(30, 30, 30);
+  font-weight: bold;
+  padding-bottom: 0px !important;
+}
+
+.user-card-container {
   background-color: rgb(235, 246, 255);
   display: flex;
   justify-content: center;
@@ -54,6 +94,6 @@
 
 hr {
   margin: 20px 0px;
+  border: 0.5px solid rgb(30, 30, 30);
   /* border: 1px solid rgb(241, 209, 15); */
-  /* border: 0.5px solid rgb(30, 30, 30); */
 }
