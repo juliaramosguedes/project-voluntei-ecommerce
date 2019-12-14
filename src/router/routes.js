@@ -5,6 +5,7 @@ import {
   Home, Payments, Auth, User, Product, Cart,
 } from '../components/pages';
 import PrivateRoute from './PrivateRoute';
+import firebase from '../firebase/FirebaseConnection';
 
 export default () => {
   const id = localStorage.getItem('userID');
@@ -21,6 +22,9 @@ export default () => {
 
   const logoutUser = () => {
     setUserID(false);
+    firebase.auth().signOut();
+    localStorage.removeItem('userID');
+    window.location = '/auth';
   };
 
   const currCart = localStorage.getItem('cart');
@@ -53,8 +57,8 @@ export default () => {
           <Route exact path="/" render={(props) => <Home {...props} addToCart={addToCart} />} />
           <Route exact path="/auth" render={(props) => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
           <Route exact path="/product/:productID" component={Product} />
-          <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} />} />
-          <PrivateRoute exact path="/user" component={User} userID={userID} />
+          <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} userID={userID} />} />
+          <PrivateRoute exact path="/user" component={User} userID={userID} logoutUser={logoutUser} />
           <PrivateRoute exact path="/payments" component={Payments} userID={userID} />
         </Switch>
       </LastLocationProvider>
