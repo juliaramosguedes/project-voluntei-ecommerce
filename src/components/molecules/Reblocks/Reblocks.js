@@ -1,9 +1,9 @@
 import React from 'react';
 import { ReblocksPayment } from 'reblocks';
 
-export default function Reblocks({ totalPrice, successPayPal }) {
+export default function Reblocks({ totalPrice, successPayment }) {
   const onSuccess = (data) => {
-    successPayPal(data);
+    successPayment(data);
   };
 
   return (

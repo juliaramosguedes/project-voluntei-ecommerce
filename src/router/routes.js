@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { LastLocationProvider } from 'react-router-last-location';
 import { Spinner } from 'react-bootstrap';
-import {
-  Home, Payments, Auth, User, Product, Cart,
-} from '../components/pages';
+import { Home, Auth, User, Product, Error, Cart } from '../components/pages';
 import PrivateRoute from './PrivateRoute';
 import firebase from '../firebase/FirebaseConnection';
 import './routes.css';
@@ -14,16 +12,14 @@ export default () => {
   const [products, setProducts] = useState({});
   const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => {
-    db.collection('products').onSnapshot(snapshot => {
-      snapshot.forEach(doc => {
-        const { id } = doc;
-        products[id] = doc.data();
-        setProducts(products);
-      });
-      setLoaded(true);
+  db.collection('products').onSnapshot((snapshot) => {
+    snapshot.forEach(doc => {
+      const { id } = doc;
+      products[id] = doc.data();
+      setProducts(products);
     });
-  }, []);
+    setLoaded(true);
+  });
 
   const id = localStorage.getItem('userID');
   let user = false;
@@ -62,14 +58,14 @@ export default () => {
     window.location = '/cart';
   };
 
-  const cleanCart = (productID, newStock) => {
+  const clearCart = (productID, newStock) => {
     cart[productID].stock = newStock;
     setCart({ ...cart });
     localStorage.setItem('cart', JSON.stringify({ cart }));
     if (cart[productID].stock === 0) db.collection('products').doc(productID).update({ status: false });
     setCart({});
     localStorage.removeItem('cart');
-  }
+  };
 
   const deleteProduct = (product) => {
     delete cart[product.id];
@@ -86,9 +82,9 @@ export default () => {
                   <Route exact path="/" render={(props) => <Home {...props} addToCart={addToCart} products={products} />} />
                   <Route exact path="/auth" render={(props) => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
                   <Route exact path="/product/:productID" render={(props) => <Product {...props} addToCart={addToCart} products={products} />} />
-                  <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} cleanCart={cleanCart} userID={userID} />} />
+                  <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} clearCart={clearCart} userID={userID} />} />
                   <PrivateRoute exact path="/user" component={User} userID={userID} logoutUser={logoutUser} />
-                  <PrivateRoute exact path="/payments" component={Payments} userID={userID} />
+                  <Route component={Error} />
                 </Switch>
               </LastLocationProvider>
             </BrowserRouter>

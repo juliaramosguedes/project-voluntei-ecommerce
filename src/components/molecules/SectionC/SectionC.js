@@ -9,8 +9,8 @@ export default function SectionC({ products, addToCart }) {
       <h3>Lançamentos</h3>
       <div className="sectionC-CardDeck-container">
         <CardDeck className="sectionC-CardDeck">
-          {Object.keys(products).map(key => (
-            <ProductCard product={products[key]} addToCart={addToCart} />
+          {Object.keys(products).map((key, idx) => (
+            <ProductCard product={products[key]} key={idx} addToCart={addToCart} />
           ))}
         </CardDeck>
       </div>
