@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { LastLocationProvider } from 'react-router-last-location';
-import {
-  Home, Payments, Auth, User, Product, Cart, Error,
-} from '../components/pages';
+import { Spinner } from 'react-bootstrap';
+import { Home, Auth, User, Product, Error, Cart } from '../components/pages';
 import PrivateRoute from './PrivateRoute';
 import firebase from '../firebase/FirebaseConnection';
+import './routes.css';
 
 export default () => {
   const db = firebase.firestore();
+  const [products, setProducts] = useState({});
+  const [loaded, setLoaded] = useState(false);
+
+  db.collection('products').onSnapshot((snapshot) => {
+    snapshot.forEach(doc => {
+      const { id } = doc;
+      products[id] = doc.data();
+      setProducts(products);
+    });
+    setLoaded(true);
+  });
 
   const id = localStorage.getItem('userID');
   let user = false;
@@ -44,9 +55,10 @@ export default () => {
     cart[product.id] = product;
     setCart({ ...cart });
     localStorage.setItem('cart', JSON.stringify({ cart }));
+    window.location = '/cart';
   };
 
-  const cleanCart = (productID, newStock) => {
+  const clearCart = (productID, newStock) => {
     cart[productID].stock = newStock;
     setCart({ ...cart });
     localStorage.setItem('cart', JSON.stringify({ cart }));
@@ -62,18 +74,41 @@ export default () => {
   };
 
   return (
-    <BrowserRouter>
-      <LastLocationProvider>
-        <Switch>
-          <Route exact path="/" render={(props) => <Home {...props} addToCart={addToCart} />} />
-          <Route exact path="/auth" render={(props) => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
-          <Route exact path="/product/:productID" component={Product} />
-          <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} cleanCart={cleanCart} userID={userID} />} />
-          <PrivateRoute exact path="/user" component={User} userID={userID} logoutUser={logoutUser} />
-          <PrivateRoute exact path="/payments" component={Payments} userID={userID} />
-          <Route component={Error} />
-        </Switch>
-      </LastLocationProvider>
-    </BrowserRouter>
+    <div>
+      {loaded ? (
+        <BrowserRouter>
+              <LastLocationProvider>
+                <Switch>
+                  <Route exact path="/" render={(props) => <Home {...props} addToCart={addToCart} products={products} />} />
+                  <Route exact path="/auth" render={(props) => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
+                  <Route exact path="/product/:productID" render={(props) => <Product {...props} addToCart={addToCart} products={products} />} />
+                  <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} clearCart={clearCart} userID={userID} />} />
+                  <PrivateRoute exact path="/user" component={User} userID={userID} logoutUser={logoutUser} />
+                  <Route component={Error} />
+                </Switch>
+              </LastLocationProvider>
+            </BrowserRouter>
+      ) : (
+        <div className="home-loading">
+          <div>
+            <div className="home-loading-spinner-container">
+              <div>
+                <Spinner
+                  className="home-spinner"
+                  animation="border"
+                  role="status"
+                  variant="warning"
+                >
+                  <span className="sr-only">Carregando...</span>
+                </Spinner>
+              </div>
+            </div>
+            <div className="home-loading-h1">
+              <h1>Carregando...</h1>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };

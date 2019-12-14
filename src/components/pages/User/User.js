@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
 import firebase from '../../../firebase/FirebaseConnection';
 import { EditUser } from '../../molecules';
 import './User.css';
 
-const db = firebase.firestore();
-
 export default function User({ userID, logoutUser }) {
   const deleteProfile = async () => {
     try {
-      // await db.collection('users').doc(user.uid).delete();
       await firebase.auth().currentUser.delete();
       logoutUser();
     } catch (error) {

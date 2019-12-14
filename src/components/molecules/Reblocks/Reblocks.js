@@ -1,10 +1,9 @@
 import React from 'react';
 import { ReblocksPayment } from 'reblocks';
 
-export default function Reblocks({ history }) {
+export default function Reblocks({ totalPrice, successPayment }) {
   const onSuccess = (data) => {
-    console.log(data.token, data.status)
-    history.push('/paymentSuccess');
+    successPayment(data);
   };
 
   return (

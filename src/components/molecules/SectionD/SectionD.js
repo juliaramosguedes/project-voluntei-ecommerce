@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Card,
   CardDeck,
@@ -7,38 +7,53 @@ import {
   Button,
 } from 'react-bootstrap';
 import './SectionD.css';
+import firebase from '../../../firebase/FirebaseConnection';
 
-const SectionD = () => (
-  <div className="sectionD">
-    <CardDeck className="sectionD-CardDeck">
-      <Card className="sectionD-cards">
-        <Card.Body className="sectionD-cards-body">
-          <Card.Title className="sectionD-card-title">
-            <h4>
-              Cadastre-se para receber notícias e lançamentos de novos produtos.
-            </h4>
-          </Card.Title >
-        </Card.Body>
-      </Card>
-      <Card className="sectionD-cards">
-        <Card.Body className="sectionD-cards-body">
-          <InputGroup className="mb-3">
-            <FormControl
-              className="sectionD-input"
-              placeholder="E-mail"
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <InputGroup.Append>
-              <Button className="sectionD-button" variant="outline-secondary">
-                Cadastrar
-              </Button>
-            </InputGroup.Append>
-          </InputGroup>
-        </Card.Body>
-      </Card>
-    </CardDeck>
-  </div>
-);
+const db = firebase.firestore();
 
-export default SectionD;
+export default function SectionD() {
+  const [email, setEmail] = useState('');
+
+  const newsletter = () => {
+    db.collection('newsletter').add({
+      email,
+    });
+    setEmail('');
+    alert('E-mail cadastrado com sucesso.');
+  };
+
+  return (
+    <div className="sectionD">
+      <CardDeck className="sectionD-CardDeck">
+        <Card className="sectionD-cards">
+          <Card.Body className="sectionD-cards-body">
+            <Card.Title className="sectionD-card-title">
+              <h4>
+                Cadastre-se para receber notícias e lançamentos de novos produtos.
+              </h4>
+            </Card.Title >
+          </Card.Body>
+        </Card>
+        <Card className="sectionD-cards">
+          <Card.Body className="sectionD-cards-body">
+            <InputGroup className="mb-3">
+              <FormControl
+                className="sectionD-input"
+                placeholder="E-mail"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+              <InputGroup.Append>
+                <Button className="sectionD-button" variant="outline-secondary" onClick={newsletter}>
+                  Cadastrar
+                </Button>
+              </InputGroup.Append>
+            </InputGroup>
+          </Card.Body>
+        </Card>
+      </CardDeck>
+    </div>
+  );
+}

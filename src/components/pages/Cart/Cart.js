@@ -2,16 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardDeck, Button } from 'react-bootstrap';
 import './Cart.css';
-import { CartProduct, EditUser, PayPal, Reblocks } from '../../molecules';
+import { CartProduct, EditUser, PayPal } from '../../molecules';
 import firebase from '../../../firebase/FirebaseConnection';
 
-export default function Cart({
-  cart,
-  addToCart,
-  deleteProduct,
-  userID,
-  cleanCart,
-}) {
+export default function Cart({ cart, addToCart, deleteProduct, userID, clearCart }) {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQty, setTotalQty] = useState(0);
   const [successPurchase, setSuccessPurchase] = useState(false);
@@ -34,7 +28,8 @@ export default function Cart({
     setTotalQty(qty);
   });
 
-  useEffect(() => {}, [successPurchase]);
+  useEffect(() => {
+  }, [successPurchase]);
 
   const completePurchase = async () => {
     try {
@@ -45,7 +40,6 @@ export default function Cart({
         .then(doc => {
           if (doc.exists) {
             const data = doc.data();
-            // if (data.address) setAddress(data.address);
             db.collection('shopping').add({
               userID,
               address: data.address,
@@ -58,10 +52,8 @@ export default function Cart({
 
             Object.keys(cart).map(key => {
               const newStock = cart[key].stock - cart[key].quantity;
-              db.collection('products')
-                .doc(key)
-                .update({ stock: newStock });
-              cleanCart(key, newStock);
+              db.collection('products').doc(key).update({ stock: newStock });
+              clearCart(key, newStock);
             });
 
             setSuccessPurchase(true);
@@ -72,7 +64,7 @@ export default function Cart({
     }
   };
 
-  const successPayPal = token => {
+  const successPayment = (token) => {
     setPaymentToken(token);
     completePurchase();
   };
@@ -88,7 +80,7 @@ export default function Cart({
         <div className="cartTESTE">
           <h1>Carrinho</h1>
           <h3>{totalQty} itens</h3>
-          <h3>Preço total: R$ {totalPrice}</h3>
+          <h3>Preço total: R$ {totalPrice.toFixed(2).replace('.',',')}</h3>
           <Link to="/">Continuar comprando</Link>
           {Object.keys(cart).map(key => (
             <CartProduct
@@ -108,7 +100,6 @@ export default function Cart({
                     </Card.Body>
                   </Card>
                 </Card>
-
                 <Card className="cart-page-right">
                   <h3 className="user-title">Realize o pagamento</h3>
                   <p>Selecione um método de pagamento</p>
