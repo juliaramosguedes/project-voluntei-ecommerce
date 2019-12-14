@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useLastLocation } from 'react-router-last-location';
+import { Card, Form, FormControl, Button } from 'react-bootstrap';
 import firebase from '../../../firebase/FirebaseConnection';
 import { SectionD } from '../../molecules';
-import { Card, Form, FormControl, Button } from 'react-bootstrap';
 import './Auth.css';
 
 firebase.auth().languageCode = 'pt';
@@ -65,14 +65,11 @@ export default function Auth({ authUser, logoutUser }) {
   };
 
   const logout = () => {
-    firebase.auth().signOut();
     setStatus('Usuário deslogado com sucesso');
     setUser(null);
     setEmail('');
     setPassword('');
-    localStorage.removeItem('userID');
     logoutUser();
-    window.location = '/auth';
   };
 
   const socialLogin = provider => {

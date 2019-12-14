@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import firebase from '../../../firebase/FirebaseConnection';
-import { SectionA, SectionB, SectionC, SectionD } from '../../molecules';
+import {
+  SectionA,
+  SectionB,
+  SectionC,
+  SectionD,
+} from '../../molecules';
 import './Home.css';
 
 export default function Home({ addToCart }) {
