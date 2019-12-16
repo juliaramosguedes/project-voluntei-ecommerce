@@ -1,36 +1,53 @@
 .cart-page {
   background-color: rgb(235, 246, 255);
   min-height: 60vh;
-  /* display: flex;
-  justify-content: center; */
+  display: flex;
+  justify-content: center;
   /* border: 2px solid blue; */
+
+  padding: 60px 5px;
+}
+
+.cart-page-container {
+  max-width: 1400px;
+  background-color: rgb(255, 255, 255);
 }
 
 .cartTESTE {
-  border: 10px solid blue;
+  border: 2px solid blue;
   min-height: 800px;
-    /* display: flex;
+  border-radius: 4px;
+  /* display: flex;
   justify-content: center; */
 }
 
 .cart-title {
   text-align: center;
+  /* color: rgb(241, 209, 15); */
+  /* font-family: 'Fredoka One'; */
 }
 
 .cartA-left {
   background-color: blue;
- 
 }
 
 .cartA-right {
-  background-color: green;
+  border: 1px solid green;
+  max-width: 300px;
+  max-height: 340px;
+  background-color: rgb(188, 188, 188);
+}
+
+.cartA-left-body,
+.cartA-right-body {
+  padding: 5px !important;
 }
 
 .cartB-left {
-  background-color: pink;
-  min-height: 800px;
+  /* background-color: pink; */
 }
 
 .cartB-right {
   background-color: grey;
+  max-width: 300px !important;
 }

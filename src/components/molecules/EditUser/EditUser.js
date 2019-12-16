@@ -91,7 +91,7 @@ export default function EditUser({ userID }) {
         </Form.Group>
       </Form.Row>
       <Form.Row>
-        <Form.Group as={Col} md="10" controlId="formBasicPassword">
+        <Form.Group as={Col} md="9" controlId="formBasicPassword">
           <Form.Label>Rua</Form.Label>
           <Form.Control
             type="text"
@@ -99,7 +99,7 @@ export default function EditUser({ userID }) {
             onChange={(e) => setAddress({ ...address, street: e.target.value })}
           />
         </Form.Group>
-        <Form.Group as={Col} md="2" controlId="formBasicPassword">
+        <Form.Group as={Col} md="3" controlId="formBasicPassword">
           <Form.Label>Número</Form.Label>
           <Form.Control
             type="text"

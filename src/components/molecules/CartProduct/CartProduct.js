@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardGroup } from 'react-bootstrap';
+import { Card, CardGroup, Container, Row, Col } from 'react-bootstrap';
 import './CartProduct.css';
 
 export default function CartProduct({ product, addToCart, deleteProduct }) {
@@ -39,48 +39,36 @@ export default function CartProduct({ product, addToCart, deleteProduct }) {
   return (
     <div className="cart-product-container">
       {loaded ? (
-        <div>
-          <CardGroup>
-            <Card className="cart-product-left">
-              <Card.Body>
-                <img className="cart-product-image" src={image} />
-              </Card.Body>
-            </Card>
-            <Card className="cart-product-right">
-              <Card.Body>
-                <h3>{name}</h3>
-                <h3>Preço unitário:</h3>
-                <h3>R$ {price.toFixed(2).replace('.',',')}</h3>
-              </Card.Body>
-            </Card>          
-          <Card className="cart-product-select">
-            <Card.Body>
-      {status ? (
-        <div>
-              <select name="select" onChange={e => changeQty(e)}>
-                <option value={selectedQty} selected>
-                  {selectedQty}
-                </option>
-                <option disabled value>
-                  {' '}
-                  --{' '}
-                </option>
-                   {maxQty()}
-              </select>  
-                <h3>Subtotal:</h3>
-                <p>R$ {totalPrice.toFixed(2).replace('.',',')}</p>
-         
-        </div>
-              
-          ) : (
-            <p>Sem estoque</p>
-          )}
-          <button onClick={() => deleteProduct(product)}>Excluir</button>
-             </Card.Body>
+        // <div>
+        <CardGroup>
+          <Card className="cart-product-left">
+            <img className="cart-product-image" src={image} />
           </Card>
-          </CardGroup>
-        </div>
+          <Card className="cart-product-right">
+            <h2>{name}</h2>
+            <p>Unitário: R$ {price.toFixed(2).replace('.', ',')}</p>
+            {status ? (
+              <div>
+                <div className="cart-product-right-quantity">
+                  <p>Quantidade:</p>
+                  <select name="select" onChange={e => changeQty(e)}>
+                    <option value={selectedQty} selected>
+                      {selectedQty}
+                    </option>
+                    <option disabled value></option>
+                    {maxQty()}
+                  </select>
+                </div>
+                <p>Total: R$ {totalPrice.toFixed(2).replace('.', ',')}</p>
+              </div>
+            ) : (
+              <p>Sem estoque</p>
+            )}
+            <button onClick={() => deleteProduct(product)}>Excluir</button>
+          </Card>
+        </CardGroup>
       ) : (
+        // </div>
         <h1>Carregando...</h1>
       )}
     </div>

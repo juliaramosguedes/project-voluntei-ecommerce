@@ -1,7 +1,26 @@
 .cart-product-container {
   border: 1px solid red;
+  background-color: rgb(255, 255, 255);
+  /* width: 700px; */
+}
+
+.cart-product-left , .cart-product-right {
+  width: 300px !important;
 }
 
 .cart-product-image {
-  height: 200px;
+  width: 100%;
+  height: auto;
+}
+
+.cart-product-right > h2 {
+  font-size: 1.5rem;
+}
+
+.cart-product-right > p {
+  margin: 0px;
+}
+
+.cart-product-right-quantity {
+  display: flex;
 }
