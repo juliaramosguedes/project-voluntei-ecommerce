@@ -36,6 +36,12 @@
   margin-right: 10px;
 }
 
+.instagram {
+  height: 34px;
+  width: auto;
+  margin: 0px 2px 0px -8px;
+}
+
 .footer-payments-container {
   display: flex;
   justify-content: center;

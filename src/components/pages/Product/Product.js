@@ -49,7 +49,7 @@ export default function Product({ match, products, addToCart }) {
                 <Card.Text className="product-right-text">
                   <h2>{name}</h2>
                   <p>{description}</p>
-                  <p>Preço: R${price.toFixed(2)}</p>
+                  <p>Preço: R$ {price.toFixed(2).replace('.',',')}</p>
                   {
                     status ?
                   <>

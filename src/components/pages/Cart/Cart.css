@@ -1,5 +1,6 @@
 .cart-page {
   background-color: rgb(235, 246, 255);
+  min-height: 60vh;
   /* display: flex;
   justify-content: center; */
   /* border: 2px solid blue; */
@@ -7,12 +8,29 @@
 
 .cartTESTE {
   border: 10px solid blue;
+  min-height: 800px;
+    /* display: flex;
+  justify-content: center; */
 }
 
-.cart-page-left {
+.cart-title {
+  text-align: center;
+}
+
+.cartA-left {
+  background-color: blue;
+ 
+}
+
+.cartA-right {
+  background-color: green;
+}
+
+.cartB-left {
   background-color: pink;
+  min-height: 800px;
 }
 
-.cart-page-right {
+.cartB-right {
   background-color: grey;
 }

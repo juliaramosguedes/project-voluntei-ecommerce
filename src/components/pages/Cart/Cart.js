@@ -78,29 +78,41 @@ export default function Cart({ cart, addToCart, deleteProduct, userID, clearCart
         </div>
       ) : (
         <div className="cartTESTE">
-          <h1>Carrinho</h1>
-          <h3>{totalQty} itens</h3>
-          <h3>Preço total: R$ {totalPrice.toFixed(2).replace('.',',')}</h3>
-          <Link to="/">Continuar comprando</Link>
-          {Object.keys(cart).map(key => (
-            <CartProduct
-              product={cart[key]}
-              addToCart={addToCart}
-              deleteProduct={deleteProduct}
-            />
-          ))}
+          <div className="cart-title">
+            <h1>Carrinho</h1>
+          </div>
+          <div className="cartA">
+            <CardDeck>
+              <Card className="cartA-left">
+                <Card.Body>
+                  {Object.keys(cart).map(key => (
+                    <CartProduct
+                      product={cart[key]}
+                      addToCart={addToCart}
+                      deleteProduct={deleteProduct}
+                    />
+                  ))}
+                </Card.Body>
+              </Card>
+              <Card className="cartA-right">
+                <Card.Body>
+                  <h3>{totalQty} itens</h3>
+                  <h3>Preço total da compra: R$ {totalPrice.toFixed(2).replace('.',',')}</h3>
+                  <Link to="/">Continuar comprando</Link>
+                </Card.Body>
+              </Card>
+            </CardDeck>
+          </div>
           {userID ? (
-            <div>
+            <div className="cartB">
               <CardDeck>
-                <Card className="cart-page-left">
-                  <Card className="user-card shadow-sm">
-                    <Card.Body>
-                      <h3 className="user-title">Confira seu cadastro</h3>
-                      <EditUser userID={userID} />
-                    </Card.Body>
-                  </Card>
+                <Card className="cartB-left">
+                  <Card.Body>
+                    <h3 className="user-title">Confira seu cadastro</h3>
+                    <EditUser userID={userID} />
+                  </Card.Body>
                 </Card>
-                <Card className="cart-page-right">
+                <Card className="cartB-right">
                   <h3 className="user-title">Realize o pagamento</h3>
                   <p>Selecione um método de pagamento</p>
                   <PayPal

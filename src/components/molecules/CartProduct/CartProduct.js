@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Card, CardGroup } from 'react-bootstrap';
 import './CartProduct.css';
 
 export default function CartProduct({ product, addToCart, deleteProduct }) {
-  let { name, quantity, price, stock, status } = product;
+  let { image, name, quantity, price, stock, status } = product;
   const [qtyAvailable, setQtyAvailable] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [totalPrice, setTotalPrice] = useState(price);
@@ -39,9 +40,23 @@ export default function CartProduct({ product, addToCart, deleteProduct }) {
     <div className="cart-product-container">
       {loaded ? (
         <div>
-          <h3>{name}</h3>
-          {status ? (
-            <div>
+          <CardGroup>
+            <Card className="cart-product-left">
+              <Card.Body>
+                <img className="cart-product-image" src={image} />
+              </Card.Body>
+            </Card>
+            <Card className="cart-product-right">
+              <Card.Body>
+                <h3>{name}</h3>
+                <h3>Preço unitário:</h3>
+                <h3>R$ {price.toFixed(2).replace('.',',')}</h3>
+              </Card.Body>
+            </Card>          
+          <Card className="cart-product-select">
+            <Card.Body>
+      {status ? (
+        <div>
               <select name="select" onChange={e => changeQty(e)}>
                 <option value={selectedQty} selected>
                   {selectedQty}
@@ -50,14 +65,20 @@ export default function CartProduct({ product, addToCart, deleteProduct }) {
                   {' '}
                   --{' '}
                 </option>
-                {maxQty()}
-              </select>
-              <p>R$ {totalPrice}</p>
-            </div>
+                   {maxQty()}
+              </select>  
+                <h3>Subtotal:</h3>
+                <p>R$ {totalPrice.toFixed(2).replace('.',',')}</p>
+         
+        </div>
+              
           ) : (
             <p>Sem estoque</p>
           )}
           <button onClick={() => deleteProduct(product)}>Excluir</button>
+             </Card.Body>
+          </Card>
+          </CardGroup>
         </div>
       ) : (
         <h1>Carregando...</h1>
