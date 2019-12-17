@@ -1,5 +1,5 @@
 # Projeto 3 - Bootcamp Ironhack Full-stack MERN - Voluntei 
-![ironhack](https://user-images.githubusercontent.com/50602816/70960915-269c9780-205f-11ea-8cae-bc60eb854b80.jpeg)
+![ironhack2](https://user-images.githubusercontent.com/50602816/70960995-62376180-205f-11ea-922f-d7196dc2ae38.png)
 
 https://voluntei.firebaseapp.com
 
