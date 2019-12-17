@@ -10,6 +10,17 @@
   border: none;
 }
 
+/* .cardB-right-text > h2 {
+  font-family: 'Fredoka One' !important;
+  font-size: 2rem;
+} */
+
+/* .cardB-right-text > p {
+  font-family: 'Fredoka One' !important;
+  font-size: 1rem;
+} */
+
+
 .cardB-right-body {
   display: flex;
   align-items: center;
@@ -19,12 +30,14 @@
   color: white;
 }
 
-.cardB-right-title {
+/* .cardB-right-title {
   color: white;
   text-transform: uppercase;
   font-size: 20px;
   font-weight: bold;
-}
+} */
+
+
 
 .sectionB-button {
   background-color: white !important;
