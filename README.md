@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Projeto 3 - Bootcamp Ironhack Full-stack MERN - Voluntei
 
-## Available Scripts
+## :rocket: Tecnologias
 
-In the project directory, you can run:
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-### `npm start`
+- [Node.js](https://nodejs.org/en/)
+- [React](https://reactjs.org)
+- [Firebase](https://firebase.google.com/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## O que é a Voluntei?
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+A Voluntei  um projeto Open-Source que começou com a ideia de ajudar ONG's, projetos sociais e causas nobre terem o seu site institucional para divulgar seus trabalhos e alcançar mais visibilidade. Em resumo a voluntei é um projeto que visa fazer o bem sem olhar a quem :)
 
-### `npm test`
+## 💻 Projeto
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Nesse projeto de concluso da Ironhack nos escolhemos desenvolver um e-commerce com o tema da Voluntei, uma loja virtual baseado nos produtos que possivelmente serão vendidos futuramente para ajudar o projeto social. 
 
-### `npm run build`
+## Desenvolvimento
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Para testar o projeto primeiramente clonar esse repositorio, no terminal iniciar com `npm i` para instalar todas as dependencias, depois se atentar ao FIREBASE. 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+O e-commerce foi desenvolvido com banco de dados e todo back-end atraves do [Firebase](https://firebase.google.com/), portanto para testar nosso projeto você terá que possuir uma conta no mesmo e adicionar as variaveis de ambiente para se conectar, a lista de variaveis de ambiemte que utilizamos é `SKIP_PREFLIGHT_CHECK, REACT_APP_APIKEY, REACT_APP_AUTHDOMAIN, REACT_APP_DATABASEURL, REACT_APP_PROJECTID, REACT_APP_STORAGEBUCKET, REACT_APP_MESSAGINGSENDERID,REACT_APP_APPID, REACT_APP_MEASUREMENTID`. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Apos ter criado sua conta e seu banco de dados no Firebase basta iniciar a aplicação com `npm start`. 
 
-### `npm run eject`
+## Colaboradores
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Marcus Felipe Ferreira Brandão
+-[Linkedin](https://www.linkedin.com/in/marcusffbrandao/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Julia Ramos (idealizadora da Voluntei)
+-[Linkedin](https://www.linkedin.com/in/julia-ramos-guedes/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Luan Perosa Chitto
+-[Linkedin](https://www.linkedin.com/in/luan-perosa/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
