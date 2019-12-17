@@ -151,7 +151,10 @@ export default function Cart({
                         />
                       </div>
                       <p>ou</p>
-                      <Reblocks />
+                      <Reblocks
+                        totalPrice={totalPrice}
+                        successPayment={successPayment}
+                      />
                     </Card>
                   </div>
                 </CardDeck>
