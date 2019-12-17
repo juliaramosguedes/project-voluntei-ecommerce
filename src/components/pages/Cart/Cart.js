@@ -118,7 +118,7 @@ export default function Cart({
                         <b>Desconto:</b> R$ 0,00
                       </p>
                       <p>
-                        <b>Valor total:</b> R$ {totalPrice.toFixed(2).replace('.', ',')}
+                        <b>Valor total: R$ {totalPrice.toFixed(2).replace('.', ',')}</b>
                       </p>
                       <Link className="cartA-right-link" to="/">
                         Continuar comprando

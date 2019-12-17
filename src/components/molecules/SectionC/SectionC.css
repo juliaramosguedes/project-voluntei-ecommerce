@@ -24,8 +24,8 @@
 .sectionC-CardDeck {
   max-width: 1600px;
   padding-top: 30px;
-  justify-content: center;
   display: flex;
+  justify-content: center;
   flex-flow: row wrap;
   align-items: stretch;
 }

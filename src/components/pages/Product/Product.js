@@ -48,29 +48,35 @@ export default function Product({ match, products, addToCart }) {
   return (
     <div className="product-page">
       <div className="product-container">
-        <CardDeck className="product-card-deck">
+        <CardDeck className="product-card-deck shadow">
           <Card className="product-left">
             <Card.Img className="cardB-image" variant="top" src={image} />
           </Card>
           <Card className="product-right">
             <Card.Body className="product-right-body">
               <Card.Text className="product-right-text">
-                <h2>{name}</h2>
-                <p>{description}</p>
-                <p>Preço: R$ {price.toFixed(2).replace('.', ',')}</p>
+                <h2>
+                  <b>{name}</b>
+                </h2>
+                <p>
+                  <b>Descrição:</b> {description}
+                </p>
                 {status ? (
                   <>
                     {loaded ? (
                       <>
-                        <label>Quantidade: </label>
-                        <select name="select" onChange={e => changeQty(e)}>
+                        <label>
+                          <b>Quantidade:</b>
+                        </label>
+                        <select
+                          className="product-right-select"
+                          name="select"
+                          onChange={e => changeQty(e)}
+                        >
                           <option value={selectedQty} selected>
                             {selectedQty}
                           </option>
-                          <option disabled value>
-                            {' '}
-                            --{' '}
-                          </option>
+                          <option disabled value></option>
                           {maxQty()}
                         </select>
                       </>
@@ -80,8 +86,10 @@ export default function Product({ match, products, addToCart }) {
                     {size ? (
                       <>
                         <br />
-                        <label>Selecione o tamanho: </label>
-                        <select>
+                        <label>
+                          <b>Tamanho:</b>
+                        </label>
+                        <select className="product-right-select">
                           <option value="P">P</option>
                           <option value="M">M</option>
                           <option value="G">G</option>
@@ -93,8 +101,10 @@ export default function Product({ match, products, addToCart }) {
                     {type ? (
                       <>
                         <br />
-                        <label>Escolha o modelo: </label>
-                        <select>
+                        <label>
+                          <b>Modelo:</b>
+                        </label>
+                        <select className="product-right-select">
                           <option value="Feminino">Feminino</option>
                           <option value="Masculino">Masculino</option>
                         </select>
@@ -102,8 +112,11 @@ export default function Product({ match, products, addToCart }) {
                     ) : (
                       <></>
                     )}
+                    <p>
+                      <b>Preço:</b> R$ {price.toFixed(2).replace('.', ',')}
+                    </p>
                     <Button
-                      className="sectionC-card-button col"
+                      className="product-button col"
                       variant="dark"
                       onClick={() => addProduct(product)}
                     >
