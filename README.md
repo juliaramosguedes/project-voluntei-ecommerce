@@ -33,13 +33,16 @@ Apos ter criado sua conta e seu banco de dados no Firebase basta iniciar a aplic
 <strong>Marcus Felipe Ferreira Brandão</strong>
 
 -[Linkedin](https://www.linkedin.com/in/marcusffbrandao/)
+-[Github](https://github.com/marcusffbrandao)
 
 <strong>Julia Ramos (idealizadora da Voluntei)</strong>
 
 -[Linkedin](https://www.linkedin.com/in/julia-ramos-guedes/)
+-[Github](https://github.com/juliaramosguedes)
 
 <strong>Luan Perosa Chitto</strong>
 
 -[Linkedin](https://www.linkedin.com/in/luan-perosa/)
+-[Github](https://github.com/luanperosa)
 
 
