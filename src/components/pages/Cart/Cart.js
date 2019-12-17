@@ -16,6 +16,8 @@ export default function Cart({
   const [totalQty, setTotalQty] = useState(0);
   const [successPurchase, setSuccessPurchase] = useState(false);
   const [paymentToken, setPaymentToken] = useState(null);
+  const [checkPayment, setCheckPayment] = useState(false);
+  const [checkRegister, setCheckRegister] = useState(false);
 
   const db = firebase.firestore();
 
@@ -37,44 +39,57 @@ export default function Cart({
   useEffect(() => {}, [successPurchase]);
 
   const completePurchase = async () => {
-    try {
-      await db
-        .collection('users')
-        .doc(userID)
-        .get()
-        .then(doc => {
-          if (doc.exists) {
-            const data = doc.data();
-            db.collection('shopping').add({
-              userID,
-              address: data.address,
-              cart,
-              totalPrice,
-              totalQty,
-              paymentToken,
-              status: 'paid',
-            });
-
-            Object.keys(cart).map(key => {
-              const newStock = cart[key].stock - cart[key].quantity;
-              db.collection('products')
-                .doc(key)
-                .update({ stock: newStock });
-              clearCart(key, newStock);
-            });
-
-            setSuccessPurchase(true);
-          }
-        });
-    } catch (error) {
-      console.log(error.message);
+    if (checkRegister && checkPayment) {
+      try {
+        await db
+          .collection('users')
+          .doc(userID)
+          .get()
+          .then(doc => {
+            if (doc.exists) {
+              const data = doc.data();
+              db.collection('shopping').add({
+                userID,
+                address: data.address,
+                cart,
+                totalPrice,
+                totalQty,
+                paymentToken,
+                status: 'paid',
+              });
+  
+              Object.keys(cart).map(key => {
+                const newStock = cart[key].stock - cart[key].quantity;
+                db.collection('products')
+                  .doc(key)
+                  .update({ stock: newStock });
+                clearCart(key, newStock);
+              });
+  
+              setSuccessPurchase(true);
+            }
+          });
+      } catch (error) {
+        console.log(error.message);
+      }
+    } else {
+      if (!checkRegister) alert('Confirme seu endereço para concluir a compra.')
     }
   };
 
   const successPayment = token => {
+    setCheckPayment(true);
     setPaymentToken(token);
     completePurchase();
   };
+
+  const confirmRegistration = () => {
+    setCheckRegister(true);
+  };
+
+  useEffect(() => {
+    if (checkPayment) completePurchase();
+  }, [checkRegister]);
 
   return (
     <div className="cart-page">
@@ -137,7 +152,7 @@ export default function Cart({
                   <Card className="cartB-left shadow">
                     <Card.Body className="cartB-left-body">
                       <h3 className="user-title">Confira seu cadastro</h3>
-                      <EditUser userID={userID} />
+                      <EditUser userID={userID} confirmRegistration={confirmRegistration} />
                     </Card.Body>
                   </Card>
                   <div className="cartB-right-container">
@@ -150,11 +165,17 @@ export default function Cart({
                           successPayment={successPayment}
                         />
                       </div>
-                      <p>ou</p>
-                      <Reblocks
-                        totalPrice={totalPrice}
-                        successPayment={successPayment}
-                      />
+                      {totalPrice ?
+                        <>
+                          <p>ou</p>
+                          <Reblocks
+                            totalPrice={totalPrice}
+                            successPayment={successPayment}
+                          />
+                        </>
+                        :
+                        <></>
+                    }
                     </Card>
                   </div>
                 </CardDeck>

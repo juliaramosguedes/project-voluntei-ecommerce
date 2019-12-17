@@ -5,7 +5,7 @@ import './EditUser.css';
 
 const db = firebase.firestore();
 
-export default function EditUser({ userID }) {
+export default function EditUser({ userID, confirmRegistration }) {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -57,6 +57,7 @@ export default function EditUser({ userID }) {
       });
 
       currUser.updateEmail(email);
+      confirmRegistration();
     } catch (error) {
       console.log(error.message);
     }
@@ -191,7 +192,7 @@ export default function EditUser({ userID }) {
         </Form.Group>
         <Form.Group as={Col} md="7" controlId="formGridZip">
           <Button type="submit" className="edit-user-button-save" variant="dark">
-            Salvar alterações
+            Confirmar cadastro
           </Button>
         </Form.Group>
       </Form.Row>
