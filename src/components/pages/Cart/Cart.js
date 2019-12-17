@@ -82,8 +82,14 @@ export default function Cart({
         {successPurchase ? (
           <div className="cart-page-wrap">
             <div className="cart-title">
-              <h1>Compra realizada com sucesso.</h1>
-              <h3>Acompanhe sua compra</h3>
+              <CardDeck>
+                <Card>
+                  <Card.Body>
+                    <h1>Compra realizada com sucesso!</h1>
+                    <h3>Obrigado por contrubuir com a Voluntei.</h3>
+                  </Card.Body>
+                </Card>
+              </CardDeck>
             </div>
           </div>
         ) : (
@@ -118,7 +124,10 @@ export default function Cart({
                         <b>Desconto:</b> R$ 0,00
                       </p>
                       <p>
-                        <b>Valor total: R$ {totalPrice.toFixed(2).replace('.', ',')}</b>
+                        <b>
+                          Valor total: R${' '}
+                          {totalPrice.toFixed(2).replace('.', ',')}
+                        </b>
                       </p>
                       <Link className="cartA-right-link" to="/">
                         Continuar comprando
