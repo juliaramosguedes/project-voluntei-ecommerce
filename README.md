@@ -1,5 +1,4 @@
 # Projeto 3 - Bootcamp Ironhack Full-stack MERN - Voluntei E-commerce
-![ironhack2](https://user-images.githubusercontent.com/50602816/70960995-62376180-205f-11ea-922f-d7196dc2ae38.png)
 ![voluntei](https://user-images.githubusercontent.com/50602816/70961226-ee498900-205f-11ea-9a02-69e2d0a2cf1b.gif)
 
 ## Acesse o site
@@ -13,14 +12,18 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Node.js](https://nodejs.org/en/)
 - [React](https://reactjs.org)
 - [Firebase](https://firebase.google.com/)
+- [Bootstrap](https://react-bootstrap.github.io/)
+- [Nano](https://nano.org/)
+- [Paypal](https://developer.paypal.com/)
 
 ## O que é a Voluntei?
 
-A Voluntei  um projeto Open-Source que começou com a ideia de ajudar ONG's, projetos sociais e causas nobres a terem o seu site institucional para divulgar seus trabalhos e alcançar mais visibilidade. Em resumo a voluntei é um projeto que visa fazer o bem.
+A Voluntei nasceu da ideia de combinar esse bootcamp com trabalho voluntário, conectando voluntários de tecnologia à ONGs .
+A proposta é desenvolver sites para que as ONGs tenham maior visibilidade na internet e desenvolver profissionalmente nossos voluntários.
 
 ## 💻 Projeto
 
-Nesse projeto de concluso da Ironhack nos escolhemos desenvolver um e-commerce com o tema da Voluntei, uma loja virtual baseado nos produtos que possivelmente serão vendidos futuramente para ajudar o projeto social. 
+Nesse projeto de concluso da Ironhack nos escolhemos desenvolver um e-commerce com o tema da Voluntei, uma loja virtual baseado nos produtos desenhador pela equipe de UX-UI da Voluntei.
 
 ## Desenvolvimento
 
