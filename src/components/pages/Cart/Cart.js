@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardDeck } from 'react-bootstrap';
 import './Cart.css';
-import { CartProduct, EditUser, PayPal } from '../../molecules';
+import { CartProduct, EditUser, PayPal, Reblocks } from '../../molecules';
 import firebase from '../../../firebase/FirebaseConnection';
 
 export default function Cart({
@@ -118,8 +118,7 @@ export default function Cart({
                         <b>Desconto:</b> R$ 0,00
                       </p>
                       <p>
-                        <b>Valor total:</b> R${' '}
-                        {totalPrice.toFixed(2).replace('.', ',')}
+                        <b>Valor total:</b> R$ {totalPrice.toFixed(2).replace('.', ',')}
                       </p>
                       <Link className="cartA-right-link" to="/">
                         Continuar comprando
@@ -145,11 +144,14 @@ export default function Cart({
                     <Card className="cartB-right shadow">
                       <h3 className="user-title">Pagamento</h3>
                       <p>Escolha o meio de pagamento</p>
-                      <PayPal
-                        totalPrice={totalPrice}
-                        successPayment={successPayment}
-                        className="cartB-rigth-paypal"
-                      />
+                      <div className="cartB-right-paypal">
+                        <PayPal
+                          totalPrice={totalPrice}
+                          successPayment={successPayment}
+                        />
+                      </div>
+                      <p>ou</p>
+                      <Reblocks />
                     </Card>
                   </div>
                 </CardDeck>

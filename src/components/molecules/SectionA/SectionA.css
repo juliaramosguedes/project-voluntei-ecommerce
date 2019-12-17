@@ -14,8 +14,7 @@
 .cardA-left {
   background-color: rgb(241, 209, 15);
   border: none;
-  /* font-family: 'Times New Roman', Times, serif; */
-  font-family: 'Fredoka One';
+  font-family: 'Fredoka One', 'Times New Roman', Times, serif;
   line-height: 1;
 }
 

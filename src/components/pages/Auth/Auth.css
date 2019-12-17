@@ -1,17 +1,12 @@
 .authentication-page {
   background-color: rgb(235, 246, 255);
   min-height: 60vh;
-  /* display: flex;
-  justify-content: center; */
-  /* border: 2px solid blue; */
 }
 
 .authentication-container {
   background-color: rgb(235, 246, 255);
   display: flex;
   justify-content: center;
-  /* border: 2px solid red; */
-  /* height: 60vh; */
 }
 
 .authentication-card {
@@ -23,7 +18,6 @@
 
 .authentication-status {
   font-size: 1.6rem;
-  /* text-transform: uppercase; */
 }
 
 .authentication-labels {
@@ -41,7 +35,6 @@
 }
 
 .authentication-google {
-  /* background-color: #21538d; */
   background-color: rgb(66, 133, 244);
   margin-top: 10px !important;
   height: 44px;
@@ -73,7 +66,6 @@
 .authentication-facebook:active,
 .authentication-facebook:focus,
 .authentication-facebook:hover {
-  /* border: none !important; */
   outline: none !important;
   background-color: rgb(58, 85, 159) !important;
 }
@@ -81,8 +73,6 @@
 .authentication-google-container,
 .authentication-facebook-container {
   display: flex;
-  /* justify-content: space-between; */
-  /* height: 40px; */
 }
 
 .authentication-google-container-right,
@@ -105,7 +95,3 @@ hr {
   /* border: 0.5px solid rgb(30, 30, 30); */
 }
 
-/* .signup {
-  background-color: white;
-  color: rgb(30, 30, 30);
-} */

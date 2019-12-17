@@ -135,12 +135,22 @@ body,
   }
 }
 
+@media (max-width: 560px) {
+  .cartA-right-container,
+  .cartB-right-container {
+    display: flex !important;
+    justify-content: center !important;
+    background-color: rgb(235, 246, 255);
+    margin-top: 40px;
+  }
+}
+
 @media (min-width: 426px) and (max-width: 768px) {
   .sectionA-cardDeck {
     min-height: 0vh !important;
     padding: 0px 30px 30px;
   }
-  
+
   .cardA-left-text {
     max-width: 300px !important;
   }

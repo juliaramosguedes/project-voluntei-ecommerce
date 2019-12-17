@@ -15,7 +15,6 @@
   border: none;
   line-height: 2;
   font-size: 0.9rem;
-  /* border: 2px solid rgb(241, 209, 15); */
   margin: 30px !important;
 }
 
@@ -48,7 +47,6 @@
 }
 
 .footer-credit-cards-list {
-  /* display: flex; */
   justify-content: center;
   display: flex;
   flex-flow: row wrap; 
