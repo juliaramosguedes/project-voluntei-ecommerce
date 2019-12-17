@@ -1,4 +1,5 @@
-# Projeto 3 - Bootcamp Ironhack Full-stack MERN - Voluntei ![ironhack2](https://user-images.githubusercontent.com/50602816/70960995-62376180-205f-11ea-922f-d7196dc2ae38.png)
+# Projeto 3 - Bootcamp Ironhack Full-stack MERN - Voluntei 
+![ironhack2](https://user-images.githubusercontent.com/50602816/70960995-62376180-205f-11ea-922f-d7196dc2ae38.png)
 ![voluntei](https://user-images.githubusercontent.com/50602816/70961226-ee498900-205f-11ea-9a02-69e2d0a2cf1b.gif)
 
 https://voluntei.firebaseapp.com
@@ -32,16 +33,19 @@ Apos ter criado sua conta e seu banco de dados no Firebase basta iniciar a aplic
 <strong>Marcus Felipe Ferreira Brandão</strong>
 
 -[Linkedin](https://www.linkedin.com/in/marcusffbrandao/)
+
 -[Github](https://github.com/marcusffbrandao)
 
 <strong>Julia Ramos (idealizadora da Voluntei)</strong>
 
 -[Linkedin](https://www.linkedin.com/in/julia-ramos-guedes/)
+
 -[Github](https://github.com/juliaramosguedes)
 
 <strong>Luan Perosa Chitto</strong>
 
 -[Linkedin](https://www.linkedin.com/in/luan-perosa/)
+
 -[Github](https://github.com/luanperosa)
 
 
