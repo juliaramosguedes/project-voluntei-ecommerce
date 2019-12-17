@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardGroup, Container, Row, Col } from 'react-bootstrap';
+import { Card, CardGroup } from 'react-bootstrap';
 import './CartProduct.css';
 
 export default function CartProduct({ product, addToCart, deleteProduct }) {
@@ -37,7 +37,7 @@ export default function CartProduct({ product, addToCart, deleteProduct }) {
   };
 
   return (
-    <div className="cart-product-container">
+    <div className="cart-product-container shadow-sm">
       {loaded ? (
         // <div>
         <CardGroup>

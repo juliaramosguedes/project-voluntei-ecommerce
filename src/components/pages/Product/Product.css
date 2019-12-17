@@ -1,9 +1,13 @@
-.product-container {
-display: flex;
-justify-content: center;
-/* background-color: rgb(235, 246, 255); */
+.product-page {
+  min-height: 60vh;
+  background-color: rgb(235, 246, 255);
 }
 
+.product-container {
+  display: flex;
+  justify-content: center;
+  /* background-color: rgb(235, 246, 255); */
+}
 
 .product-card-deck {
   padding: 2%;

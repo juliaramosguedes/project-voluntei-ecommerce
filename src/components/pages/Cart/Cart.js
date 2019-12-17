@@ -91,7 +91,7 @@ export default function Cart({
             </div>
             <div className="cartA">
               <CardDeck>
-                <Card>
+                <Card className="cartA-left">
                   <Card.Body className="cartA-left-body">
                     {Object.keys(cart).map(key => (
                       <CartProduct
@@ -102,18 +102,21 @@ export default function Cart({
                     ))}
                   </Card.Body>
                 </Card>
-                <Card className="cartA-right">
-                  <Card.Body className="cartA-right-body">
-                    <h3>Resumo:</h3>
-                    <p>Quantidade: {totalQty} itens</p>
-                    <p>Frete: grátis</p>
-                    <p>Desconto: R$ 0,00</p>
-                    <p>
-                      Valor total: R$ {totalPrice.toFixed(2).replace('.', ',')}
-                    </p>
-                    <Link to="/">Continuar comprando</Link>
-                  </Card.Body>
-                </Card>
+                <div className="cartA-right-container">
+                  <Card className="cartA-right">
+                    <Card.Body className="cartA-right-body">
+                      <h3>Resumo:</h3>
+                      <p>Quantidade: {totalQty} itens</p>
+                      <p>Frete: grátis</p>
+                      <p>Desconto: R$ 0,00</p>
+                      <p>
+                        Valor total: R${' '}
+                        {totalPrice.toFixed(2).replace('.', ',')}
+                      </p>
+                      <Link to="/">Continuar comprando</Link>
+                    </Card.Body>
+                  </Card>
+                </div>
               </CardDeck>
             </div>
             {userID ? (
@@ -128,14 +131,16 @@ export default function Cart({
                       <EditUser userID={userID} />
                     </Card.Body>
                   </Card>
-                  <Card className="cartB-right">
-                    <h3 className="user-title">Pagamento</h3>
-                    <p>Selecione um método de pagamento</p>
-                    <PayPal
-                      totalPrice={totalPrice}
-                      successPayment={successPayment}
-                    />
-                  </Card>
+                  <div className="cartB-right-container">
+                    <Card className="cartB-right">
+                      <h3 className="user-title">Pagamento</h3>
+                      <p>Selecione um método de pagamento</p>
+                      <PayPal
+                        totalPrice={totalPrice}
+                        successPayment={successPayment}
+                      />
+                    </Card>
+                  </div>
                 </CardDeck>
               </div>
             ) : (
