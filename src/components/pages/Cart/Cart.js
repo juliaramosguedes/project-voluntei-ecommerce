@@ -165,11 +165,17 @@ export default function Cart({
                           successPayment={successPayment}
                         />
                       </div>
-                      <p>ou</p>
-                      <Reblocks
-                        totalPrice={totalPrice}
-                        successPayment={successPayment}
-                      />
+                      {totalPrice ?
+                        <>
+                          <p>ou</p>
+                          <Reblocks
+                            totalPrice={totalPrice}
+                            successPayment={successPayment}
+                          />
+                        </>
+                        :
+                        <></>
+                    }
                     </Card>
                   </div>
                 </CardDeck>

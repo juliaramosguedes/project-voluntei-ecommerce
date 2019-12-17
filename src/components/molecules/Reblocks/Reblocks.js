@@ -9,7 +9,7 @@ export default function Reblocks({ totalPrice, successPayment }) {
   };
 
 useEffect(() => {
-  setPrice(totalPrice)
+  setPrice(totalPrice * 400000);
 }, [price]);
   
   return (
