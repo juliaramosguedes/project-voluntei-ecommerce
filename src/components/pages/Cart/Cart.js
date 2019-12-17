@@ -80,12 +80,14 @@ export default function Cart({
     <div className="cart-page">
       <div className="cart-page-container">
         {successPurchase ? (
-          <div>
-            <h1>Compra realizada com sucesso.</h1>
-            <h3>Acompanhe sua compra</h3>
+          <div className="cart-page-wrap">
+            <div className="cart-title">
+              <h1>Compra realizada com sucesso.</h1>
+              <h3>Acompanhe sua compra</h3>
+            </div>
           </div>
         ) : (
-          <div className="cartTESTE">
+          <div className="cart-page-wrap">
             <div className="cart-title">
               <h1>Carrinho</h1>
             </div>
@@ -103,17 +105,25 @@ export default function Cart({
                   </Card.Body>
                 </Card>
                 <div className="cartA-right-container">
-                  <Card className="cartA-right">
+                  <Card className="cartA-right shadow">
                     <Card.Body className="cartA-right-body">
-                      <h3>Resumo:</h3>
-                      <p>Quantidade: {totalQty} itens</p>
-                      <p>Frete: grátis</p>
-                      <p>Desconto: R$ 0,00</p>
+                      <h3 className="user-title">Resumo:</h3>
                       <p>
-                        Valor total: R${' '}
+                        <b>Quantidade:</b> {totalQty} itens
+                      </p>
+                      <p>
+                        <b>Frete:</b> grátis
+                      </p>
+                      <p>
+                        <b>Desconto:</b> R$ 0,00
+                      </p>
+                      <p>
+                        <b>Valor total:</b> R${' '}
                         {totalPrice.toFixed(2).replace('.', ',')}
                       </p>
-                      <Link to="/">Continuar comprando</Link>
+                      <Link className="cartA-right-link" to="/">
+                        Continuar comprando
+                      </Link>
                     </Card.Body>
                   </Card>
                 </div>
@@ -125,26 +135,31 @@ export default function Cart({
                   <h1>Finalizar a compra</h1>
                 </div>
                 <CardDeck>
-                  <Card className="cartB-left">
-                    <Card.Body>
+                  <Card className="cartB-left shadow">
+                    <Card.Body className="cartB-left-body">
                       <h3 className="user-title">Confira seu cadastro</h3>
                       <EditUser userID={userID} />
                     </Card.Body>
                   </Card>
                   <div className="cartB-right-container">
-                    <Card className="cartB-right">
+                    <Card className="cartB-right shadow">
                       <h3 className="user-title">Pagamento</h3>
-                      <p>Selecione um método de pagamento</p>
+                      <p>Escolha o meio de pagamento</p>
                       <PayPal
                         totalPrice={totalPrice}
                         successPayment={successPayment}
+                        className="cartB-rigth-paypal"
                       />
                     </Card>
                   </div>
                 </CardDeck>
               </div>
             ) : (
-              <Link to="/auth">Entre ou cadastre-se para continuar</Link>
+              <div className="cartC-link-wrap">
+                <Link className="cartC-link" to="/auth">
+                  Entre ou cadastre-se para continuar
+                </Link>
+              </div>
             )}
           </div>
         )}

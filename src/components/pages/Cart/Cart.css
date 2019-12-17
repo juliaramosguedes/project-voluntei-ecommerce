@@ -10,60 +10,107 @@
 .cart-page-container {
   max-width: 1400px;
   background-color: rgb(255, 255, 255);
-  
 }
 
-.cartTESTE {
-  border: 2px solid blue;
+.cart-page-wrap {
+  /* border: 1px solid rgb(30, 30, 30); */
+  background-color: rgb(235, 246, 255);
   min-height: 800px;
-  border-radius: 4px;
   /* display: flex;
   justify-content: center; */
 }
 
-.cartA {
-  border: 3px solid blueviolet;
-}
-
 .cart-title {
+  /* letter-spacing: 2px !important; */
   text-align: center;
   /* color: rgb(241, 209, 15); */
-  /* font-family: 'Fredoka One'; */
+  font-family: 'Fredoka One';
+  padding-bottom: 20px;
+}
+
+.cart-title > h1 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.cartA {
+  /* border: 3px solid blueviolet; */
 }
 
 .cartA-left {
   border: none;
+  background-color: rgb(235, 246, 255);
 }
 
 .cartA-right {
-  border: 1px solid green;
   max-width: 300px;
-  max-height: 340px;
+  height: 370px;
   width: 300px;
   /* background-color: rgb(188, 188, 188); */
-  background-color: rgb(255, 251, 251);
- 
+  /* background-color: #ebebeb; */
+  background-color: rgb(255, 255, 255);
 }
 
-.cartA-left-body,
-.cartA-right-body {
+.cartA-left-body {
   padding: 0px !important;
 }
 
-.cartB-left {
-  /* background-color: pink; */
+.cartA-right-body {
+  padding: 0px 30px !important;
+  height: 300px !important;
+  /* border: 2px solid red; */
+}
+
+.user-title,
+.cartA-right > h3,
+.cartB-right > h3 {
+  text-align: center !important;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+.cartA-right > p,
+.cartB-right > p {
+  margin: 0px 0px 20px 20px !important;
+}
+
+.cartA-right-container,
+.cartB-right-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cartA-right-link {
+  color: rgb(30, 30, 30);
+  text-decoration: underline;
+}
+
+.cartB {
+  padding-top: 60px;
+}
+
+.cartB-left-body {
+  padding-top: 0px !important;
 }
 
 .cartB-right {
-  
-  max-width: 300px !important;
+  background-color: rgb(255, 255, 255);
+  width: 320px !important;
+  height: 300px;
+  padding: 0px 10px 10px;
+  border-radius: 4px;
 }
 
-.cartB-right > h3 {
-  text-align: center;
-}
-
-.cartA-right-container, .cartB-right-container{
+.cartC-link-wrap {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: auto;
+}
+
+.cartC-link {
+  color: rgb(30, 30, 30);
+  text-decoration: underline;
+  padding-top: 10px !important;
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardGroup } from 'react-bootstrap';
+import { Card, CardGroup, Button } from 'react-bootstrap';
 import './CartProduct.css';
 
 export default function CartProduct({ product, addToCart, deleteProduct }) {
@@ -37,7 +37,7 @@ export default function CartProduct({ product, addToCart, deleteProduct }) {
   };
 
   return (
-    <div className="cart-product-container shadow-sm">
+    <div className="cart-product-container shadow">
       {loaded ? (
         // <div>
         <CardGroup>
@@ -51,7 +51,7 @@ export default function CartProduct({ product, addToCart, deleteProduct }) {
               <div>
                 <div className="cart-product-right-quantity">
                   <p>Quantidade:</p>
-                  <select name="select" onChange={e => changeQty(e)}>
+                  <select className="cart-product-right-select" name="select" onChange={e => changeQty(e)}>
                     <option value={selectedQty} selected>
                       {selectedQty}
                     </option>
@@ -59,12 +59,18 @@ export default function CartProduct({ product, addToCart, deleteProduct }) {
                     {maxQty()}
                   </select>
                 </div>
-                <p>Total: R$ {totalPrice.toFixed(2).replace('.', ',')}</p>
+                <p><b>Subtotal:</b> R$ {totalPrice.toFixed(2).replace('.', ',')}</p>
               </div>
             ) : (
               <p>Sem estoque</p>
             )}
-            <button onClick={() => deleteProduct(product)}>Excluir</button>
+            <Button
+              className="cart-product-button col"
+              variant="dark"
+              onClick={() => deleteProduct(product)}
+            >
+              Excluir
+            </Button>
           </Card>
         </CardGroup>
       ) : (
