@@ -30,15 +30,15 @@ Apos ter criado sua conta e seu banco de dados no Firebase basta iniciar a aplic
 
 ## Colaboradores
 
-Marcus Felipe Ferreira Brandão
+<strong>Marcus Felipe Ferreira Brandão</strong>
 
 -[Linkedin](https://www.linkedin.com/in/marcusffbrandao/)
 
-Julia Ramos (idealizadora da Voluntei)
+<strong>Julia Ramos (idealizadora da Voluntei)</strong>
 
 -[Linkedin](https://www.linkedin.com/in/julia-ramos-guedes/)
 
-Luan Perosa Chitto
+<strong>Luan Perosa Chitto</strong>
 
 -[Linkedin](https://www.linkedin.com/in/luan-perosa/)
 
