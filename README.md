@@ -10,7 +10,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## O que é a Voluntei?
 
-A Voluntei  um projeto Open-Source que começou com a ideia de ajudar ONG's, projetos sociais e causas nobre terem o seu site institucional para divulgar seus trabalhos e alcançar mais visibilidade. Em resumo a voluntei é um projeto que visa fazer o bem sem olhar a quem :)
+A Voluntei  um projeto Open-Source que começou com a ideia de ajudar ONG's, projetos sociais e causas nobres a terem o seu site institucional para divulgar seus trabalhos e alcançar mais visibilidade. Em resumo a voluntei é um projeto que visa fazer o bem.
 
 ## 💻 Projeto
 
@@ -27,12 +27,15 @@ Apos ter criado sua conta e seu banco de dados no Firebase basta iniciar a aplic
 ## Colaboradores
 
 Marcus Felipe Ferreira Brandão
+
 -[Linkedin](https://www.linkedin.com/in/marcusffbrandao/)
 
 Julia Ramos (idealizadora da Voluntei)
+
 -[Linkedin](https://www.linkedin.com/in/julia-ramos-guedes/)
 
 Luan Perosa Chitto
+
 -[Linkedin](https://www.linkedin.com/in/luan-perosa/)
 
 
