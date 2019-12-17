@@ -83,7 +83,7 @@ export default function Cart({
           <div className="cart-page-wrap">
             <div className="cart-title">
               <CardDeck>
-                <Card>
+                <Card className="shadow">
                   <Card.Body>
                     <h1>Compra realizada com sucesso!</h1>
                     <h3>Obrigado por contrubuir com a Voluntei.</h3>
