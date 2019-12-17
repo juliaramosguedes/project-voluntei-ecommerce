@@ -95,9 +95,10 @@ export default function Footer() {
                 <li>
                   <a href="https://www.instagram.com/voluntei">
                     <img
-                      className="footer-social-media"
-                      src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Finstagram.png?alt=media&token=9a17b0d6-701d-44f7-b05a-6c5a57fb932e" alt="instagram"
+                      className="instagram"
+                      src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FinstagramIcon.png?alt=media&token=522cae5c-5e21-46cf-8c73-a485274f1e8e" alt="instagram"
                     />
+                     {/* src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FinstagramIcon.png?alt=media&token=522cae5c-5e21-46cf-8c73-a485274f1e8e" alt="instagram"/> */}
                   </a>
                 </li>
                 <li>
@@ -126,37 +127,37 @@ export default function Footer() {
           <li>
             <img
               className="footer-credit-cards"
-              src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Felo.jpg?alt=media&token=f691e942-3db3-420a-aa37-b042368abd74" alt="elo"
+              src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FcreditElo.jpg?alt=media&token=0d390161-b63f-4139-8a78-43db1c41b565" alt="elo"
             />
           </li>
           <li>
             <img
               className="footer-credit-cards"
-              src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Fvisa.jpg?alt=media&token=a2e114c6-ad22-40c2-9bb0-e1031c20a509" alt="visa"
+              src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FcreditVisa.jpg?alt=media&token=d12332e2-71ef-411e-9ebe-8fc2a640f6d7" alt="visa"
             />
           </li>
           <li>
             <img
               className="footer-credit-cards"
-              src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Fmastercard.jpg?alt=media&token=26651ecc-c44d-42ed-aa4e-c8577c65b53a" alt="master"
+              src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FcreditMastercard.jpg?alt=media&token=23fb572c-0422-4f05-8a22-e1a5c4ea5c2f" alt="master"
             />
           </li>
           <li>
             <img
               className="footer-credit-cards"
-              src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Fhipercard.jpg?alt=media&token=bd293552-6c47-45e3-99d7-22694760af4f" alt="hiper"
+              src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FcreditHipercard.jpg?alt=media&token=487be581-d544-4a0b-8b59-be6ca9a462a1" alt="hiper"
             />
           </li>
           <li>
             <img
               className="footer-credit-cards"
-              src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Famex.jpg?alt=media&token=108a1c07-45e7-4721-806c-bd27902ca0a5" alt="amex"
+              src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FcreditAmex.jpg?alt=media&token=53d037f2-7a03-4daa-a3fc-04371df55fee" alt="amex"
             />
           </li>
           <li>
             <img
               className="footer-credit-cards"
-              src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2Fpaypal.jpg?alt=media&token=c24f15df-6923-42f2-90b3-1b559529aa2e" alt="paypal"
+              src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FcreditPayPal.jpg?alt=media&token=1ddcea54-633a-4b04-94e3-eb029320e88c" alt="paypal"
             />
           </li>
         </ul>

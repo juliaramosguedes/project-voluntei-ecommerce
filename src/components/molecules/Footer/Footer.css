@@ -15,7 +15,6 @@
   border: none;
   line-height: 2;
   font-size: 0.9rem;
-  /* border: 2px solid rgb(241, 209, 15); */
   margin: 30px !important;
 }
 
@@ -36,13 +35,18 @@
   margin-right: 10px;
 }
 
+.instagram {
+  height: 34px;
+  width: auto;
+  margin: 0px 2px 0px -8px;
+}
+
 .footer-payments-container {
   display: flex;
   justify-content: center;
 }
 
 .footer-credit-cards-list {
-  /* display: flex; */
   justify-content: center;
   display: flex;
   flex-flow: row wrap; 

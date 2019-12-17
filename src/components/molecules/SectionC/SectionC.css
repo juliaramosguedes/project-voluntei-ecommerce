@@ -1,43 +1,39 @@
 .sectionC {
   padding: 40px 2%;
   background-color: rgb(235, 246, 255);
-  /* background-color: white; */
 }
 
 .sectionC h3 {
   text-align: center;
-  /* text-transform: uppercase; */
   font-weight: bold;
-  /* font-family: 'Fredoka One'; */
+  font-family: 'Fredoka One', Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.5rem;
 }
 
 .sectionC p {
- font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 .sectionC-CardDeck-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 2px solid red; */
 }
+
 .sectionC-CardDeck {
   max-width: 1600px;
   padding-top: 30px;
-  justify-content: center;
   display: flex;
-  flex-flow: row wrap; 
+  justify-content: center;
+  flex-flow: row wrap;
   align-items: stretch;
-  /* border: 2px solid blue; */
-
 }
 
 .sectionC-cards {
   border: none;
   min-width: 350px;
   max-width: 350px;
-  /* display: block; */
-  /* flex-basis: 33.3%;  */
 }
 
 .sectionC-cards a {
@@ -50,11 +46,7 @@
   border-radius: 0;
 }
 
-/* .sectionC-cards .card:active {
-} */
 .sectionC-card-body {
-  /* background-color: rgb(188, 188, 188); */
-  /* background-color: rgb(235, 246, 255); */
   background-color: white;
 }
 

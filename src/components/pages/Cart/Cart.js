@@ -2,10 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardDeck } from 'react-bootstrap';
 import './Cart.css';
-import { CartProduct, EditUser, PayPal } from '../../molecules';
+import { CartProduct, EditUser, PayPal, Reblocks } from '../../molecules';
 import firebase from '../../../firebase/FirebaseConnection';
 
-export default function Cart({ cart, addToCart, deleteProduct, userID, clearCart }) {
+export default function Cart({
+  cart,
+  addToCart,
+  deleteProduct,
+  userID,
+  clearCart,
+}) {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQty, setTotalQty] = useState(0);
   const [successPurchase, setSuccessPurchase] = useState(false);
@@ -17,7 +23,7 @@ export default function Cart({ cart, addToCart, deleteProduct, userID, clearCart
     let price = 0;
     let qty = 0;
 
-    Object.values(cart).map((value) => {
+    Object.values(cart).map(value => {
       if (value.status) {
         price += value.price * value.quantity;
         qty += value.quantity;
@@ -28,8 +34,7 @@ export default function Cart({ cart, addToCart, deleteProduct, userID, clearCart
     setTotalQty(qty);
   });
 
-  useEffect(() => {
-  }, [successPurchase]);
+  useEffect(() => {}, [successPurchase]);
 
   const completePurchase = async () => {
     try {
@@ -52,7 +57,9 @@ export default function Cart({ cart, addToCart, deleteProduct, userID, clearCart
 
             Object.keys(cart).map(key => {
               const newStock = cart[key].stock - cart[key].quantity;
-              db.collection('products').doc(key).update({ stock: newStock });
+              db.collection('products')
+                .doc(key)
+                .update({ stock: newStock });
               clearCart(key, newStock);
             });
 
@@ -64,57 +71,104 @@ export default function Cart({ cart, addToCart, deleteProduct, userID, clearCart
     }
   };
 
-  const successPayment = (token) => {
+  const successPayment = token => {
     setPaymentToken(token);
     completePurchase();
   };
 
   return (
     <div className="cart-page">
-      {successPurchase ? (
-        <div>
-          <h1>Compra realizada com sucesso.</h1>
-          <h3>Acompanhe sua compra</h3>
-        </div>
-      ) : (
-        <div className="cartTESTE">
-          <h1>Carrinho</h1>
-          <h3>{totalQty} itens</h3>
-          <h3>Preço total: R$ {totalPrice.toFixed(2).replace('.',',')}</h3>
-          <Link to="/">Continuar comprando</Link>
-          {Object.keys(cart).map(key => (
-            <CartProduct
-              product={cart[key]}
-              addToCart={addToCart}
-              deleteProduct={deleteProduct}
-            />
-          ))}
-          {userID ? (
-            <div>
+      <div className="cart-page-container">
+        {successPurchase ? (
+          <div className="cart-page-wrap">
+            <div className="cart-title">
+              <h1>Compra realizada com sucesso.</h1>
+              <h3>Acompanhe sua compra</h3>
+            </div>
+          </div>
+        ) : (
+          <div className="cart-page-wrap">
+            <div className="cart-title">
+              <h1>Carrinho</h1>
+            </div>
+            <div className="cartA">
               <CardDeck>
-                <Card className="cart-page-left">
-                  <Card className="user-card shadow-sm">
-                    <Card.Body>
+                <Card className="cartA-left">
+                  <Card.Body className="cartA-left-body">
+                    {Object.keys(cart).map(key => (
+                      <CartProduct
+                        product={cart[key]}
+                        addToCart={addToCart}
+                        deleteProduct={deleteProduct}
+                      />
+                    ))}
+                  </Card.Body>
+                </Card>
+                <div className="cartA-right-container">
+                  <Card className="cartA-right shadow">
+                    <Card.Body className="cartA-right-body">
+                      <h3 className="user-title">Resumo:</h3>
+                      <p>
+                        <b>Quantidade:</b> {totalQty} itens
+                      </p>
+                      <p>
+                        <b>Frete:</b> grátis
+                      </p>
+                      <p>
+                        <b>Desconto:</b> R$ 0,00
+                      </p>
+                      <p>
+                        <b>Valor total: R$ {totalPrice.toFixed(2).replace('.', ',')}</b>
+                      </p>
+                      <Link className="cartA-right-link" to="/">
+                        Continuar comprando
+                      </Link>
+                    </Card.Body>
+                  </Card>
+                </div>
+              </CardDeck>
+            </div>
+            {userID ? (
+              <div className="cartB">
+                <div className="cart-title">
+                  <h1>Finalizar a compra</h1>
+                </div>
+                <CardDeck>
+                  <Card className="cartB-left shadow">
+                    <Card.Body className="cartB-left-body">
                       <h3 className="user-title">Confira seu cadastro</h3>
                       <EditUser userID={userID} />
                     </Card.Body>
                   </Card>
-                </Card>
-                <Card className="cart-page-right">
-                  <h3 className="user-title">Realize o pagamento</h3>
-                  <p>Selecione um método de pagamento</p>
-                  <PayPal
-                    totalPrice={totalPrice}
-                    successPayment={successPayment}
-                  />
-                </Card>
-              </CardDeck>
-            </div>
-          ) : (
-            <Link to="/auth">Entre ou cadastre-se para continuar</Link>
-          )}
-        </div>
-      )}
+                  <div className="cartB-right-container">
+                    <Card className="cartB-right shadow">
+                      <h3 className="user-title">Pagamento</h3>
+                      <p>Escolha o meio de pagamento</p>
+                      <div className="cartB-right-paypal">
+                        <PayPal
+                          totalPrice={totalPrice}
+                          successPayment={successPayment}
+                        />
+                      </div>
+                      <p>ou</p>
+                      <Reblocks
+                        totalPrice={totalPrice}
+                        successPayment={successPayment}
+                      />
+                    </Card>
+                  </div>
+                </CardDeck>
+              </div>
+            ) : (
+              <div className="cartC-link-wrap">
+                <Link className="cartC-link" to="/auth">
+                  Entre ou cadastre-se para continuar
+                </Link>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

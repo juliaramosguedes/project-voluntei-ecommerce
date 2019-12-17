@@ -12,14 +12,14 @@ export default ({ product, addToCart }) => {
             <p>{product.description}</p>
             <p className="sectionC-card-price">R$ {product.price.toFixed(2).replace('.',',')}</p>
         </Card.Body>
-        {
+        {/* {
           product.status ?
         <Button className="sectionC-card-button col" variant="dark" onClick={() => addToCart(product)}>
           Adicionar ao carrinho
         </Button>
         :
         <Button disabled className="col">Produto indisponível</Button>
-        }
+        } */}
       </Link>
     </Card>
   );
