@@ -101,7 +101,7 @@ export default function Cart({
                 <Card className="shadow">
                   <Card.Body>
                     <h1>Compra realizada com sucesso!</h1>
-                    <h3>Obrigado por contrubuir com a Voluntei.</h3>
+                    <h3>Obrigado por contribuir com a Voluntei.</h3>
                   </Card.Body>
                 </Card>
               </CardDeck>
