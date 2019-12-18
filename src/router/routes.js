@@ -77,17 +77,17 @@ export default () => {
     <div>
       {loaded ? (
         <BrowserRouter>
-              <LastLocationProvider>
-                <Switch>
-                  <Route exact path="/" render={(props) => <Home {...props} addToCart={addToCart} products={products} />} />
-                  <Route exact path="/auth" render={(props) => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
-                  <Route exact path="/product/:productID" render={(props) => <Product {...props} addToCart={addToCart} products={products} />} />
-                  <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} clearCart={clearCart} userID={userID} />} />
-                  <PrivateRoute exact path="/user" component={User} userID={userID} logoutUser={logoutUser} />
-                  <Route component={Error} />
-                </Switch>
-              </LastLocationProvider>
-            </BrowserRouter>
+          <LastLocationProvider>
+            <Switch>
+              <Route exact path="/" render={(props) => <Home {...props} addToCart={addToCart} products={products} />} />
+              <Route exact path="/auth" render={(props) => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
+              <Route exact path="/product/:productID" render={(props) => <Product {...props} addToCart={addToCart} products={products} />} />
+              <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} clearCart={clearCart} userID={userID} />} />
+              <PrivateRoute exact path="/user" component={User} userID={userID} logoutUser={logoutUser} />
+              <Route component={Error} />
+            </Switch>
+          </LastLocationProvider>
+        </BrowserRouter>
       ) : (
         <div className="home-loading">
           <div>
