@@ -128,7 +128,7 @@ export default function Cart({
                 <div className="cartA-right-container">
                   <Card className="cartA-right shadow">
                     <Card.Body className="cartA-right-body">
-                      <h3 className="user-title">Resumo:</h3>
+                      <h3 className="user-title">Resumo</h3>
                       <p>
                         <b>Quantidade:</b> {totalQty} itens
                       </p>
@@ -201,25 +201,4 @@ export default function Cart({
       </div>
     </div>
   );
-}
-
-{
-  /* <div className="sectionB">
-  <CardDeck>
-    <Card className="cardB-left">
-      <Card.Img className="cardB-image" variant="top" src={product.image} />
-    </Card>
-    <Card className="cardB-right">
-      <Card.Body className="cardB-right-body">
-        <Card.Text className="cardB-right-text">
-          <h2>Vista a camisa do nosso time!</h2>
-          <p>{product.description}</p>
-          <Button className="sectionB-button" variant="light">
-            Saiba mais
-          </Button>
-        </Card.Text>
-      </Card.Body>
-    </Card>
-  </CardDeck>
-</div>; */
 }
