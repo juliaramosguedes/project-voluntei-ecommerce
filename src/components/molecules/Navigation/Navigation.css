@@ -50,10 +50,9 @@
 
 .navbar-user-links,
 .navbar-user-links:active,
-.navbar-user-links:focus,
-.navbar-user-links:hover {
+.navbar-user-links:focus {
   border: none !important;
   outline: none !important;
   background-color: rgb(255, 255, 255) !important;
-  color: rgb(30, 30, 30)
+  color: rgb(30, 30, 30);
 }
