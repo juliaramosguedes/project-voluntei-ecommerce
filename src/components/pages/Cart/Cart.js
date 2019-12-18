@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardDeck } from 'react-bootstrap';
+import { Card, CardDeck, Modal, Button } from 'react-bootstrap';
 import './Cart.css';
 import { CartProduct, EditUser, PayPal, Reblocks } from '../../molecules';
 import firebase from '../../../firebase/FirebaseConnection';
@@ -11,13 +11,18 @@ export default function Cart({
   deleteProduct,
   userID,
   clearCart,
+  checkRegister,
+  confirmRegistration,
 }) {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQty, setTotalQty] = useState(0);
   const [successPurchase, setSuccessPurchase] = useState(false);
   const [paymentToken, setPaymentToken] = useState(null);
   const [checkPayment, setCheckPayment] = useState(false);
-  const [checkRegister, setCheckRegister] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
 
   const db = firebase.firestore();
 
@@ -73,7 +78,7 @@ export default function Cart({
         console.log(error.message);
       }
     } else {
-      if (!checkRegister) alert('Confirme seu endereço para concluir a compra.')
+      handleShow();
     }
   };
 
@@ -82,17 +87,23 @@ export default function Cart({
     await setPaymentToken(token);
   };
 
-  const confirmRegistration = () => {
-    setCheckRegister(true);
-  };
-
   useEffect(() => {
-    console.log('alterou checks');
-    if (checkPayment && checkRegister) completePurchase();
+    if (checkPayment) completePurchase();
   }, [checkRegister, checkPayment]);
 
   return (
     <div className="cart-page">
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirmar cadastro</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Confirme seu cadastro para concluir a compra.</Modal.Body>
+        <Modal.Footer>
+          <Button variant="dark" onClick={handleClose}>
+            Fechar
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <div className="cart-page-container">
         {successPurchase ? (
           <div className="cart-page-wrap">
@@ -129,9 +140,15 @@ export default function Cart({
                   <Card className="cartA-right shadow">
                     <Card.Body className="cartA-right-body">
                       <h3 className="user-title">Resumo</h3>
-                      <p>
-                        <b>Quantidade:</b> {totalQty} itens
-                      </p>
+                      {totalQty === 1 ?
+                        <p>
+                          <b>Quantidade:</b> {totalQty} item
+                        </p>
+                        :
+                        <p>
+                          <b>Quantidade:</b> {totalQty} itens
+                        </p>
+                      }
                       <p>
                         <b>Frete:</b> grátis
                       </p>

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardGroup, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './CartProduct.css';
 
 export default function CartProduct({ product, addToCart, deleteProduct }) {
-  let { image, name, quantity, price, stock, status } = product;
+  let { image, name, quantity, price, stock, status, id } = product;
   const [qtyAvailable, setQtyAvailable] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [totalPrice, setTotalPrice] = useState(price);
@@ -45,8 +46,8 @@ export default function CartProduct({ product, addToCart, deleteProduct }) {
             <img className="cart-product-image" src={image} />
           </Card>
           <Card className="cart-product-right">
-            <h2>{name}</h2>
-            <p>Unitário: R$ {price.toFixed(2).replace('.', ',')}</p>
+            <h2><Link to={'/product/'+id} className="link-product">{name}</Link></h2>
+            <p>Preço: R$ {price.toFixed(2).replace('.', ',')}</p>
             {status ? (
               <div>
                 <div className="cart-product-right-quantity">

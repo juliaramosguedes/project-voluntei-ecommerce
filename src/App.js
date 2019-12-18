@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { LastLocationProvider } from 'react-router-last-location';
-import { Spinner } from 'react-bootstrap';
+import { Spinner, Modal, Button } from 'react-bootstrap';
 import { Navigation, Footer } from './components/molecules';
 import { Home, Auth, User, Product, Error, Cart } from './components/pages';
 import PrivateRoute from './router/PrivateRoute';
@@ -13,6 +13,11 @@ export default function App() {
   const db = firebase.firestore();
   const [products, setProducts] = useState({});
   const [loaded, setLoaded] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [checkRegister, setCheckRegister] = useState(false);
+
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
 
   db.collection('products').onSnapshot((snapshot) => {
     snapshot.forEach(doc => {
@@ -57,7 +62,7 @@ export default function App() {
     cart[product.id] = product;
     setCart({ ...cart });
     localStorage.setItem('cart', JSON.stringify({ cart }));
-    window.location = '/cart';
+    handleShow();
   };
 
   const clearCart = (productID, newStock) => {
@@ -75,9 +80,27 @@ export default function App() {
     localStorage.setItem('cart', JSON.stringify({ cart }));
   };
 
+  const confirmRegistration = () => {
+    setCheckRegister(true);
+  };
+
+  useEffect(() => {
+  }, [checkRegister]);
+
   return (
     <div>
       <Navigation logoutUser={logoutUser} userID={userID} />
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Adicionar ao carrinho</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Produto adicionado ao carrinho.</Modal.Body>
+        <Modal.Footer>
+          <Button variant="dark" onClick={handleClose}>
+            Fechar
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <div>
         {loaded ? (
           <BrowserRouter>
@@ -86,8 +109,8 @@ export default function App() {
                 <Route exact path="/" render={(props) => <Home {...props} addToCart={addToCart} products={products} />} />
                 <Route exact path="/auth" render={(props) => <Auth {...props} authUser={authUser} logoutUser={logoutUser} />} />
                 <Route exact path="/product/:productID" render={(props) => <Product {...props} addToCart={addToCart} products={products} />} />
-                <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} clearCart={clearCart} userID={userID} />} />
-                <PrivateRoute exact path="/user" component={User} userID={userID} logoutUser={logoutUser} />
+                <Route exact path="/cart" render={(props) => <Cart {...props} addToCart={addToCart} deleteProduct={deleteProduct} cart={cart} clearCart={clearCart} userID={userID} checkRegister={checkRegister} confirmRegistration={confirmRegistration} />} />
+                <PrivateRoute exact path="/user" component={User} userID={userID} logoutUser={logoutUser} confirmRegistration={confirmRegistration} />
                 <Route component={Error} />
               </Switch>
             </LastLocationProvider>
