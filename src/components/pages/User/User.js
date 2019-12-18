@@ -16,17 +16,6 @@ export default function User({ userID, logoutUser }) {
 
   return (
     <div className="user-page">
-      <Card className="user-exitButton-container">
-        <Card.Body className="user-exitButton-wrap">
-          <Button
-            className="user-exitButton"
-            variant="dark"
-            onClick={() => logoutUser()}
-          >
-            Sair da conta
-          </Button>
-        </Card.Body>
-      </Card>
       <div className="user-card-container">
         <Card className="user-card shadow-sm">
           <Card.Body>
@@ -36,7 +25,7 @@ export default function User({ userID, logoutUser }) {
               estejam atualizados.
             </p>
             <EditUser userID={userID} />
-            <hr></hr>
+            <hr />
             <div className="user-title-container">
               <h4 className="">Excluir conta</h4>
             </div>
