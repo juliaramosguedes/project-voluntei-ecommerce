@@ -77,10 +77,9 @@ export default function Cart({
     }
   };
 
-  const successPayment = token => {
-    setCheckPayment(true);
-    setPaymentToken(token);
-    completePurchase();
+  const successPayment = async token => {
+    await setCheckPayment(true);
+    await setPaymentToken(token);
   };
 
   const confirmRegistration = () => {
@@ -88,8 +87,9 @@ export default function Cart({
   };
 
   useEffect(() => {
-    if (checkPayment) completePurchase();
-  }, [checkRegister]);
+    console.log('alterou checks');
+    if (checkPayment && checkRegister) completePurchase();
+  }, [checkRegister, checkPayment]);
 
   return (
     <div className="cart-page">

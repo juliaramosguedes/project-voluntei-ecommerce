@@ -77,7 +77,7 @@ export default function App() {
 
   return (
     <div>
-      <Navigation logoutUser={logoutUser} />
+      <Navigation logoutUser={logoutUser} userID={userID} />
       <div>
         {loaded ? (
           <BrowserRouter>
