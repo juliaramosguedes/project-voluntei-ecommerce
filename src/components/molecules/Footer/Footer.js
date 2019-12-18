@@ -98,7 +98,6 @@ export default function Footer() {
                       className="instagram"
                       src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FinstagramIcon.png?alt=media&token=522cae5c-5e21-46cf-8c73-a485274f1e8e" alt="instagram"
                     />
-                     {/* src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FinstagramIcon.png?alt=media&token=522cae5c-5e21-46cf-8c73-a485274f1e8e" alt="instagram"/> */}
                   </a>
                 </li>
                 <li>
