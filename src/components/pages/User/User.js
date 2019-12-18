@@ -4,7 +4,7 @@ import firebase from '../../../firebase/FirebaseConnection';
 import { EditUser } from '../../molecules';
 import './User.css';
 
-export default function User({ userID, logoutUser }) {
+export default function User({ userID, logoutUser, confirmRegistration }) {
   const deleteProfile = async () => {
     try {
       await firebase.auth().currentUser.delete();
@@ -24,7 +24,7 @@ export default function User({ userID, logoutUser }) {
               Por favor, preencha os campos abaixo para garantir que seus dados
               estejam atualizados.
             </p>
-            <EditUser userID={userID} />
+            <EditUser userID={userID} confirmRegistration={confirmRegistration} />
             <hr />
             <div className="user-title-container">
               <h4 className="">Excluir conta</h4>

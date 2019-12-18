@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Image, Nav, Navbar, Dropdown } from 'react-bootstrap';
 import './Navigation.css';
 
-export default function Navigation({ logoutUser }) {
+export default function Navigation({ logoutUser, userID }) {
   return (
     <div>
       <div className="navigation-container">
@@ -46,17 +46,25 @@ export default function Navigation({ logoutUser }) {
                   rounded
                 />
               </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item className="navbar-user-links" href="/user">
-                  Minha conta
-                </Dropdown.Item>
-                <Dropdown.Item
-                  className="navbar-user-links"
-                  onClick={logoutUser}
-                >
-                  <strong>Sair</strong>
-                </Dropdown.Item>
-              </Dropdown.Menu>
+              {userID ?
+                <Dropdown.Menu>
+                  <Dropdown.Item className="navbar-user-links" href="/user">
+                    Minha conta
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    className="navbar-user-links"
+                    onClick={logoutUser}
+                  >
+                    <strong>Sair</strong>
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+                :
+                <Dropdown.Menu>
+                  <Dropdown.Item className="navbar-user-links" href="/user">
+                    Entrar
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              }
             </Dropdown>
             <a href="/cart" className="navigation-buttons-icons">
               <Image
