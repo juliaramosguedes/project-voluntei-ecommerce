@@ -60,7 +60,7 @@ export default function Navigation({ logoutUser, userID }) {
                 </Dropdown.Menu>
                 :
                 <Dropdown.Menu>
-                  <Dropdown.Item className="navbar-user-links" href="/auth">
+                  <Dropdown.Item className="navbar-user-links" href="/user">
                     Entrar
                   </Dropdown.Item>
                 </Dropdown.Menu>
