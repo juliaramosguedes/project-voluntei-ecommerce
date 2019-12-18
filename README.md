@@ -1,6 +1,6 @@
 # Voluntei E-commerce
 
-##Projeto 3 - Bootcamp Ironhack Full Stack (MERN) 
+## Projeto 3 - Bootcamp Ironhack Full Stack (MERN) 
 ### Desenvolvido por Julia Ramos, Luan Perosa e Marcus Brandão
 
 ![voluntei](https://user-images.githubusercontent.com/50602816/70961226-ee498900-205f-11ea-9a02-69e2d0a2cf1b.gif)
