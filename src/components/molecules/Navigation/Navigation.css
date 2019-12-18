@@ -30,7 +30,7 @@
 
 .navigation-buttons-icons {
   border: none;
-  padding: 0px 6px;
+  padding: 0px;
 }
 
 .navigation-icons {
@@ -45,7 +45,7 @@
   border: none !important;
   outline: none !important;
   background-color: rgb(241, 209, 15) !important;
-  padding-left: 12px;
+  padding: 7.5px 4px 7.5px 8px;
 }
 
 .navbar-user-links,
