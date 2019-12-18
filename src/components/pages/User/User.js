@@ -16,7 +16,7 @@ export default function User({ userID, logoutUser }) {
 
   return (
     <div className="user-page">
-      <Card className="user-exitButton-container">
+      {/* <Card className="user-exitButton-container">
         <Card.Body className="user-exitButton-wrap">
           <Button
             className="user-exitButton"
@@ -26,7 +26,7 @@ export default function User({ userID, logoutUser }) {
             Sair da conta
           </Button>
         </Card.Body>
-      </Card>
+      </Card> */}
       <div className="user-card-container">
         <Card className="user-card shadow-sm">
           <Card.Body>
