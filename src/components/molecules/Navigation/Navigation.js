@@ -1,15 +1,5 @@
 import React from 'react';
-import {
-  Form,
-  Image,
-  Nav,
-  Navbar,
-  Dropdown,
-  Button,
-  Popover,
-  ButtonToolbar,
-  OverlayTrigger,
-} from 'react-bootstrap';
+import { Form, Image, Nav, Navbar, Dropdown } from 'react-bootstrap';
 import './Navigation.css';
 
 export default function Navigation({ logoutUser }) {
@@ -44,42 +34,6 @@ export default function Navigation({ logoutUser }) {
                 rounded
               />
             </a>
-
-            {/* {['bottom'].map(placement => (
-              <OverlayTrigger
-                trigger="click"
-                key={placement}
-                placement={placement}
-                overlay={
-                  <Popover
-                    className="caca1"
-                    id={`popover-positioned-${placement}`}
-                  >
-                    <Popover.Content>
-                      <a href="/user">Minha conta</a>
-                    </Popover.Content>
-                    <Popover.Content>
-                      <button
-                        className="caca1"
-                        type="button"
-                        onClick={logoutUser}
-                      >
-                        <strong>Sair</strong>
-                      </button>
-                    </Popover.Content>
-                  </Popover>
-                }
-              >
-                <Button variant="warning" className="nav-user-button">
-                  <Image
-                    className="navigation-icons"
-                    src="https://firebasestorage.googleapis.com/v0/b/voluntei.appspot.com/o/brand%2FprofileUser.svg?alt=media&token=4773f261-845a-4ea0-bc88-1aa53cbf796a"
-                    rounded
-                  />
-                </Button>
-              </OverlayTrigger>
-            ))} */}
-
             <Dropdown alignRight className="nav-user-button">
               <Dropdown.Toggle
                 variant="warning"
@@ -92,13 +46,18 @@ export default function Navigation({ logoutUser }) {
                   rounded
                 />
               </Dropdown.Toggle>
-
               <Dropdown.Menu>
-                <Dropdown.Item className="navbar-user-links" href="/user">Minha conta</Dropdown.Item>
-                <Dropdown.Item className="navbar-user-links" onClick={logoutUser}><strong>Sair</strong></Dropdown.Item>
+                <Dropdown.Item className="navbar-user-links" href="/user">
+                  Minha conta
+                </Dropdown.Item>
+                <Dropdown.Item
+                  className="navbar-user-links"
+                  onClick={logoutUser}
+                >
+                  <strong>Sair</strong>
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-
             <a href="/cart" className="navigation-buttons-icons">
               <Image
                 className="navigation-icons"
