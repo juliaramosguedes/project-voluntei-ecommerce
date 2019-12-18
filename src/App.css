@@ -13,10 +13,10 @@ body,
   font-size: 20px;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Fredoka One';
   src: url('./fonts/FredokaOne-Regular.ttf'), format('truetype');
-}
+} */
 
 /* ===================================MEDIA QUERY=========================================== */
 
