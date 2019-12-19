@@ -46,9 +46,10 @@ REACT_APP_MEASUREMENTID=[copie da configuração do firebase]
 ```
 Now, just start the application. At the terminal, type: `npm start`
 
-## Paypal trial login to complet 
+## Paypal trial login to buy product
 
 user: sb-gwpee565752@personal.example.com
+
 Password: +_1VBv@h
 
 ## Developers
