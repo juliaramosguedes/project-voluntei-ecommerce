@@ -48,9 +48,9 @@ Now, just start the application. At the terminal, type: `npm start`
 
 ## Paypal trial login to buy product
 
-user: sb-gwpee565752@personal.example.com
+user: `sb-gwpee565752@personal.example.com`
 
-Password: +_1VBv@h
+Password: `+_1VBv@h`
 
 ## Developers
 
