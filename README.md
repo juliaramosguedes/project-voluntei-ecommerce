@@ -2,6 +2,8 @@
 
 ## Ironhack Final Project in Full Stack Web Development (MERN)
 
+![voluntei_final](https://user-images.githubusercontent.com/50602816/71136116-7ce61380-21e2-11ea-999c-22b8305caa60.gif)
+
 Developed by Julia Ramos, Luan Perosa and Marcus Brandão
 
 ## Access our website
