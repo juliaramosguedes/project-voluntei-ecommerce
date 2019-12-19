@@ -35,14 +35,14 @@ npm install
 Create a .env file in the project root folder and add the following environment variables:
 ```bash
 SKIP_PREFLIGHT_CHECK=true
-REACT_APP_APIKEY=[copie da configuração do firebase]
-REACT_APP_AUTHDOMAIN=[copie da configuração do firebase]
-REACT_APP_DATABASEURL=[copie da configuração do firebase]
-REACT_APP_PROJECTID=[copie da configuração do firebase]
-REACT_APP_STORAGEBUCKET=[copie da configuração do firebase]
-REACT_APP_MESSAGINGSENDERID=[copie da configuração do firebase]
-REACT_APP_APPID=[copie da configuração do firebase]
-REACT_APP_MEASUREMENTID=[copie da configuração do firebase]
+REACT_APP_APIKEY=[copy the configuration from firebase]
+REACT_APP_AUTHDOMAIN=[copy the configuration from firebase]
+REACT_APP_DATABASEURL=[copy the configuration from firebase]
+REACT_APP_PROJECTID=[copy the configuration from firebase]
+REACT_APP_STORAGEBUCKET=[copy the configuration from firebase]
+REACT_APP_MESSAGINGSENDERID=[copy the configuration from firebase]
+REACT_APP_APPID=[copy the configuration from firebase]
+REACT_APP_MEASUREMENTID=[copy the configuration from firebase]
 ```
 Now, just start the application. At the terminal, type: `npm start`
 
