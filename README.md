@@ -42,7 +42,7 @@ REACT_APP_MESSAGINGSENDERID=[copie da configuração do firebase]
 REACT_APP_APPID=[copie da configuração do firebase]
 REACT_APP_MEASUREMENTID=[copie da configuração do firebase]
 ```
-Now, just start the application. At the terminal, type: npm start
+`Now, just start the application. At the terminal, type: npm start`
 
 ## Developers
 
