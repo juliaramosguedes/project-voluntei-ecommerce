@@ -1,43 +1,37 @@
 # Voluntei E-commerce
 
-## Projeto final do Bootcamp da Ironhack em Desenvolvimento Web Full Stack (MERN) 
-Desenvolvido por Julia Ramos, Luan Perosa e Marcus Brandão
+## Ironhack Final Project in Full Stack Web Development (MERN)
 
-![voluntei](https://user-images.githubusercontent.com/50602816/70961226-ee498900-205f-11ea-9a02-69e2d0a2cf1b.gif)
+Developed by Julia Ramos, Luan Perosa and Marcus Brandão
 
-## Acesse o site
-[Voluntei e-commerce](https://voluntei.firebaseapp.com)
+## Access our website
 
-## :rocket: Tecnologias
+[Loja Voluntei](https://voluntei.firebaseapp.com)
+
+## :rocket: Technologies
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- [Node.js](https://nodejs.org/en/)
-- [React](https://reactjs.org)
+- [Node](https://https://nodejs.org/en/)
+- [React](https://https://https://reactjs.org/)
 - [Firebase](https://firebase.google.com/)
 - [Bootstrap](https://react-bootstrap.github.io/)
 - [Nano](https://nano.org/)
 - [Paypal](https://developer.paypal.com/)
 
-## O que é a Voluntei?
+## What is Voluntei?
+Voluntei was born from the idea of ​​combining the Ironhack Web Development Bootcamp with volunteer work, connecting information technology volunteers to non-governmental organizations (NGOs). The objective is to develop NGO websites, giving them greater visibility on the internet and improving our volunteers professionally.
 
-A Voluntei nasceu da ideia de combinar esse bootcamp com trabalho voluntário, conectando voluntários de tecnologia à ONGs .
-A proposta é desenvolver sites para que as ONGs tenham maior visibilidade na internet e desenvolver profissionalmente nossos voluntários.
+## 💻 Project
+In this Ironhack Web Development Bootcamp final project, we chose to develop an e-commerce with products created by Voluntei's UX / UI team.
 
-## 💻 Projeto
-
-Nesse projeto de conclusão de bootcamp da Ironhack, nós escolhemos desenvolver um e-commerce com os produtos criados pela equipe de UX/UI da Voluntei.
-
-## Desenvolvimento
-
-Para testar o projeto, clone o repositório e instale todas as dependências.
-No terminal, digite: 
-```npm install```
-
-O e-commerce foi desenvolvido com o BaaS (Backend as a Service) do Google [Firebase](https://firebase.google.com/). Você precisará criar uma conta e um projeto web, com os serviços do Firestore. Nas configurações do app pra web do Firebase você irá encontrar as chaves de acesso ao seu projeto.
-
-Crie um arquivo .env na pasta raiz do projeto e adicione as seguintes variáveis de ambiente:
+## Development
+To trial the project, clone the repository and install all dependencies. At the terminal, type:
+```bash
+npm install
 ```
+Create a .env file in the project root folder and add the following environment variables:
+```bash
 SKIP_PREFLIGHT_CHECK=true
 REACT_APP_APIKEY=[copie da configuração do firebase]
 REACT_APP_AUTHDOMAIN=[copie da configuração do firebase]
@@ -48,13 +42,11 @@ REACT_APP_MESSAGINGSENDERID=[copie da configuração do firebase]
 REACT_APP_APPID=[copie da configuração do firebase]
 REACT_APP_MEASUREMENTID=[copie da configuração do firebase]
 ```
+Now, just start the application. At the terminal, type: npm start
 
-Agora é só inicializar a aplicação. No terminal, digite:
-```npm start```
+## Developers
 
-## Colaboradores
-
-<strong>Julia Ramos (idealizadora da Voluntei)</strong>
+<strong>Julia Ramos (Voluntei's creator)</strong>
 
 -[Linkedin](https://www.linkedin.com/in/julia-ramos-guedes/)
 
