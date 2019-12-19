@@ -1,68 +1,73 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Voluntei E-commerce
 
-## Available Scripts
+## Ironhack Final Project in Full Stack Web Development (MERN)
 
-In the project directory, you can run:
+![voluntei_final](https://user-images.githubusercontent.com/50602816/71136116-7ce61380-21e2-11ea-999c-22b8305caa60.gif)
 
-### `npm start`
+Developed by Julia Ramos, Luan Perosa and Marcus Brandão
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Access our website
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+[Loja Voluntei](https://voluntei.firebaseapp.com)
 
-### `npm test`
+## :rocket: Technologies
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-### `npm run build`
+- [Node](https://https://nodejs.org/en/)
+- [React](https://https://https://reactjs.org/)
+- [Firebase](https://firebase.google.com/)
+- [Bootstrap](https://react-bootstrap.github.io/)
+- [Nano](https://nano.org/)
+- [Paypal](https://developer.paypal.com/)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## What is Voluntei?
+Voluntei was born from the idea of ​​combining the Ironhack Web Development Bootcamp with volunteer work, connecting information technology volunteers to non-governmental organizations (NGOs). The objective is to develop NGO websites, giving them greater visibility on the internet and improving our volunteers professionally.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## 💻 Project
+In this Ironhack Web Development Bootcamp final project, we chose to develop an e-commerce with products created by Voluntei's UX / UI team.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Development
+To trial the project, clone the repository and install all dependencies. At the terminal, type:
+```bash
+npm install
+```
+Create a .env file in the project root folder and add the following environment variables:
+```bash
+SKIP_PREFLIGHT_CHECK=true
+REACT_APP_APIKEY=[copy the configuration from firebase]
+REACT_APP_AUTHDOMAIN=[copy the configuration from firebase]
+REACT_APP_DATABASEURL=[copy the configuration from firebase]
+REACT_APP_PROJECTID=[copy the configuration from firebase]
+REACT_APP_STORAGEBUCKET=[copy the configuration from firebase]
+REACT_APP_MESSAGINGSENDERID=[copy the configuration from firebase]
+REACT_APP_APPID=[copy the configuration from firebase]
+REACT_APP_MEASUREMENTID=[copy the configuration from firebase]
+```
+Now, just start the application. At the terminal, type: `npm start`
 
-### `npm run eject`
+## Paypal trial login to pay the products
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+user: `sb-gwpee565752@personal.example.com`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Password: `+_1VBv@h`
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Developers
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<strong>Julia Ramos (Voluntei's founder)</strong>
 
-## Learn More
+-[Linkedin](https://www.linkedin.com/in/julia-ramos-guedes/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-[Github](https://github.com/juliaramosguedes)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<strong>Luan Perosa Chitto</strong>
 
-### Code Splitting
+-[Linkedin](https://www.linkedin.com/in/luan-perosa/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+-[Github](https://github.com/luanperosa)
 
-### Analyzing the Bundle Size
+<strong>Marcus Felipe Ferreira Brandão</strong>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+-[Linkedin](https://www.linkedin.com/in/marcusffbrandao/)
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+-[Github](https://github.com/marcusffbrandao)
